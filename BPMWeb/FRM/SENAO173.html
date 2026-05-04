@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Factory Notice(FN)</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">Factory Notice(FN)</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao173m001" >表單代號</span>
+              </div>
+              <input type="text" id="senao173m001" name="senao173m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="btn_PDF" name="btn_PDF" value="轉出PDF">
+          </div>
+          <div class="col-md">
+            <a id="Link99" href="#" class="formLinkClass">表單操作文件下載</a>
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao173m002">表單單號</span>
+              </div>
+              <input type="text" id="senao173m002" name="senao173m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text formLabelClass" id="lbl_note_subject" style="background-color: #ffb7dd;">主旨說明</span>
+              </div>
+              <input type="text" id="note_subject" name="note_subject" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="Label7" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_dept_no">申請單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="dept_no" name="dept_no" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_dept_name">lbl_dept_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="dept_name" name="dept_name" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_userid">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="userid" name="userid" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="userid_b1" name="userid_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_username">lbl_username</span>
+                  </div>
+                  <input type="text" class="form-control" id="username" name="username" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_apply_type">申請類別</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="apply_type" name="apply_type"></select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <span id="lbl_apply_type" class="formLabelClass" style="margin-right: 2rem; margin-top: 0.5rem;">申請類別</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="apply_type_0" name="apply_type" value="A">
+                    <label class="form-check-label formLabelClass" for="apply_type_0" style="margin-right: 2rem;">
+                      申請
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="apply_type_1" name="apply_type" value="C">
+                    <label class="form-check-label formLabelClass" for="apply_type_1">
+                      作廢
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+               
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_apply_date">申請日期</span>
+                  </div>
+                  <input type="text" class="form-control " id="apply_date" name="apply_date" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao101003">原FN單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao101003" name="senao101003" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao101003_b1" name="senao101003_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao101009">原技術文件單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao101009" name="senao101009" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------機種明細資料 ------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="Label543" class="formLabelClass">機種明細資料</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row  1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gproject_code">Project Code</span>
+                  </div>
+                  <input type="text" class="form-control col-md-2" id="gproject_code" name="gproject_code" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gproject_code_b1" name="gproject_code_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_gproject_name">lbl_gproject_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="gproject_name" name="gproject_name" autocomplete="off">
+                </div>
+              </div>          
+            </div> 
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gmodel_code">機種名稱</span>
+                  </div>
+                  <input type="text" class="form-control col-md-2" id="gmodel_code" name="gmodel_code" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gmodel_code_b1" name="gmodel_code_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_gmodel_name">lbl_gmodel_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="gmodel_name" name="gmodel_name" autocomplete="off">
+                </div>
+              </div>          
+            </div> 
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gcust_name">客戶</span>
+                  </div>
+                  <input type="text" class="form-control" id="gcust_name" name="gcust_name" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gcust_name_b1" name="gcust_name_b1">...</button>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btn_Add1" name="btn_Add1">新增</button>
+                <button type="button" class="btn btn-secondary " id="btn_Del1" name="btn_Del1">刪除</button>
+              </div>
+              <div class="col-md">
+                <div class="input-group">
+                  <a id="Link1" href="#" class="formLinkClass" style="margin-top: 0.5rem;">機種明細資料Excel上傳範例格式下載</a>
+                </div>
+              </div>
+              <div class="col-auto ">
+                <button type="button" class="btn btn-secondary " id="btn_Import1" name="btn_Import1">Excel匯入</button>
+                <button type="button" class="btn btn-secondary " id="btn_Export1" name="btn_Export1">Excel匯出</button>
+              </div>
+            </div>
+            <!------------------------------------Grid1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 機種明細資料 row end-------------------------------------------->
+          </div>
+        </div>
+        <!------------------------------------通報資訊 ------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9de4aa;">
+            <h6 class="text-center">
+              <span id="Label35" class="formLabelClass">通報資訊</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row  1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_inform_dept">通報單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="inform_dept" name="inform_dept" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="inform_dept_b1" name="inform_dept_b1">...</button>
+                  </div>
+                </div>
+              </div>       
+            </div> 
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_change_reason">變更原因</span>
+                  </div>
+                  <textarea class="form-control " id="change_reason" name="change_reason" rows="5"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_inform_description">通知內容</span>
+                  </div>
+                  <textarea class="form-control " id="inform_description" name="inform_description" rows="5"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_add_person">加簽人員</span>
+                  </div>
+                  <input type="text" class="form-control" id="add_person" name="add_person" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="add_person_b1" name="add_person_b1">...</button>
+                  </div>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------ 通報資訊 row end-------------------------------------------->
+          </div>
+        </div>
+        <!------------------------------------ 工單明細資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#eeb996;">
+            <h6 class="text-center"><span id="Label34" class="formLabelClass">工單明細資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row  1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <span id="lbl_produce_notice" class="formLabelClass" style="margin-right: 2rem;">導入工單</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="produce_notice_0" name="produce_notice" value="Y">
+                    <label class="form-check-label formLabelClass" for="produce_notice_0" style="margin-right: 2rem;">
+                      僅生產注意事項(無料件變更)
+                    </label>
+                  </div>
+                </div>
+              </div>             
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gwip_entity_name">工單單號</span>
+                  </div>
+                  <input type="text" class="form-control" id="gwip_entity_name" name="gwip_entity_name" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gwip_entity_name_b1" name="gwip_entity_name_b1">...</button>
+                  </div>
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gwip_start_quantity">工單套數</span>
+                  </div>
+                  <input type="text" class="form-control " id="gwip_start_quantity" name="gwip_start_quantity" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gwip_status_type">工單狀態</span>
+                  </div>
+                  <input type="text" class="form-control" id="gwip_status_type" name="gwip_status_type" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gwip_scheduled_start_date">預計開工日期</span>
+                  </div>
+                  <input type="text" class="form-control " id="gwip_scheduled_start_date" name="gwip_scheduled_start_date" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gwip_primary_item">機種料號</span>
+                  </div>
+                  <input type="text" class="form-control col-md-3" id="gwip_primary_item" name="gwip_primary_item" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_gwip_primary_itemname">lbl_gwip_primary_itemname</span>
+                  </div>
+                  <input type="text" class="form-control" id="gwip_primary_itemname" name="gwip_primary_itemname" autocomplete="off">
+                </div>
+				      </div>          
+            </div>
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btn_Add2" name="btn_Add2">新增</button>
+                <button type="button" class="btn btn-secondary " id="btn_Del2" name="btn_Del2">刪除</button>
+              </div>
+              <div class="col-md">
+                <div class="input-group">
+                  <a id="Link2" href="#" class="formLinkClass" style="margin-top: 0.5rem;">工單明細資料Excel上傳範例格式下載</a>
+                </div>
+              </div>
+              <div class="col-auto ">
+                <button type="button" class="btn btn-secondary " id="btn_Import2" name="btn_Import2">Excel匯入</button>
+                <button type="button" class="btn btn-secondary " id="btn_Export2" name="btn_Export2">Excel匯出</button>
+              </div>
+            </div>
+            <!------------------------------------Grid2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid2" class="d-none">lbl_Grid2</span>
+                    <table id="Grid2" class="table table-bordered "></table>
+                    <div id="Grid2_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 工單明細資料 row end-------------------------------------------->
+          </div>
+        </div>
+        <!------------------------------------ 變更內容明細資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#ecbae3;">
+            <h6 class="text-center"><span id="Label46" class="formLabelClass">變更內容明細資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row  1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_mode">變更方式</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="gchg_mode" name="gchg_mode"></select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_gchg_mode" class="formLabelClass" style="margin-right: 24px;">變更方式</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gchg_mode_0" name="gchg_mode" value="A">
+                    <label class="form-check-label formLabelClass" for="gchg_mode_0" style="margin-right: 2rem;">
+                      一般
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gchg_mode_1" name="gchg_mode" value="B">
+                    <label class="form-check-label formLabelClass" for="gchg_mode_1" style="margin-right: 2rem;">
+                      無料號料件
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="gchg_mode_2" name="gchg_mode" value="C">
+                    <label class="form-check-label formLabelClass" for="gchg_mode_2">
+                      料件指定工單上線套數
+                    </label>
+                  </div>
+                </div>
+              </div>    
+              -->
+                      
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gassembly_level_itemno">階層料號</span>
+                  </div>
+                  <input type="text" class="form-control col-md-2" id="gassembly_level_itemno" name="gassembly_level_itemno" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gassembly_level_itemno_b1" name="gassembly_level_itemno_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_gassembly_level_itemname">lbl_gassembly_level_itemname</span>
+                  </div>
+                  <input type="text" class="form-control" id="gassembly_level_itemname" name="gassembly_level_itemname" autocomplete="off">
+                </div>
+              </div> 
+            </div> 
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gcomponent_itemno">零件料號</span>
+                  </div>
+                  <input type="text" class="form-control col-md-2" id="gcomponent_itemno" name="gcomponent_itemno" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gcomponent_itemno_b1" name="gcomponent_itemno_b1">...</button>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gcomponent_itemnane">零件品名/無料號料件品名</span>
+                  </div>
+                  <input type="text" class="form-control" id="gcomponent_itemnane" name="gcomponent_itemnane" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gprocess">處理</span>
+                  </div>
+                  <select class="form-control" id="gprocess" name="gprocess"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gadd_qty">增加數</span>
+                  </div>
+                  <input type="text" class="form-control " id="gadd_qty" name="gadd_qty" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gdel_qty">刪減數</span>
+                  </div>
+                  <input type="text" class="form-control " id="gdel_qty" name="gdel_qty" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_before_qty">變成前數</span>
+                  </div>
+                  <input type="text" class="form-control " id="gchg_before_qty" name="gchg_before_qty" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_after_qty">變更後數</span>
+                  </div>
+                  <input type="text" class="form-control " id="gchg_after_qty" name="gchg_after_qty" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gcomment_txt">零件位置/COMMENT</span>
+                  </div>
+                  <input type="text" class="form-control " id="gcomment_txt" name="gcomment_txt" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gmemo">備註</span>
+                  </div>
+                  <input type="text" class="form-control " id="gmemo" name="gmemo" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 10-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gapply_source">料件供料單位</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="gapply_source" name="gapply_source"></select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <span id="lbl_gapply_source" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem;">料件供料單位</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="gapply_source_0" name="gapply_source" value="WHRS">
+                    <label class="form-check-label formLabelClass" for="gapply_source_0" style="margin-right: 2rem;">
+                      倉庫發料
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="gapply_source_1" name="gapply_source" value="RD">
+                    <label class="form-check-label formLabelClass" for="gapply_source_1" style="margin-right: 2rem;">
+                      RD供料
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="gapply_source_2" name="gapply_source" value="SALES">
+                    <label class="form-check-label formLabelClass" for="gapply_source_2">
+                      業務/PM供料
+                    </label>
+                  </div>
+                </div>
+              </div> 
+              -->
+              
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gapplyer_userid">供料者</span>
+                  </div>
+                  <input type="text" class="form-control" id="gapplyer_userid" name="gapplyer_userid" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gapplyer_userid_b1" name="gapplyer_userid_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_gapplyer_username">lbl_gapplyer_username</span>
+                  </div>
+                  <input type="text" class="form-control" id="gapplyer_username" name="gapplyer_username" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 11-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_wip_entity_name">工單(料件指定工單)</span>
+                  </div>
+                  <input type="text" class="form-control" id="gchg_wip_entity_name" name="gchg_wip_entity_name" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="gchg_wip_entity_name_b1" name="gchg_wip_entity_name_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_wip_start_quantity">僅上線套數(料件指定工單)</span>
+                  </div>
+                  <input type="text" class="form-control" id="gchg_wip_start_quantity" name="gchg_wip_start_quantity" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 12-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gchg_wip_component_qty">料件總用量(料件指定工單)</span>
+                  </div>
+                  <input type="text" class="form-control" id="gchg_wip_component_qty" name="gchg_wip_component_qty" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 13-------------------------------------------->
+            <div class="row m-0 p-0 justify-content-end" >
+              <div class="col-auto">
+                <div class="input-group mb-3">
+                  <a id="Link3" href="#" class="formLinkClass" style="margin-top: 0.5rem;">變更內容明細資料Excel上傳範例格式下載</a>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 14-------------------------------------------->
+            <div class="row m-0 p-0 justify-content-end" >
+              <div class="col-auto">
+                <h6 class="text-center mb-3">
+                  <span id="Label100" class="formLabelClass" style="color: #f50606; font-size: 1.2rem;font-weight: bold;">
+                    (匯入零件位置，分隔符號請使用「;」)
+                  </span>
+                </h6>
+              </div>
+            </div>
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btn_Add3" name="btn_Add3">新增</button>
+                <button type="button" class="btn btn-secondary " id="btn_Edit3" name="btn_Edit3">修改</button>
+                <button type="button" class="btn btn-secondary " id="btn_Del3" name="btn_Del3">刪除</button>
+              </div>
+              <div class="col-auto ">
+                <button type="button" class="btn btn-secondary " id="btn_Import3" name="btn_Import3">Excel匯入</button>
+                <button type="button" class="btn btn-secondary " id="btn_Export3" name="btn_Export3">Excel匯出</button>
+              </div>
+            </div>
+            <!------------------------------------Grid3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid3" class="d-none">lbl_Grid3</span>
+                    <table id="Grid3" class="table table-bordered "></table>
+                    <div id="Grid3_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------變更內容明細資料 row end-------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_hdn_return_inform_dept">lbl_hdn_return_inform_dept</span>
+    <input type="text" id="hdn_return_inform_dept" name="hdn_return_inform_dept" placeholder="hdn_return_inform_dept">
+    <span id="lbl_gwip_entity_id">lbl_gwip_entity_id</span>
+    <input type="text" id="gwip_entity_id" name="gwip_entity_id" placeholder="gwip_entity_id">
+    <span id="lbl_gchg_wip_entity_id">lbl_gchg_wip_entity_id</span>
+    <input type="text" id="gchg_wip_entity_id" name="gchg_wip_entity_id" placeholder="gchg_wip_entity_id">
+    <span id="lbl_gwip_status_type_id">lbl_gwip_status_type_id</span>
+    <input type="text" id="gwip_status_type_id" name="gwip_status_type_id" placeholder="gwip_status_type_id">
+    <span id="lbl_IsApproveRBUDeptLevel">lbl_IsApproveRBUDeptLevel</span>
+    <input type="text" id="IsApproveRBUDeptLevel" name="IsApproveRBUDeptLevel" placeholder="IsApproveRBUDeptLevel">
+    <span id="lbl_gchg_mode_txt">lbl_gchg_mode_txt</span>
+    <input type="text" id="gchg_mode_txt" name="gchg_mode_txt" placeholder="gchg_mode_txt">
+    <span id="lbl_gapply_source_txt">lbl_gapply_source_txt</span>
+    <input type="text" id="gapply_source_txt" name="gapply_source_txt" placeholder="gapply_source_txt">
+    <span id="lbl_gprocess_txt">lbl_gprocess_txt</span>
+    <input type="text" id="gprocess_txt" name="gprocess_txt" placeholder="gprocess_txt">
+    <span id="lbl_hdn_return_gmodel_code">lbl_hdn_return_gmodel_code</span>
+    <input type="text" id="hdn_return_gmodel_code" name="hdn_return_gmodel_code" placeholder="hdn_return_gmodel_code">
+    <span id="lbl_senao106_processserialnumber">lbl_senao106_processserialnumber</span>
+    <input type="text" id="senao106_processserialnumber" name="senao106_processserialnumber" placeholder="senao106_processserialnumber">
+    <span id="lbl_hdn_return_add_person">lbl_hdn_return_add_person</span>
+    <input type="text" id="hdn_return_add_person" name="hdn_return_add_person" placeholder="hdn_return_add_person">
+    <span id="lbl_hdn_add_person">lbl_hdn_add_person</span>
+    <input type="text" id="hdn_add_person" name="hdn_add_person" placeholder="hdn_add_person">
+    <span id="lbl_PEApproveGroup">lbl_PEApproveGroup</span>
+    <input type="text" id="PEApproveGroup" name="PEApproveGroup" placeholder="PEApproveGroup">
+    <span id="lbl_RDAssistantGroup">lbl_RDAssistantGroup</span>
+    <input type="text" id="RDAssistantGroup" name="RDAssistantGroup" placeholder="RDAssistantGroup">
+    <span id="lbl_hdn_gcust_name">lbl_hdn_gcust_name</span>
+    <input type="text" id="hdn_gcust_name" name="hdn_gcust_name" placeholder="hdn_gcust_name">
+    <span id="lbl_hdn_formnumber_title">lbl_hdn_formnumber_title</span>
+    <input type="text" id="hdn_formnumber_title" name="hdn_formnumber_title" placeholder="hdn_formnumber_title">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

@@ -1,0 +1,31 @@
+<!-- Module -->
+<script type="text/javascript" src="/GBLWeb/Module/js/navbar.js"></script>
+<link href="/GBLWeb/Module/css/navbar.css" rel="stylesheet" type="text/css" />
+<script>
+  //bgColor:背景色參考https://getbootstrap.com/docs/4.1/utilities/colors/
+  //bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark 和 .bg-light
+  //txtColor:navbar-dark深色主題,navbar-light淺色主題
+  //https://getbootstrap.com/docs/4.1/components/navbar/#color-schemes
+  $(function () {
+    getNavbarConfig("Navbar", invokeURL, "NAVBAR_CONFIG");
+    $(document).on("click", "#a_Logout", function (event) {
+      logout();
+    });
+  });
+</script>
+<style>
+  .nav a {
+    cursor: pointer;
+  }
+
+  .dropdown-item {
+    padding: 0rem 1.5rem;
+  }
+
+  .nav li:hover {
+    background-color: #6c757d;
+    color: #000000;
+  }
+</style>
+
+<div id="Navbar"></div>

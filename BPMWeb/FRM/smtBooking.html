@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>SMT上線預約程式</title>
+    <!-- web Site:https://fullcalendar.io/FullCalendar v4.3.1 -->
+    <link href="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/core/main.css" rel="stylesheet" />
+    <link href="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/daygrid/main.css" rel="stylesheet" />
+    <link href="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/timegrid/main.css" rel="stylesheet" />
+    <link href="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/list/main.css" rel="stylesheet" />
+    <link href='/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages-premium/timeline/main.css' rel='stylesheet' />
+    <link href='/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages-premium/resource-timeline/main.css' rel='stylesheet' />
+    <style>
+      .textgreen {
+        background-color: #ffffff;
+        color: #2b7e04;
+      }
+
+      .textred {
+        background-color: #ffffff;
+        color: #fe0505;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <div class="row m-0 p-0">
+          <h5 class="text"><span id="Label1" class="formLabelClass">SMT上線預約程式</span></h5>
+          <a id="Link1" href="#" class="formLinkClass" style="margin-left: 24px; color: #000;"  target="_blank">(日歷報表)</a>
+          <a style="margin-left: 8px; margin-right: 8px;">|</a>
+          <a id="Link2" href="#" class="formLinkClass" style=" color: #000;"  target="_blank">(清單報表)</a>
+          <a style="margin-left: 8px; margin-right: 8px;">|</a>
+          <a id="Link3" href="/BPMWeb/doc/SMTBOOKING/預約上線操作手冊.pdf" class="formLinkClass" style=" color: #000;"  target="_blank">(預約上線操作手冊)</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0 justify-content-between">
+          <div class="col-md">
+            <div class="input-group">
+              <span id="lbl_smt001" class="formLabelClass" style="margin-top: 0.5rem;">申請者：</span>
+              <span id="smt002" name="smt002" style="margin-top: 0.5rem; margin-right: 6px;" ></span>
+              <span id="smt001" name="smt001" style="margin-top: 0.5rem; margin-right: 6px;" ></span>  
+            </div>
+          </div>
+          <div class="col-auto  justify-content-end">
+            <div class="input-group mb-0">
+              <span id="Label2" class="formLabelClass" style="margin-top: 1rem; background-color: #C0C0C0;">&nbsp;已取消&nbsp;</span>
+              <span id="Label3" class="formLabelClass" style="margin-top: 1rem; background-color: #F5A9F2;">&nbsp;申請中&nbsp;</span>
+              <span id="Label4" class="formLabelClass" style="margin-top: 1rem; background-color: #CCFFFF;">&nbsp;已預約&nbsp;</span>
+              <span id="Label5" class="formLabelClass" style="margin-top: 1rem; background-color: #FFCC00;">&nbsp;已排上線&nbsp;</span>
+            </div>
+          </div>
+        </div>
+        <div class="card m-0 p-0 ">
+          <div class="card-body">
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class="form-check" >
+                    <input class="form-check-input" type="checkbox" id="senao_smt003_0" name="senao_smt003" value="0"  onclick="toggleCanceledEvents()">
+                    <label class="form-check-label formLabelClass" for="senao_smt003_0" style="margin-right: 16px; ">
+                      顯示已取消之預約
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="input-group mb-3 justify-content-end">
+                  <span id="Label6" class="formLabelClass" style="margin-right: 6px;">目前總預約筆數</span>
+                  <span id="Label7">(已取消：</span>                 
+                  <span id="smt004" name="smt004" >0</span>
+                  <span id="Label8" class="formLabelClass">，申請中：</span>
+                  <span id="smt005" name="smt005"  >0</span>
+                  <span id="Label9" class="formLabelClass">，已預約：</span>
+                  <span id="smt006" name="smt006"  >0</span>
+                  <span id="Label10" class="formLabelClass">，已排上線：</span>
+                  <span id="smt007" name="smt007" >0</span>
+                  <span id="Label11" class="formLabelClass" style=" margin-left: 8px;">)共：</span>
+                  <span id="smt008" name="smt008"  >0</span>
+                  <span id="Label12" class="formLabelClass" style=" margin-left: 6px;">筆</span>
+                </div>
+              </div>
+            </div>
+            <div class="row m-0 p-0 justify-content-end" >
+              
+            </div>
+            <!-- Calendar position -->
+            <div id="calendar"></div>
+          </div>
+        </div>
+        <style>
+          /* FullCalendar v4 事件標題換行設定 */
+          .fc-title {
+            white-space: normal !important; /* 允許換行 */
+            word-break: break-word;         /* 長字也能自動斷行 */
+          }
+        </style>     
+      </div>
+    </div>
+  </body> 
+</html>   
+  
+
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/core/main.js"></script>
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/daygrid/main.js"></script>
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/timegrid/main.js"></script>
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/list/main.js"></script>
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/interaction/main.js"></script>
+  <script src="/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages/google-calendar/main.js"></script>
+  <script src='/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages-premium/timeline/main.js'></script>
+  <script src='/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages-premium/resource-common/main.js'></script>
+  <script src='/GBLWeb/API/fullcalendar-scheduler-4.3.1/packages-premium/resource-timeline/main.js'></script>
+
+  <!-- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script> -->
+    <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+    <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+   <script type="text/javascript" src="/BPMWeb/FRM/UI/js/smtBooking.js"></script>
+   <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>
+  <!-- javascript include End-->
+  
+      <!--
+    </body>
+
+    </html>
+    -->
+        <!-- Modal  start-->
+    <form>
+        <!-- 預約視窗 -->
+        <div id="BookingModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:20px; border:1px solid #ccc; box-shadow:0px 4px 10px rgba(0,0,0,0.3); 
+            z-index:1000; max-width: 90vw;  max-height: 90vh; overflow: auto;  box-sizing: border-box; border-radius: 8px; ">
+          <div class="card">
+            <div class="card-header" style="background-color:#9cccff;">
+              <div class="row m-0 p-0">
+                <h5 class="text"><span id="Label20" class="formLabelClass">新增行事曆資料</span></h5>
+                <h5 class="text"><span id="Label21" class="formLabelClass d-none" style="margin-left: 6px; margin-top: 0.5rem; color: #fe0505;">(需經流程簽核同意)</span></h5>
+              </div> 
+            </div>
+            <div class="card-body">
+              <!--row1-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt004">預計日期</span>
+                    </div>
+                    <input type="date" class="form-control" id="senao_smt004" name="senao_smt004" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text formLabelClass" id="lbl_senao_smt005" style="background-color: #ffd000;">安排上線日期</span>
+                    </div>
+                    <input type="date" class="form-control" id="senao_smt005" name="senao_smt005" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                  </div>
+                </div>
+              </div>
+              <!--row2-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt006">預約人ID</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt006" name="senao_smt006" autocomplete="off">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt007">姓名</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt007" name="senao_smt007" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row3-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt008">試作單號</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt008" name="senao_smt008" autocomplete="off">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary " id="senao_smt008_b1" name="senao_smt008_b1">...</button>
+                    </div>
+                    <span id="Label22" class="formLabelClass" style="margin-left: 6px; margin-top: 0.5rem;">(尚未結案之試作單)</span>
+                  </div>
+                </div>
+              </div>
+              <!--row4-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt009">階層料號</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt009" name="senao_smt009" autocomplete="off">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt010">Model Name</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt010" name="senao_smt010" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row5-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt011">品名規格</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt011" name="senao_smt011" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row6-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt012">試作階段</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt012" name="senao_smt012" autocomplete="off">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt013">試作數量</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt013" name="senao_smt013" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row7-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt014">工單</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt014" name="senao_smt014" autocomplete="off">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary " id="senao_smt014_b1" name="senao_smt014_b1">...</button>
+                    </div>
+                    <span id="Label23" class="formLabelClass" style="margin-left: 6px; margin-top: 0.5rem;">(已填預計集結日 尚未有預計上線日之工單)</span>
+                  </div>
+                </div>
+              </div>
+              <!--row8-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt015">階層料號</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt015" name="senao_smt015" autocomplete="off">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt016">料號品名</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt016" name="senao_smt016" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row9-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt017">預計集結日</span>
+                    </div>
+                    <input type="date" class="form-control" id="senao_smt017" name="senao_smt017" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                  </div>
+                </div>
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao_smt018">工單狀態</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt018" name="senao_smt018" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+              <!--row10-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white  formLabelClass" id="lbl_senao_smt019">備註</span>
+                    </div>
+                    <textarea class="form-control " id="senao_smt019" name="senao_smt019" rows="4"autocomplete="off"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!--row11-->
+              <div class="row m-0 p-0 d-none">
+                <div class="col-md ">
+                  <div class="input-group mb-3" >
+                    <div class=" input-group-prepend" >
+                      <span class="input-group-text " id="lbl_senao_smt020" style="background-color: #ffd000;">管理者功能</span> 
+                    </div>
+                    <div class="input-group-append col-md-10 d-flex justify-content-center align-items-center" style="border:1px solid #ced4da; border-radius: .25rem; padding: .25rem;">
+                      <button type="button" class=" center"id="btnCheckOK" name="btnCheckOK" onclick="CheckOKEvent_onClick()">確定安排上線</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--row12-->
+              <div class="row m-0 p-0 d-none">
+                <div class="col-md ">
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text formLabelClass" id="lbl_senao_smt021" style="background-color: #ffa200;">交換密碼</span>
+                    </div>
+                    <input type="text" class="form-control " id="senao_smt021" name="senao_smt021" autocomplete="off">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary " id="senao_smt021_b1" name="senao_smt021_b1" onclick="senao_smt021_b1_onClick()">設定</button>
+                    </div>
+                    <span id="Label24" class="formLabelClass" style="margin-left: 6px; margin-top: 0.5rem;">(設定後即可提供給欲交換者來做交換驗證)</span>
+                  </div>
+                </div>
+              </div>
+              <!--row13-->
+              <div class="row m-0 p-0 ">
+                <div class="col-md d-flex align-items-stretch mb-3">
+                  <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%;">
+                    <span class="input-group-text formLabelClass h-100 d-flex align-items-center justify-content-center mb-0" id="lbl_senao_smt022" style="background-color: #ffa200;">
+                      [預約]交換
+                    </span>
+                  </div>
+                  <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                    <!-----1----->
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control " id="senao_smt022" name="senao_smt022" autocomplete="off">
+                      <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary " id="senao_smt022_b1" name="senao_smt022_b1" >...</button>
+                      </div>
+                    </div>
+                    <!-----2----->
+                    <div class="input-group mb-0 d-none">
+                      <span id="Label25" class="formLabelClass" style="margin-left: 6px; margin-top: 0.5rem; margin-right: 6px;">請輸入該筆[預約]之交換密碼:</span>
+                      <input type="text" class="form-control " id="senao_smt030" name="senao_smt030" autocomplete="off">
+                      <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary " id="senao_smt030_b1" name="senao_smt030_b1" onclick="btn_ExChange_onclick()">交換</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              <!--row13-->
+              <div class="row m-0 p-0">
+                <div class="col-md ">
+                  <button type="button" class="btn btn-secondary " id="btnBack" name="btnBack" onclick="document.getElementById('BookingModal').style.display='none'">回預約首頁</button>
+                  <button type="button" class="btn btn-secondary " id="btnAdd" name="btnAdd" onclick="createEvent_onClick()">確定</button>
+                  <button type="button" class="btn btn-secondary d-none" id="btnDelete" name="btnDelete" onclick="deleteEvent_onClick()">刪除</button>
+                </div>
+              </div>
+              <!--隱藏欄位-->
+              <div class="row m-0 p-0 d-none">
+                <div class="col-md">
+                  <span id="lbl_indexNum">產生序號</span>
+                  <input type="text" class="form-control" id="indexNum" name="indexNum" autocomplete="off">
+                  <span id="lbl_testInfo">試作單號開窗資料處理</span>
+                  <input type="text" class="form-control" id="testInfo" name="testInfo" autocomplete="off">
+                  <span id="lbl_WIP_Info">工單開窗資料處理</span>
+                  <input type="text" class="form-control" id="WIP_Info" name="WIP_Info" autocomplete="off">
+                  <span id="lbl_senao_smt023">客戶代號</span>
+                  <input type="text" class="form-control" id="senao_smt023" name="senao_smt023" autocomplete="off">
+                  <span id="lbl_senao_smt024">客戶名稱</span>
+                  <input type="text" class="form-control" id="senao_smt024" name="senao_smt024" autocomplete="off">
+                  <span id="lbl_senao_smt025">WIP_ID</span>
+                  <input type="text" class="form-control" id="senao_smt025" name="senao_smt025" autocomplete="off">
+                  <span id="lbl_senao_smt026">PCB到廠日_SENAO137D4016</span>
+                  <input type="text" class="form-control" id="senao_smt026" name="senao_smt026" autocomplete="off">
+                  <span id="lbl_senao_smt027">增加預約單_SENAO137D4801</span>
+                  <input type="text" class="form-control" id="senao_smt027" name="senao_smt027" autocomplete="off">
+                  <span id="lbl_senao_smt028">線別_SENAO137D4803</span>
+                  <input type="text" class="form-control" id="senao_smt028" name="senao_smt028" autocomplete="off">
+                  <span id="lbl_senao_smt029">SENAO137D4804</span>
+                  <input type="text" class="form-control" id="senao_smt029" name="senao_smt029" autocomplete="off">
+                  <span id="lbl_hdn_senao_smt022">紀錄senao_smt022開窗資訊</span>
+                  <input type="text" class="form-control" id="hdn_senao_smt022" name="hdn_senao_smt022" autocomplete="off">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+    <!-- Modal  end-->
+  
+

@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>SN/MAC無工單配發需求</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label2" class="formLabelClass">SN/MAC無工單配發需求</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m001" >表單代號</span>
+              </div>
+              <input type="text" id="senao163m001" name="senao163m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m002">表單單號</span>
+              </div>
+              <input type="text" id="senao163m002" name="senao163m002" class="form-control" autocomplete="off">
+
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="Label5" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區別</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m005">申請單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m005" name="senao163m005" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao163m006">lbl_senao163m006</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m006" name="senao163m006" autocomplete="off">
+
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m003">申請人</span>
+                  </div>
+                 <input type="text" class="form-control " id="senao163m003" name="senao163m003" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao163m004">lbl_senao163m004</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m004" name="senao163m004" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m020">客戶別</span>
+                  </div>
+                  <input type="text" class="form-control col-md-3" id="senao163m020" name="senao163m020" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao163m020_b1" name="senao163m020_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao163m021">lbl_senao163m021</span>
+                  </div>
+                    <input type="text" class="form-control" id="senao163m021" name="senao163m021" autocomplete="off">
+
+                </div>
+              </div>             
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m023">限用於Customer PO</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m023" name="senao163m023" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m010">機種料號</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m011" name="senao163m011" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao163m011_b1" name="senao163m011_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m023">機種品名</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m023" name="senao163m023" autocomplete="off">
+                </div>
+              </div>             
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m012">需求套數</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao163m012" name="senao163m012" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="Label37" class="formLabelClass" style="margin-right: 24px;">申請類別</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="senao163m013_0" name="senao163m013" value="SN">
+                    <label class="form-check-label formLabelClass" for="senao163m013_0" style="margin-right: 24px;">
+                      SN
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="senao163m014_0" name="senao163m014"  value="MAC">
+                    <label class="form-check-label formLabelClass" for="senao163m014_0" style="margin-right: 24px;">
+                      WAN MAC
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="senao163m026_0" name="senao163m026"  value="WLAN">
+                    <label class="form-check-label formLabelClass" for="senao163m026_0" style="margin-right: 24px;">
+                      WLAN MAC
+                    </label>
+                  </div>
+                   <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="senao163m031_0" name="senao163m031"  value="COM">
+                    <label class="form-check-label formLabelClass" for="senao163m031_0" style="margin-right: 24px;">
+                      Combine
+                    </label>
+                  </div>
+                   <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="senao163m032_0" name="senao163m032" value="LIC">
+                    <label class="form-check-label formLabelClass" for="senao163m032_0" style="margin-right: 24px;">
+                      License Key / Radio MAC
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m015">WAN MAC Group</span>
+                  </div>
+                  <select class="form-control" id="senao163m015" name="senao163m015"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 10-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m027">WLAN MAC Group</span>
+                  </div>
+                  <select class="form-control" id="senao163m027" name="senao163m027"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 11-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m028">WAN/WLAN MAC RULE</span>
+                  </div>
+                  <select class="form-control" id="senao163m028" name="senao163m028"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 12-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m033">Combine Group</span>
+                  </div>
+                  <select class="form-control" id="senao163m033" name="senao163m033"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 13-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m034">License Key / Radio MAC Group</span>
+                  </div>
+                  <select class="form-control" id="senao163m034" name="senao163m034"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 14-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center mb-3" id="Label44">
+                    SN
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;"> 
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m017">Group</span>
+                    </div>
+                    <select class="form-control" id="senao163m017" name="senao163m017"></select>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao163m018">Type</span>
+                    </div>
+                    <input type="text" class="form-control" id="senao163m018" name="senao163m018" autocomplete="off">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-secondary " id="senao163m018_b1" name="senao163m018_b1">...</button>
+
+                    </div>
+                    <div class=" input-group-text bg-white formLabelClass d-none"> 
+                      <span id="lbl_senao163m022">lbl_senao163m022</span>
+                    </div>
+                    <div class="input-group-append">
+                      <input type="text" class="form-control" id="senao163m022" name="senao163m022" autocomplete="off" style="width: 450px;">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 15-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_senao163m019">備註(250字以內)</span>
+                  </div>
+                  <textarea class="form-control " id="senao163m019" name="senao163m019" rows="6"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 16-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="Label38" class="textred formLabelClass">
+                    SN/MAC無工單配發需求基本資料申請類別SN申請的SN/MAC有規則性(末碼要求…等)，請在備註欄位填上必要資訊(配發規則…等)，以避免配發錯誤。
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_senao163m019_m">lbl_senao163m019_m</span>
+    <input type="text" id="senao163m019_m" name="senao163m019_m" placeholder="senao163m019_m">
+    <span id="lbl_senao163m015_m">lbl_senao163m015_m</span>
+    <input type="text" id="senao163m015_m" name="senao163m015_m" placeholder="senao163m015_m">
+    <span id="lbl_senao163m017_m">lbl_senao163m017_m</span>
+    <input type="text" id="senao163m017_m" name="senao163m017_m" placeholder="senao163m017_m">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

@@ -1,0 +1,71 @@
+:root {
+  --bgColor: #dcdcdc;
+}
+.mainmenu .collapse ul ul>li:hover>a,
+.mainmenu .collapse ul ul ul>li:hover>a,
+.navbar-default .navbar-nav .show .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .show .dropdown-menu>li>a:hover {
+    background: var(--bgColor);
+
+}
+
+.mainmenu .show>.dropdown-toggle::after {
+    transform: rotate(-90deg);
+    text-decoration: underline;
+	;
+}
+
+/* Show it is fixed to the top */
+
+/*body {
+    padding-top: 70px;
+     z-index: 0;
+}
+*/
+/* Show it is fixed to the top */
+/* body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+        }*/
+
+/* hover dropdown menus */
+
+@media only screen and (max-width: 991px) {
+    .navbar-hover .show>.dropdown-toggle::after {
+        transform: rotate(-90deg);
+		
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar-hover .collapse ul li {
+        position: relative;
+		
+    }
+
+    .navbar-hover .collapse ul li:hover>ul {
+        display: block;
+		
+		
+    }
+
+    .navbar-hover .collapse ul ul {
+        position: absolute;
+        top: 90%;
+        left: 0;
+        min-width: 250px;
+		z-index:99999;
+        display: none
+    }
+
+    .navbar-hover .collapse ul ul ul {
+        position: absolute;
+        top: 0;
+        left: 95%;
+        min-width: 250px;
+		z-index:99999;
+        display: none
+    }
+
+    /*.navbar-hover .collapse ul ul ul ul{position:absolute;top:0;left:-100%;min-width:250px;display:none;z-index:1}*/
+}

@@ -1,0 +1,873 @@
+/*---------------------公用變數 Start--------------*/
+//var userId = getcooky("username");
+//var userId = '104564';
+var now = new Date();
+var Today = now.getFullYear() + "-" + (now.getMonth() + 1).toString().padStart(2, '0') + "-" + now.getDate().toString().padStart(2, '0');
+//var userId = "102584";
+var userId = "102759";
+var user_Name; //姓名
+var applicant = ""; //申請人工號
+var applicantDept = ""; //申請人部門
+var FORMSERIALNUMBER = ""; //表單單號:SENAO106-202109-0002
+var SERIALNUMBER = ""; //表單編號:SENAO10600000002
+var ITEMOID = "";
+var formId = ""; //SENAO188
+var actionType = ""; //CREATE
+var Department; //部門代號
+var Department_Name; //部門名稱
+var COMPANYID; //公司代號
+var COMPANY_NAME; //公司名稱
+var userOid; // user oid
+var imPortExcel = false; // EXcel匯入
+var activityId; //關卡
+var apiurl = invokeURL; //Api位置
+var locale = "zh_TW";
+var formOID = "";//表單OID
+var formInstOID = "";
+var tempLateArray = {};
+/*---------------------公用變數 End--------------*/
+/*---------------------公用函數 Start--------------*/
+
+/*---------------------公用函數 END--------------*/
+/*---------------------EXCEL & Form拆解 Function START--------------*/
+/*------------------------------------------------------------------------------
+[Function Name]getElementId
+[Function Descript]擷取要取得的字串資訊
+[Parameter]
+[Returns]
+[Modify Log]
+[Mo]Modify.....:20250509 By Senao-JC 新增說明
+[Mo]Modify.....:20250509 By Senao-JC 增加範例說明
+[Example]
+[Ex]getElementId(headitem, 'id=\"', '"'); //CHG_MODE
+[Show Codes=Y] 
+------------------------------------------------------------------------------*/
+function getElementId(str, ssymbol, esymbol) {
+  let value = ""
+  let sindex = str.indexOf(ssymbol);
+  if (sindex != -1) {
+    let eindex = str.indexOf(esymbol, sindex + ssymbol.length);
+    let id = str.substring(sindex + ssymbol.length, eindex);
+    if (id.length > 0) {
+      value = id;
+    }
+  }
+  return value;
+}
+function splitFrmType(frmdata) {
+  //拆解Form Template
+
+  let gridStartsymbol = "<Grid";
+  let gridEndsymbol = "</Grid";
+  let frmarray = frmdata.split("\n");
+    console.log(frmarray);
+  let title = frmarray[0];
+  let bottom = frmarray[frmarray.length - 1];
+  frmarray = frmarray.slice(1, frmarray.length - 1);
+  let gridStartindex = frmarray.findIndex((e) => e.match(gridStartsymbol));
+  let gridEndindex = frmarray.findIndex((e) => e.match(gridEndsymbol));
+  let grid = [];
+  let griditem = [];
+  let headlType = [];
+  let gridType = [];
+  let griditemlType = [];
+  let headlData=[];
+  if (gridStartindex > -1) { //有單身
+    headlData = frmarray.slice(0, gridStartindex);
+    headlData = headlData.concat(frmarray.slice(gridEndindex + 1, frmarray.length));
+    griditem = frmarray.slice(gridStartindex, gridEndindex + 1);
+    gridStartindex = headlData.findIndex((e) => e.match(gridStartsymbol));
+    grid.push(griditem);
+    while (gridStartindex > -1) { //
+      let headlData1=[];
+      let headlData2=[];
+      gridStartindex = headlData.findIndex((e) => e.match(gridStartsymbol));
+      if (gridStartindex > -1) {
+        gridEndindex = headlData.findIndex((e) => e.match(gridEndsymbol));
+        headlData1 = headlData.slice(0 , gridStartindex);
+        headlData2 =headlData.slice(gridEndindex + 1, headlData.length)
+        griditem = headlData.slice(gridStartindex, gridEndindex + 1);
+        headlData=headlData1.concat(headlData2);
+        gridStartindex = headlData.findIndex((e) => e.match(gridStartsymbol));
+        grid.push(griditem);
+      }
+    }
+
+  } else {
+    headlData = frmarray;
+  }
+  headlData.forEach((headitem, headindex, harr) => {
+    let id = getElementId(headitem, 'id=\"', '"');
+    if (id.length > 0) {
+      let dataType = getElementId(headitem, 'dataType=\"', '"');
+      if (dataType.length <= 0) {
+        dataType = "java.lang.String";
+      }
+      headlType.push({ id: id, dataType: dataType })
+    }
+
+  });
+  for (let i = 0; i < grid.length; i++) {
+    grid[i].forEach((griditem, gridindex, garr) => {
+      let id = getElementId(griditem, 'id=\"', '"');
+      if (id.length > 0) {
+        let dataType = getElementId(griditem, 'dataType=\"', '"');
+        if (dataType.length <= 0) {
+          dataType = "java.lang.String";
+        }
+        griditemlType.push({ id: id, dataType: dataType })
+      }
+    });
+    gridType.push(griditemlType);
+  }
+
+
+
+  return { title: title, bottom: bottom, head: headlData, headlType: headlType, details: grid, gridType: gridType };
+
+}
+function splitFrm(frmdata) {
+  //拆解Form Template
+  let frm = {};
+  let headlData = []; //單頭
+  let detailsData = []; //單身
+  let TheadlData = []; //單頭暫存
+  let frmarray = frmdata.split("\n");
+  let symbol = "Grid";
+  let index = frmarray.findIndex((e) => e.match(symbol));
+  if (index > -1) {
+    //有單身
+    headlData = frmarray.slice(0, index);
+    TheadlData = frmarray.slice(index);
+    while (index > -1) {
+      let detail = [];
+      index = TheadlData.findIndex((e) => e.match(symbol)); //找Grid開始
+      detail = TheadlData.slice(index, index + 1); //移動抬頭
+      if (index > 0) {
+        //把中間加到Head
+        headlData = headlData.concat(TheadlData.slice(0, index));
+      }
+      TheadlData = TheadlData.slice(index + 1);
+      index = TheadlData.findIndex((e) => e.match(symbol)); //找結尾
+      detail = detail.concat(TheadlData.slice(0, index + 1));
+      TheadlData = TheadlData.slice(index + 1);
+      index = TheadlData.findIndex((e) => e.match(symbol)); //找Grid開始
+      detailsData.push(detail);
+    }
+    headlData = headlData.concat(TheadlData);
+  } else {
+    //單頭
+    headlData = frmarray;
+  }
+  frm = {
+    headlData: headlData,
+    headCount: headlData.length,
+    details: detailsData,
+    detailsCount: detailsData.length,
+  };
+  return frm;
+}
+/**
+ * 拆解excel組成
+ * @param {jsonArray} data 
+ * @param {string} split 
+ * 
+ */
+function splitExcelData(data, split) {
+  //拆解Excel內容
+  let nexcel = [];
+  //多訂單拆解
+  let headlData = []; //單頭
+  let detailsData = []; //單身
+  let colName = Object.keys(data[0]); //欄位名稱
+  let gIndex = colName.findIndex((e) => e.match(split)); //單身位置
+  //有單身拆解單身
+  if (gIndex > -1) {
+    let id = 1;
+    let headColname = colName.slice(0, gIndex);
+    let subColName = colName.slice(gIndex + 1);
+    let mSubCloName = [];
+
+    //取得單身所有Grid
+    do {
+      gIndex = subColName.findIndex((e) => e.match(split));
+      gIndex = gIndex > -1 ? gIndex : subColName.length;
+      mSubCloName.push({ id: id, subColName: subColName.slice(0, gIndex) });
+      subColName = subColName.slice(gIndex + 1);
+      id++;
+    } while (subColName.findIndex((e) => e.match(split)) > -1);
+    if (subColName.length > 0)
+      mSubCloName.push({ id: id, subColName: subColName }); //最後一筆
+    id = 1;
+    data.forEach((item, index, arr) => {
+      let head = {};
+      let frmid = item[headColname[0]]; //取得單頭的編號
+      detail = [];
+      if (frmid == undefined || frmid == null) {
+        return;
+      }
+      //取得單頭資料
+      headColname.forEach((headitem, headindex, harr) => {
+        head[headitem] = item[headitem];
+      });
+      headlData.push(head); //訂單
+
+      mSubCloName.forEach((subcolitem, subcolindex, scolarr) => {
+        //取得所有單身資料存入subGrid
+        let subGrid = [];
+        arr.forEach((subitem, subindex, sarr) => {
+          //取得單身資料
+          let sub = {};
+          let subfrmid = subitem[subcolitem.subColName[0]]; //取得單身的編號
+          if (frmid == subfrmid) {
+            //取得單身資料
+            subcolitem.subColName.forEach((ssitem, ssindex, ssarr) => {
+              //個別單身的欄位
+              sub[ssitem] = subitem[ssitem];
+            });
+            subGrid.push(sub);
+          }
+        });
+        if (subGrid.length > 0) {
+          detail.push(subGrid);
+        }
+      });
+      if (detail.length > 0) {
+        detailsData.push({ id: id, detail: detail });
+      }
+      nexcel.push({ head: head, detail: detail });
+      id++;
+    });
+  } else {
+    nexcel.push({ head: data, detail: [] });
+  }
+
+  return nexcel;
+}
+function CombinefrmData(frmdata, gridData) {
+  let Combinefrm = "";
+  let headArray = [];
+  let detailsArray = [];
+  let head = frmdata.headlType;
+  let hradjson={};
+  let details = frmdata.gridType;
+  //組成Head
+  for (let i = 0; i < head.length; i++) {
+    let value = "";
+    let item = "";
+    let element = $("*[name='" + head[i].id + "']");
+    if (element.length > 0) {
+     // console.log('element:', head[i].id);
+      /*if (element[0].type == "radio") {
+        value = $("*[name='" + id + "']:checked").val();
+      } else {
+        value = element.val();
+      }*/
+      value = fixNull(element.val());
+	  hradjson[head[i].id]=value;
+    }
+    item = '<' + head[i].id + ' id=\"' + head[i].id + '\" ';
+    if (value != "") {
+      //   <isPMSectionV id=\"isPMSectionV\" dataType=\"java.lang.String\" perDataProId=\"\">defaultValue</isPMSectionV>
+      item += '   dataType=\"' + head[i].dataType + '\" perDataProId=\"\">' + value + '</' + head[i].id + '>';
+    } else {
+      //"  <senao113m025 id=\"senao113m025\"/>"
+      item += '/>';
+    }
+    headArray.push(item);
+  }
+  console.log('hradjson:', hradjson);
+  //console.log('headArray:', headArray);
+  //組成details 
+  for (let i = 0; i < gridData.length; i++) {
+    let detailsItemArray = []; //單1grid最後組成資料
+    let rowdata = gridData[i]; //資料
+    let detailsItem = details[i]; //template
+    //Grid開始
+    let item = '  <' + detailsItem[0].id + ' id=\"' + detailsItem[0].id + '\">';
+    detailsItemArray.push(item);
+    item = '   <records>';
+    detailsItemArray.push(item);
+    for (let k = 0; k < rowdata.length; k++) {
+      //行開始
+      //<record id="Grid1_35">
+      item = '    <record id=\"' + detailsItem[0].id + '_' + k + '\">';
+      detailsItemArray.push(item);
+      //資料開始
+      for (let j = 1; j < detailsItem.length; j++) {
+        let value = "";
+        // "     <item id=\"gno\" dataType=\"java.lang.String\" perDataProId=\"\">defaultValue</item>",
+        item = '    <item id=\"' + detailsItem[j].id + '\" dataType=\"' + detailsItem[i].dataType + '\" perDataProId=\"\"';
+        value = rowdata[k][detailsItem[j].id];
+        if (value == undefined || value == "") {
+          item += '/>';
+        } else {
+          item += '>' + value + '</item>';
+        }
+        detailsItemArray.push(item);
+      }
+      //行結束
+      item = '   </record>';
+      detailsItemArray.push(item);
+    }
+    //Grid結束
+    item = '   </records>';
+    detailsItemArray.push(item);
+    item = '   </' + detailsItem[0].id + '>';
+    detailsItemArray.push(item);
+    detailsArray.push(detailsItemArray);
+  }
+  //console.log(detailsArray);
+  //單頭
+  Combinefrm = headArray.join("\n");
+  //單身
+  for (let j = 0; j < detailsArray.length; j++) {
+    Combinefrm += detailsArray[j].join("\n");
+  }
+  //組成完整
+  Combinefrm = "\n" + frmdata.title + "\n" + Combinefrm + "\n" + frmdata.bottom + "\n";
+  Combinefrm = "<![CDATA[" + Combinefrm + "]]>";
+  return Combinefrm;
+
+}
+
+/*---------------------EXCEL & Form拆解 Function END--------------*/
+/*---------------------Sub Form Function START--------------*/
+function initSubFrm() {
+  //表單初始化
+  formId = getUrlVars()["frm"];
+  actionType = getUrlVars()["type"];
+  SERIALNUMBER = getUrlVars()["SERIALNUMBER"];
+  FORMSERIALNUMBER = getUrlVars()["FORMSERIALNUMBER"];
+  ITEMOID = getUrlVars()["ITEMOID"];
+  let frm = loadSubFrm(formId, actionType);
+  btnStyle(actionType);
+  if (frm.length > 0) {
+    $.get(frm, function (data) {
+      $("#Details").html(data);
+    });
+  }
+}
+
+function loadSubFrm(frmid, action) {
+  //載入表單內容
+  let frm = "";
+  let post = {
+    ID: userId, //工號
+    LDAP: "ALL", //LDAP ID
+    NAME: "ALL", //員工姓名
+    DEP: "ALL", //部門
+    COMPAY: "ALL", //公司
+    DEPNAME: "ALL",
+  };
+  let data = getUserData(post);
+  if (data.status == "OK") {
+
+    COMPANYID = data.data.COMPANY_ID;
+    COMPANY_NAME = data.data.COMPANY_NAME;
+    Department = data.data.DEP_ID;
+    Department_Name = data.data.DEP_NAME;
+    user_Name = data.data.USER_NAME;
+    userOid = data.data.USER_OID;
+
+
+  }
+  if (action == "imPortExcel") imPortExcel = true;
+  switch (frmid) {
+    case "SENAO188": {
+      frm = "FRM/SENAO188.html";
+      break;
+    }
+    case "SENAO113": 
+    case "ENR113": 
+    {
+      frm = "FRM/SENAO113.html";
+      if (action == "Create" || action == "imPortExcel") {
+        activityId = "UserTask_3"; //第一關填單人
+      }
+      break;
+    }
+    default: {
+      break;
+    }
+  }
+  let oid = findFormOIDsOfProcess(frmid);
+  if (oid.status == "OK") {
+    formOID = oid.data;
+    let template = getFormFieldTemplate(oid.data);
+    if (template.status == "OK") {
+      tempLateArray = splitFrmType(template.data);
+    }
+  }
+
+  return frm;
+}
+function btnStyle(action) {
+  //按鍵類型
+
+  $(".wrapper a").each(function (btn) {
+    if (action == "Create" || action == "imPortExcel") {
+      //console.log(this.id);
+      if (
+        this.id == "initiateBtn" ||
+        this.id == "saveTempBtn" ||
+        this.id == "backBtn"
+      ) {
+        $(this).removeClass("d-none");
+      } else {
+        $(this).addClass("d-none");
+      }
+    } else {
+      if (this.id == "initiateBtn") {
+        $(this).addClass("d-none");
+      } else {
+        $(this).removeClass("d-none");
+      }
+    }
+  });
+}
+/*---------------------Sub Form Function End--------------*/
+/*---------------------PubLic Function Start--------------*/
+function getUserData(seachdata) {
+  //取得User基礎資料
+  let status = { data: null, status: "NG", msg: null };
+  let result = ajaxGetData(invokeURL + "BPM_USER_QUERY", {
+    ID: seachdata.ID, //工號
+    LDAP: seachdata.LDAP, //LDAP ID
+    NAME: seachdata.NAME, //員工姓名
+    DEP: seachdata.DEP, //部門
+    COMPAY: seachdata.COMPAY, //公司
+    DEPNAME: seachdata.DEPNAME,
+  });
+  if (result[0].result == undefined) {
+    status.data = result[0];
+    status.status = "OK";
+  } else {
+    status.msg = result[0].result;
+  }
+  return status;
+}
+
+function assigneeReassignWorkItem(data) {
+  //轉派
+  let status = { data: null, status: "NG", msg: null };
+  let result = ajaxGetData(invokeURL + "BPM_XMLWebServices", {
+    assigneeReassignWorkItem: {
+      pRequesterOID: data.pRequesterOID,
+      pAcceptorOID: data.pAcceptorOID,
+      pWorkItemOID: data.pWorkItemOID,
+      pReassignComment: data.pReassignComment,
+    },
+  });
+  if (result[0].result == undefined) {
+    if (
+      result[0]["soapenv:Envelope"]["soapenv:Body"]["soapenv:Fault"] ==
+      undefined
+    ) {
+      status.status = "OK";
+    } else {
+      status.msg = result[0].result;
+    }
+  } else {
+    status.msg = result[0].result;
+  }
+  return status;
+}
+function findFormOIDsOfProcess(frmtype) {
+  //取得OID
+  let status = { data: null, status: "NG", msg: null };
+  let result = ajaxGetData(invokeURL + "BPM_XMLWebServices", {
+    findFormOIDsOfProcess: {
+      findFormOIDsOfProcessReturn: frmtype,
+    },
+  });
+  if (result[0].result == undefined) {
+    if (
+      result[0]["soapenv:Envelope"]["soapenv:Body"][
+      "findFormOIDsOfProcessResponse"
+      ]["findFormOIDsOfProcessReturn"]["content"]
+    ) {
+      status.data =
+        result[0]["soapenv:Envelope"]["soapenv:Body"][
+        "findFormOIDsOfProcessResponse"
+        ]["findFormOIDsOfProcessReturn"]["content"];
+      status.status = "OK";
+    } else {
+      status.msg = result[0].result;
+    }
+  } else {
+    status.msg = result[0].result;
+  }
+  return status;
+}
+function getFormFieldTemplate(oid) {
+  //取得Form Template
+  let status = { data: null, status: "NG", msg: null };
+  let result = ajaxGetData(invokeURL + "BPM_XMLWebServices", {
+    getFormFieldTemplate: {
+      getFormFieldTemplate: oid,
+    },
+  });
+  if (result[0].result == undefined) {
+    if (
+      result[0]["soapenv:Envelope"]["soapenv:Body"][
+      "getFormFieldTemplateResponse"
+      ]["getFormFieldTemplateReturn"]["content"]
+    ) {
+      status.data =
+        result[0]["soapenv:Envelope"]["soapenv:Body"][
+        "getFormFieldTemplateResponse"
+        ]["getFormFieldTemplateReturn"]["content"];
+      status.status = "OK";
+    } else {
+      status.msg = result[0].result;
+    }
+  } else {
+    status.msg = result[0].result;
+  }
+  return status;
+}
+function invokeProcess(
+  pProcessPackageId,
+  pRequesterId,
+  pOrgUnitId,
+  pFormDefOID,
+  pSubject,
+  frmdata,
+  type
+) {
+  let status = { data: null, status: "NG", msg: null };
+  let frm;
+  let gridarray = [];
+  if (type == 1) {
+    //let frmtmp=splitFrm(frmdata);
+    //console.log(frmtmp);
+    //frm = getFrm(frmtmp.headlData);
+    for (let i = 0; i < gridList.length; i++) {
+      let $grid = $("#" + gridList[0].gid);
+      // let gridData = $grid.getGridParam("data");
+      let gridData = $grid.jqGrid('getRowData');
+      gridarray.push(gridData);
+    }
+
+    frm = CombinefrmData(tempLateArray, gridarray);
+  } else {
+    frm = frmdata;
+  }
+
+  let result = ajaxGetData(invokeURL + "BPM_XMLWebServices", {
+    invokeProcess: {
+      pProcessPackageId: pProcessPackageId,
+      pRequesterId: pRequesterId,
+      pOrgUnitId: pOrgUnitId,
+      pFormDefOID: pFormDefOID,
+      pFormFieldValue: frm,
+      pSubject: pSubject,
+    },
+  });
+  if (result[0].result == undefined) {
+    if (
+      result[0]["soapenv:Envelope"]["soapenv:Body"]["invokeProcessResponse"][
+      "invokeProcessReturn"
+      ]["content"]
+    ) {
+      status.data =
+        result[0]["soapenv:Envelope"]["soapenv:Body"]["invokeProcessResponse"][
+        "invokeProcessReturn"
+        ]["content"];
+      status.status = "OK";
+    } else {
+      status.msg = result[0].result;
+    }
+  } else {
+    status.msg = result[0].result;
+  }
+  return status;
+}
+
+function getFrm(frmdata) {
+  //console.log('frmdata');
+  //console.log(frmdata.split('\n'));
+  let data = "";
+  //let frmarray = frmdata.split("\n");
+  let frmarray = frmdata;
+  let ssymbol = 'id="';
+  let esymbol = '"';
+  let symbol = "defaultValue";
+  for (let i = 0; i < frmarray.length; i++) {
+    let sindex = frmarray[i].indexOf(ssymbol);
+    if (sindex != -1) {
+      let eindex = frmarray[i].indexOf(esymbol, sindex + ssymbol.length);
+      let id = frmarray[i].substring(sindex + ssymbol.length, eindex);
+      if (id.length > 0) {
+        let index = frmarray[i].indexOf(symbol);
+        //let element=$('#' + id);
+        let element = $("*[name='" + id + "']");
+        let values = "";
+        console.log('element:', id);
+        if (element) {
+          if (element[0].type == "radio") {
+            values = $("*[name='" + id + "']:checked").val();
+          } else {
+            values = element.val();
+          }
+        }
+
+
+        console.log("values=" + values);
+        console.log($("*[name='" + id + "']").attr("type"));
+
+        let endindex = frmarray[i].indexOf("/>");
+        let nindex = frmarray[i].indexOf(">");
+        if (values) {
+          //有值
+          if (index != -1) {
+            frmarray[i] = frmarray[i].replace(symbol, values);
+          } else {
+            frmarray[i] =
+              frmarray[i].substring(0, endindex) +
+              " >" +
+              values +
+              "</" +
+              id +
+              ">";
+          }
+        } else {
+          //沒有值
+          if (endindex == -1) {
+            frmarray[i] = frmarray[i].substring(0, nindex) + " />";
+          }
+        }
+        //檢查是否有DataType
+        let typeindex = frmarray[i].indexOf("dataType");
+        if (typeindex == -1) {
+          //新增DataType
+          frmarray[i] =
+            frmarray[i].substring(0, eindex + esymbol.length) +
+            ' dataType="java.lang.String" ' +
+            frmarray[i].substring(eindex + esymbol.length);
+        }
+      }
+    }
+  }
+  data = frmarray.join("\n");
+  // data = "<![CDATA[" + data + "]]>";
+
+  //data= "<![CDATA[ <FORM188><form188019_t1 id='form188019_t1' dataType='java.lang.String' perDataProId=''/><form188019 id='form188019' dataType='java.lang.String' perDataProId=''/><form_org id='form_org' dataType='java.lang.String'/><form_ou id='form_ou' dataType='java.lang.String'>senao</form_ou><form188002 id='form188002' dataType='java.lang.String'>SENAO188-202502-0006</form188002><form188001 id='form188001' dataType='java.lang.String' perDataProId=''>SENAO188</form188001><form188004_t1 id='form188004_t1' dataType='java.lang.String' perDataProId=''>運籌系統二課</form188004_t1><form188003_t1 id='form188003_t1' dataType='java.lang.String' perDataProId=''>EFGP林裕貴</form188003_t1><form188003 id='form188003' dataType='java.lang.String' perDataProId=''>104564</form188003><form188004 id='form188004' dataType='java.lang.String' perDataProId=''>10532</form188004><form188005 id='form188005' dataType='java.lang.String' perDataProId=''>2025/02/21</form188005><form188006 id='form188006' dataType='java.lang.String'>ADD</form188006><form188007 id='form188007' dataType='java.lang.String' perDataProId=''/><form188008_1 id='form188008_1' dataType='java.lang.String' perDataProId=''>90</form188008_1><form188008_2 id='form188008_2' dataType='java.lang.String' perDataProId=''>90</form188008_2><form188008_3 id='form188008_3' dataType='java.lang.String' perDataProId=''>90</form188008_3><form188008_4 id='form188008_4' dataType='java.lang.String' perDataProId=''>90</form188008_4><form188009 id='form188009' dataType='java.lang.String'>PUBLIC</form188009><form188010 id='form188010' dataType='java.lang.String'>3</form188010><form188011 id='form188011' dataType='java.lang.String' perDataProId=''/><form188012 id='form188012' dataType='java.lang.String' perDataProId=''>2</form188012><form188013 id='form188013' dataType='java.lang.String' perDataProId=''>2</form188013><form188016 id='form188016' dataType='java.lang.String' perDataProId=''/><form188017 id='form188017' dataType='java.lang.String'/><form188018 id='form188018' dataType='java.lang.String' perDataProId=''/><form188021 id='form188021' dataType='java.lang.String' perDataProId=''/><form188022 id='form188022' dataType='java.lang.String'/><form188020 id='form188020' dataType='java.lang.String' perDataProId=''/><form188014 id='form188014' dataType='java.lang.String' perDataProId=''/><form188015 id='form188015' dataType='java.lang.String' perDataProId=''/></FORM188>   ]]>";
+  return data;
+}
+
+function insertStr(str, index, insertStr) {
+  return str.substring(0, index) + insertStr + str.substring(index);
+}
+function chkBPMFrmData(fid, work_site_id) {
+  //檢查表單內容
+
+  //資料檢查
+
+  let status = true;
+
+  let msg = "";
+  let msgarray = [];
+
+  let result = ajaxGetData(invokeURL + "BPM_FRM_CHK_LIST", {
+    FID: fid,
+    WORK_SITE_ID: work_site_id,
+  });
+  if (result[0].result == undefined) {
+    for (let i = 0; i < result.length; i++) {
+      let item = result[i];
+      let str = $("[name='" + item.CLASS_ID + "']").val();
+      let status = false;
+      let value;
+      switch (item.CLASS.toLowerCase()) {
+        case "input":
+          let chkresult = chkBPMFrmDataType(item.CHKTYPE.toLowerCase(), str);
+          if (chkresult.status) {
+            //型態檢查通過
+            if (item.CHKTYPE.toLowerCase() != "date") {
+              value = item.VALUE;
+              if (!(!value ? false : value.trim().length > 0)) {
+                value = "";
+              }
+              status = chkBPMFrmLogic(item.LOGIC, chkresult.value, value);
+            } else {
+              status = chkresult.status;
+            }
+          }
+          break;
+        case "grid":
+          break;
+      }
+      if (!status) {
+        //檢查不通過
+        //錯誤訊息
+        switch (item.MSG_API) {
+          case "BPM_SENAO_SNSI009_QUERY":
+            let msgpara = JSON.parse(item.MSG_PARAMETER);
+            msgpara.PROGRAM_ID = form_ou.val().toUpperCase();
+            let msgresp = ajaxGetData(
+              invokeURL + "BPM_SENAO_SNSI009_QUERY",
+              msgpara
+            );
+            if (msgresp[0].result == undefined) {
+              msg = JSON.parse(msgresp[0].MESSAGE)[locale];
+            } else {
+              msg = "API:BPM_SENAO_SNSI009_QUERY Unable to retrieve data";
+            }
+            break;
+          default: //指定錯誤訊息
+            msg = item.MSG;
+            break;
+        }
+        msg = "[" + $("#lbl_" + item.CLASS_ID).html() + "] " + msg;
+        msgarray.push(msg);
+      }
+    }
+  }
+  return msgarray.join("\n");
+}
+function chkBPMFrmDataType(type, str) {
+  let date_ymd1 = /^(\d{4})-(0\d{1}|1[0-2])-(0\d{1}|[12]\d{1}|3[01])$/; //日期格式yyyy-mm-dd正規表示式
+  let date_ymd2 = /^([0-9]{4})[./]{1}([0-9]{1,2})[./]{1}([0-9]{1,2})$/; //日期格式yyyy/mm/dd正規表示式
+  let response = { status: false, value: "" };
+  let status = false;
+  let value = str;
+  switch (type) {
+    case "str": //文字
+      status = !str ? false : str.trim().length > 0;
+      if (!status) value = "";
+      break;
+    case "number": //數字或浮點數
+      status = checkRate(str);
+      if (!status) value = 0;
+      break;
+    case "date": //日期
+      status = date_ymd1.test(str);
+      if (!status) {
+        status = date_ymd2.test(str);
+      }
+      if (!status) value = "";
+      break;
+    default:
+      status = !str ? false : str.trim().length > 0;
+      if (!status) value = "";
+      break;
+  }
+  response = { status: status, value: value };
+  return response;
+}
+function chkBPMFrmLogic(logic, x, y) {
+  let status = false;
+  switch (logic) {
+    case "==":
+      status = x == y;
+      break;
+    case ">":
+      status = x > y;
+      break;
+    case "<":
+      status = x < y;
+      break;
+    case ">=":
+      status = x >= y;
+      break;
+    case "<=":
+      status = x <= y;
+      break;
+    case "!=":
+      status = x != y;
+      break;
+  }
+  return status;
+}
+function BPMFrmClear(fid, element_Id) {
+  //清除表單內容
+
+  let result = ajaxGetData(invokeURL + "BPM_FRM_CLEAR_LIST", {
+    FID: fid,
+    ELEMENT_ID: element_Id,
+  });
+  if (result[0].result == undefined) {
+    //需要清除
+    result.forEach((item, index, arr) => {
+      let id = item.CLEAR_ID;
+      let type = $("#" + id).getType();
+      let api = item.CLEAR_API;
+      let clear_type = item.CLEAR_TYPE; //動作類型
+      let data = { TEXT: "", VALUE: "" };
+      let values = [];
+      let apiresult = [];
+      if (!clear_type ? false : clear_type.trim().length > 0) {
+        clear_type = "set"; //清空或指定
+      }
+
+      switch (clear_type) {
+        case "set": //指定值
+          if (!api || api.trim().length === 0) {
+            //沒有API清空
+            if (
+              !item.CLAER_VALUE ? false : item.CLAER_VALUE.trim().length > 0
+            ) {
+              data.VALUE = ""; //清空或指定
+            } else {
+              data.VALUE = item.CLAER_VALUE;
+            }
+          } else {
+            apiresult = ajaxGetData(invokeURL + api, {});
+            if (apiresult[0].result == undefined) {
+              data.VALUE = apiresult[0][item.CLAER_VALUE];
+            } else {
+              data.VALUE = ""; //清空或指定
+            }
+            values.push(data);
+          }
+          break;
+        case "reload": //api重新載入
+          apiresult = ajaxGetData(invokeURL + api, {});
+          if (apiresult[0].result == undefined) {
+            apiresult.forEach((apiitem, apiindex, apiarr) => {
+              data.TEXT = apiitem[item.CLEAR_TEXT];
+              data.VALUE = apiitem[item.CLAER_VALUE];
+              values.push(data);
+            });
+          } else {
+            values.push(data);
+          }
+          break;
+      }
+      switch (type) {
+        case "text":
+          $("#" + element_Id).val(values[0].VALUE);
+          break;
+        case "select":
+          if (clear_type == "reload") {
+            $("#" + element_Id + " option").remove();
+            $.map(values, function (valuesitem) {
+              $("#" + element_Id).append(
+                $("<option></option>")
+                  .attr("value", valuesitem.VALUE)
+                  .text(valuesitem.TEXT)
+              );
+            });
+          } else {
+            $("#" + element_Id).val(values[0].VALUE);
+          }
+          break;
+      }
+    });
+  }
+}
+
+$.fn.getType = function () {
+  //取得元件類型
+  return this[0].tagName == "INPUT"
+    ? this[0].type.toLowerCase()
+    : this[0].tagName.toLowerCase();
+};
+function checkRate(input) {
+  //檢查是否為數字
+  let re = /^[0-9]*[1-9][0-9]*$/; //判斷字串是否為數字//判斷正整數/[1−9] [0−9]∗]∗/
+  return re.test(input);
+}
+/*---------------------PubLic Function End--------------*/

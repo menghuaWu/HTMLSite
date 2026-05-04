@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<HTML LANG="en">
+
+<HEAD>
+	<META CHARSET="utf-8">
+	<META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge">
+	<META NAME="viewport" CONTENT="width=device-width, initial-scale=1">
+	<TITLE>BPM - Amazon To 204</TITLE>
+	<META NAME="description" CONTENT="">
+	<META NAME="author" CONTENT="templatemo">
+
+
+
+
+
+</HEAD>
+
+<BODY>
+	<!---Menu Start--->
+	<div id='menu'></div>
+	<!---Menu End--->
+
+
+
+
+	<!--Body content Start-->
+
+	<main role="main" id="main">
+
+		
+
+		<div class="container-fluid">
+			<div class="row p-2">
+				<div class="col  content-widget  bg-white" style="text-align:center;font-size: 14px;">
+					<table id="jqGrid1" class="table table-bordered "></table>
+					<div id="jqGrid1Pager"></div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+	<!--Body Content End-->
+
+                  
+	<!-- Modal Start-->
+	<div id="qryModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+		data-keyboard="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color:lightseagreen; color:white;font-size: 20px;">
+					<div class="modal-title " >
+						<h5>Amazon Excel upload</h5>
+					</div>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-body">
+					<input type="file" id="excel-file" class="form-control-file" size="100">
+                    <a href="excel\ConverTemp.xlsx">Donload Temp File</a>
+				</div>
+
+				<div class="modal-footer">
+					<button class="btn btn-outline-dark" id="excelUp">OK</button>
+					<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal End-->
+		<!-- Modal Start-->
+		<div id="MsgModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+		data-keyboard="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color:lightseagreen; color:white;font-size: 20px;">
+					<div class="modal-title " >
+						<h5>Excel File UpLoad NG of Message</h5>
+					</div>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+					<div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+						<center> 
+							<table id="jqGridMsg" class="table table-bordered "></table>
+							<div id="jqGridMsgPager"></div>
+						</center> 
+					</div>
+					</div>
+					</div>
+				</div>
+
+				<div class="modal-footer " style="text-align:center;">
+					<button type="button" class="btn btn-outline-dark" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal End-->
+
+	<!--Bottom Start-->
+
+	<div id="bottom"></div>
+	<!--Bottom End-->
+	<!---------------------------Load   include File-------------------- -->
+
+	<script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+	<script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+	<script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+	<!-- jquery-loading v1.3.0 -->
+	<link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+	<script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+	
+	<script type="text/javascript" src="UI/js/BPMglobal.js"></script>
+	<script type="text/javascript" src="UI/js/AmazonTo204.js"></script>
+
+
+
+</BODY>
+
+</HTML>

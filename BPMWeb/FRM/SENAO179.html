@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>進貨請款申請單</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="form_name" class="formLabelClass">進貨請款申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="表單附件">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao179m001" >表單代號</span>
+              </div>
+              <input type="text" id="senao179m001" name="senao179m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="btn_Print" name="btn_Print" value="列印表單">
+          </div>
+          <div class="col-md">
+            <a id="link1" href="#" class="formLinkClass">操作手冊</a>
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao179m002">表單單號</span>
+              </div>
+              <input type="text" id="senao179m002 " name="senao179m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="lbl_Info" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_dept_no">申請單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="dept_no" name="dept_no" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_dept_name">lbl_dept_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="dept_name" name="dept_name" autocomplete="off">
+                </div>
+				      </div>    
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_userid">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="userid" name="userid" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="userid_b1" name="userid_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_user_name">lbl_user_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="user_name" name="user_name" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_apply_date">申請日期</span>
+                  </div>
+                 <input type="text" class="form-control " id="apply_date" name="apply_date" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_buyerid">採購員</span>
+                  </div>
+                  <input type="text" class="form-control" id="buyerid" name="buyerid" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="buyerid_b2" name="buyerid_b2">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_buyer_name">lbl_buyer_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="buyer_name" name="buyer_name" autocomplete="off">
+                </div>
+              </div>     
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_vendor_id">廠商</span>
+                  </div>
+                  <input type="text" class="form-control col-md-5" id="vendor_id" name="vendor_id" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="vendor_id_b1" name="vendor_id_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_vendor_name">lbl_vendor_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="vendor_name" name="vendor_name" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="d-flex">
+              <!------------------------------------左邊------------------------------------------->
+              <div class="mb-0" style="width: 40%;">
+                <!------------------------------------row 1-------------------------------------------->
+                <div class="row m-0 p-0">
+                  <div class="col-md ">
+                    <div class="input-group mb-3">
+                      <div class=" input-group-prepend">
+                        <span class="input-group-text bg-white formLabelClass" id="lbl_invoice_method">發票開立方式</span>
+                      </div>
+                      <!--radio改為下拉選單-->
+                      <select class="form-control" id="invoice_method" name="invoice_method"></select>
+                    </div>
+                  </div>
+                  <!--
+                  <div class="col-md d-flex align-items-stretch">
+                    <div style="display: flex; flex-direction: column; justify-content: center;height: 100%;">
+                      <span class="input-group-text bg-white formLabelClass h-100 mb-3 d-flex align-items-center justify-content-center" id="lbl_invoice_method">
+                        發票開立方式
+                      </span>
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1 mb-2" style="width: 100%;">
+                      <div class="input-group mb-3">
+                        <div class="form-check" style="margin-top: 0.5rem;margin-left: 24px;">
+                          <input class="form-check-input" type="radio" id="invoice_method_0" name="invoice_method" value="Consolidated">
+                          <label class="form-check-label formLabelClass" for="invoice_method_0">
+                            彙開
+                          </label>
+                        </div>
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="form-check" style="margin-top: 0.5rem; margin-left: 24px;">
+                          <input class="form-check-input" type="radio" id="invoice_method_1" name="invoice_method" value="Single">
+                          <label class="form-check-label formLabelClass" for="invoice_method_1">
+                            非彙開
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  -->
+                  
+                </div> 
+                <!------------------------------------左邊 row end-------------------------------------------->
+              </div>
+              <!-----------------------------------右邊------------------------------------------->
+              <div class="mb-0" style="width: 60%;">
+                <!------------------------------------row 1-------------------------------------------->
+                <div class="row m-0 p-0">
+                  <div class="col-md d-flex align-items-stretch">
+                    <div style="display: flex; flex-direction: column; justify-content: center;  height: 100%;">
+                      <span class="input-group-text bg-white formLabelClass h-100 mb-3 d-flex align-items-center justify-content-center" id="lbl_e_Invoice_yn">
+                        電子發票交換(Y/N)
+                      </span>
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                      <div class="input-group ">
+                        <input type="text" class="form-control " id="e_Invoice_yn" name="e_Invoice_yn" autocomplete="off">
+                        <input type="button" id="btn_einvoice" name="btn_einvoice" value="電子發票"> 
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <!------------------------------------row 2-------------------------------------------->
+                <div class="row m-0 p-0">
+                  <div class="col-md d-flex align-items-stretch">
+                    <div style="display: flex; flex-direction: column; justify-content: center;height: 100%;">
+                      <span class="input-group-text bg-white formLabelClass h-100 mb-3 d-flex align-items-center justify-content-center" id="lbl_Invoice_firm">
+                        廠商Invoice請款
+                      </span>
+                    </div>
+                    <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                      <div class="input-group mb-1">
+                        <div class="form-check" style="margin-top: 0.5rem; margin-left: 12px;">
+                          <input class="form-check-input" type="checkbox" id="Invoice_firm_0" name="Invoice_firm" value="Y">
+                          <label class="form-check-label formLabelClass" for="Invoice_firm_0" style="margin-right: 16px; ">
+                            Y
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <!------------------------------------右邊 row end-------------------------------------------->
+              </div>
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_vendor_site">帳戶名稱</span>
+                  </div>
+                  <input type="text" class="form-control " id="vendor_site" name="vendor_site" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="vendor_site_b1" name="vendor_site_b1">...</button>
+                  </div>
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_tax_id_number">統一編號</span>
+                  </div>
+                 <input type="text" class="form-control " id="tax_id_number" name="tax_id_number" autocomplete="off">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_payment_terms">付款條件</span>
+                  </div>
+                  <input type="text" class="form-control " id="payment_terms" name="payment_terms" autocomplete="off">
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_payment_currency">付款幣別</span>
+                  </div>
+                 <input type="text" class="form-control " id="payment_currency" name="payment_currency" autocomplete="off">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_acceptance_date">最後驗收日</span>
+                  </div>
+                  <input type="text" class="form-control " id="acceptance_date" name="acceptance_date" autocomplete="off">
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_delivery_date">最後入庫日</span>
+                  </div>
+                 <input type="text" class="form-control " id="delivery_date" name="delivery_date" autocomplete="off">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_payable_notes_type">應付憑單</span>
+                  </div>
+                  <input type="text" class="form-control col-md-2" id="payable_notes_type" name="payable_notes_type" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_payable_notes_no">lbl_payable_notes_no</span>
+                  </div>
+                  <input type="text" class="form-control" id="payable_notes_no" name="payable_notes_no" autocomplete="off">
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_terms_date">Terms Date</span>
+                  </div>
+                 <input type="date" class="form-control" id="terms_date" name="terms_date" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 10-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_waybill">Waybill</span>
+                  </div>
+                  <input type="text" class="form-control " id="waybill" name="waybill" autocomplete="off">
+                </div>
+              </div>               
+            </div>
+            <!------------------------------------row 11-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_delivery_interval">彙開入庫區間</span>
+                  </div>
+                  <select class="form-control" id="delivery_interval" name="delivery_interval">
+                    <option value>---Selection---</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="col-md text-center mb-3" style="width: 100%; ">
+                  <input type="button" id="btn_import_data" name="btn_import_data" value="帶出彙開入庫區間的資料" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 12-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_delivery_interval_start">彙開入庫區間起</span>
+                  </div>
+                  <select class="form-control" id="start_year" name="start_year">
+                    <option value>---Selection---</option>
+                  </select>
+                  <input type="text" class="form-control " id="delivery_interval_start" name="delivery_interval_start" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_delivery_interval_end">彙開入庫區間迄</span>
+                  </div>
+                  <select class="form-control" id="end_year" name="end_year">
+                    <option value>---Selection---</option>
+                  </select>
+                  <input type="text" class="form-control " id="delivery_interval_end" name="delivery_interval_end" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 13-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 offset-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_declaration">進口報單號碼</span>
+                  </div>
+                  <input type="text" class="form-control " id="declaration" name="declaration" autocomplete="off">
+                </div>
+              </div>               
+            </div>
+            <!------------------------------------row 14-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_voucher_number">發票號碼</span>
+                  </div>
+                  <input type="text" class="form-control " id="voucher_number" name="voucher_number" autocomplete="off">
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_invoice_no">Invoice No</span>
+                  </div>
+                  <span id="lbl_invprefix" class="formLabelClass" style=" margin-top: 0.5rem; margin-left: 6px;">INV-</span>
+                  <input type="text" class="form-control " id="invoice_no" name="invoice_no" autocomplete="off">
+                </div>
+              </div>               
+            </div>
+            <!------------------------------------row 15-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_voucher_date">發票日期</span>
+                  </div>
+                  <input type="date" class="form-control" id="voucher_date" name="voucher_date" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_invoice_date">Invoice日期</span>
+                  </div>
+                 <input type="date" class="form-control" id="invoice_date" name="invoice_date" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 16-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_voucher_rate">發票匯率</span>
+                  </div>
+                  <input type="text" class="form-control " id="voucher_rate" name="voucher_rate" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_invoice_rate">Invoice 匯率</span>
+                  </div>
+                 <input type="text" class="form-control " id="invoice_rate" name="invoice_rate" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 17-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_original_tax_excluded">銷售額(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="original_tax_excluded" name="original_tax_excluded" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_local_tax_excluded">銷售額(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="local_tax_excluded" name="local_tax_excluded" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 18------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_original_tax">營業稅(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="original_tax" name="original_tax" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_local_tax">營業稅(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="local_tax" name="local_tax" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 19-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_original_total_amount">總計(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="original_total_amount" name="original_total_amount" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_local_total_amount">總計(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="local_total_amount" name="local_total_amount" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 20-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_original_tax_excluded_diff">銷售額差額(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="original_tax_excluded_diff" name="original_tax_excluded_diff" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_local_tax_excluded_diff">銷售額差額(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="local_tax_excluded_diff" name="local_tax_excluded_diff" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 21-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_original_tax_diff">營業稅差額(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="original_tax_diff" name="original_tax_diff" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_local_tax_diff">營業稅差額(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="local_tax_diff" name="local_tax_diff" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 22-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_exception_handling">異常處理方式</span>
+                  </div>
+                  <select class="form-control " id="exception_handling" name="exception_handling">
+                    <option value>---Selection---</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_accounting_subject">會科</span>
+                  </div>
+                 <input type="text" class="form-control " id="accounting_subject" name="accounting_subject" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 21-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text bg-white formLabelClass h-100 mb-3 d-flex align-items-center justify-content-center" id="lbl_advance">
+                    提前付款
+                  </span>
+                  <div class="form-check" style="margin-top: 0.5rem; margin-left: 12px;">
+                    <input class="form-check-input" type="checkbox" id="advance_0" name="advance" value="Y">
+                    <label class="form-check-label formLabelClass" for="advance_0" style="margin-right: 16px; ">
+                      提前付款
+                    </label>
+                  </div>
+                </div>
+				      </div>         
+            </div>
+            <!------------------------------------row 23-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_memo">備註</span>
+                  </div>
+                  <textarea class="form-control " id="memo" name="memo" rows="6"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>  
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btn_del" name="btn_del">刪除</button>
+                <button type="button" class="btn btn-secondary " id="btn_export" name="btn_export">匯出Excel</button>
+              </div>
+            </div>
+            <!------------------------------------row 24------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md offset-md-4">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text formLabelClass" id="lbl_list_totamt" style="background-color: #bcfaff;">明細總金額(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="list_totamt" name="list_totamt" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text formLabelClass" id="lbl_list_totamt_local" style="background-color: #bcfaff;">明細總金額(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="list_totamt_local" name="list_totamt_local" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 25-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md offset-md-4">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text formLabelClass" id="lbl_list_tax_orig" style="background-color: #bcfaff;">明細稅額(原幣)</span>
+                  </div>
+                  <input type="text" class="form-control " id="list_tax_orig" name="list_tax_orig" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text formLabelClass" id="lbl_list_tax_local" style="background-color: #bcfaff;">明細稅額(本幣)</span>
+                  </div>
+                 <input type="text" class="form-control " id="list_tax_local" name="list_tax_local" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------ 單身 Grid 1--------------------------------------------> 
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_vendor_site_id">lbl_vendor_site_id</span>
+    <input type="text" id="vendor_site_id" name="vendor_site_id" placeholder="vendor_site_id">
+    <span id="lbl_payment_terms_id">lbl_payment_terms_id</span>
+    <input type="text" id="payment_terms_id" name="payment_terms_id" placeholder="payment_terms_id">
+    <span id="lbl_IsTrigger">lbl_IsTrigger</span>
+    <input type="text" id="IsTrigger" name="IsTrigger" placeholder="IsTrigger">
+    <span id="lbl_ApproveLevel">lbl_ApproveLevel</span>
+    <input type="text" id="ApproveLevel" name="ApproveLevel" placeholder="ApproveLevel">
+    <span id="lbl_vendor_oracle_id">lbl_vendor_oracle_id</span>
+    <input type="text" id="vendor_oracle_id" name="vendor_oracle_id" placeholder="vendor_oracle_id">
+    <span id="lbl_OverAcceptance">lbl_OverAcceptance</span>
+    <input type="text" id="OverAcceptance" name="OverAcceptance" placeholder="OverAcceptance">
+    <span id="lbl_hdn_formnumber_title">lbl_hdn_formnumber_title</span>
+    <input type="text" id="hdn_formnumber_title" name="hdn_formnumber_title" placeholder="hdn_formnumber_title">
+    <span id="lbl_isUnderFactor">lbl_isUnderFactor</span>
+    <input type="text" id="isUnderFactor" name="isUnderFactor" placeholder="isUnderFactor">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

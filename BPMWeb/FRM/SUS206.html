@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Return Form</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">Sales Return Form</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto mb-3 ">
+            <input type="button" id="btn_CreditMemo" name="btn_CreditMemo" value="Print CreditMemo">
+          </div>
+        </div>
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="Attachment">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m001" >FormID</span>
+              </div>
+              <input type="text" id="senao206m001" name="senao206m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m002">SheetNo</span>
+              </div>
+              <input type="text" id="senao206m002" name="senao206m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_note_subject">Subject</span>
+              </div>
+              <input type="text" id="note_subject" name="note_subject" class="form-control" autocomplete="off">
+
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------Info-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="Label5" class="formLabelClass">Info</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">Company</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">Factory</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m004">Department</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m004" name="senao206m004" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206m006">lbl_senao206m006</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m006" name="senao206m006" autocomplete="off">
+
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m003">Applicant</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206m003" name="senao206m003" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m003_b1" name="senao206m003_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206m005">lbl_senao206m005</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m005" name="senao206m005" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m010">Customer Number</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206m010" name="senao206m010" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m010_b1" name="senao206m010_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206m010_t1">lbl_senao206m010_t1</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m010_t1" name="senao206m010_t1" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m031">Sales Person</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206m031" name="senao206m031" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m031_b1" name="senao206m031_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206m032">lbl_senao206m032</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m032" name="senao206m032" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+			      <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center mb-3" id="Label26">
+                    Bill-To <br> Address
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                  <div class="input-group ">
+                    <div class=" input-group-prepend">
+                      <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m033">Company Name :</span>
+                    </div>
+                    <input type="text" class="form-control" id="senao206m033" name="senao206m033" autocomplete="off">
+                  </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="senao206m012" name="senao206m012" autocomplete="off">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span id="Label29" class="textred formLabelClass">Please follow the address format like [Road],[City],[State],[Postal Code],[Country]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center mb-3" id="Label30">
+                    Ship-To <br> Address
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="senao206m013" name="senao206m013" autocomplete="off">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span id="Label32" class="textred formLabelClass">Please follow the address format like [Road],[City],[State],[Postal Code],[Country]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m034">Ship To Mail</span>
+                  </div>
+                  <input type="text" id="senao206m034" name="senao206m034" class="form-control" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m007">Order Number</span>
+                  </div>
+                  <input type="text" id="senao206m007" name="senao206m007" class="form-control" autocomplete="off" style="color: red;" value="From Oracle after Form Approved">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m008">Date Ordered</span>
+                  </div>
+                  <input type="text" id="senao206m008" name="senao206m008" class="form-control" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m024">Order Type</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m024" name="senao206m024" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m024_b1" name="senao206m024_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m011">Ship Via</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m011" name="senao206m011" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m011_b1" name="senao206m011_b1">...</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m035">Customer PO</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206m035" name="senao206m035" autocomplete="off"> 
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m028">RMA No</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206m028" name="senao206m028" autocomplete="off"> 
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m029">RMA Type</span>
+                  </div>
+                  <select class="form-control" id="senao206m029" name="senao206m029"></select>
+
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 10------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m014">Payment Term</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m014" name="senao206m014" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m014_b1" name="senao206m014_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m015">FOB</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m015" name="senao206m015" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m015_b1" name="senao206m015_b1">...</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 11-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m022">Price List</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m022" name="senao206m022" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m022_b1" name="senao206m022_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m701">Transaction Date</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m701" name="senao206m701" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206m701_b1" name="senao206m701_b1">...</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 12-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-auto ">
+                <div class="input-group mb-3">
+                  <span class="input-group-text bg-white formLabelClass" id="Label48" style="margin-right: 8px;">Total Ammount(wo/vat)</span>
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206m018">Currency</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m018" name="senao206m018" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206m019">lbl_senao206m019</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206m019" name="senao206m019" autocomplete="off">
+
+                </div>
+				      </div>      
+            </div>
+            <!------------------------------------row 13-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_senao206m030">Note</span>
+                  </div>
+                  <textarea class="form-control " id="senao206m030" name="senao206m030" rows="4"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------ Info row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------ Data List ------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="Label123" class="formLabelClass">Data List</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Orig_Order_Type">Original Order Type</span>
+                  </div>
+                  <input type="text" class="form-control " id="Orig_Order_Type" name="Orig_Order_Type" autocomplete="off"> 
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Orig_Order_Type_b1" name="Orig_Order_Type_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <input type="button" id="ShowOrderLine" name="ShowOrderLine" value="Choose Order Info">
+              </div>
+            </div> 
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d004">Item No</span>
+                  </div>
+                  <input type="text" class="form-control col-md-3" id="senao206d004" name="senao206d004" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206d004_b1" name="senao206d004_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206d005">lbl_senao206d005</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206d005" name="senao206d005" autocomplete="off">
+
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d019">US Item</span>
+                    
+                  </div>
+                  <input type="text" class="form-control col-md-3" id="senao206d019" name="senao206d019" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao206d020">lbl_senao206d020</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao206d020" name="senao206d020" autocomplete="off">
+
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d006">Qty</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d006" name="senao206d006" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d007">Unit</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d007" name="senao206d007" autocomplete="off"> 
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d008">Unit Selling Price</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d008" name="senao206d008" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d021">Unit Current Price</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d021" name="senao206d021" autocomplete="off">
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d009">Currency</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d009" name="senao206d009" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d010">Total</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d010" name="senao206d010" autocomplete="off">
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d013">Return Reason</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d013" name="senao206d013" autocomplete="off"> 
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206d013_b1" name="senao206d013_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gsenao206d012">Schedule_Ship_Date</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d012" name="senao206d012" autocomplete="off"> 
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206d012_b1" name="senao206d012_b1">...</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d013_ORA">Lookup Code</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d013_ORA" name="senao206d013_ORA" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d011">Comment</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d011" name="senao206d011" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d022">Refound Ratio</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d022" name="senao206d022" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d024">Kit</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d024" name="senao206d024" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 10-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d026">Tax Rate</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d026" name="senao206d026" autocomplete="off"> 
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao206d026_b1" name="senao206d026_b1">...</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d025">BIN</span>
+                  </div>
+                  <select class="form-control" id="senao206d025" name="senao206d025"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 11-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d003">Line REF</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d003" name="senao206d003" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 12-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d027">Order No</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d027" name="senao206d027" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao206d028">Line No</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao206d028" name="senao206d028" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btnAdd" name="btnAdd">新增</button>
+                <button type="button" class="btn btn-secondary " id="btnEdit" name="btnEdit">修改</button>
+                <button type="button" class="btn btn-secondary " id="btnDel" name="btnDel">刪除</button>
+              </div>
+              <div class="col-auto ">
+                <button type="button" class="btn btn-secondary " id="btnExport" name="btnExport">Excel Export</button>
+              </div>
+            </div>
+            <!------------------------------------Grid1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ Data List row end-------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_senao206m004_ORA">lbl_senao206m004_ORA</span>
+    <input type="text" id="gsenao206m004_ORA" name="gsenao206m004_ORA" placeholder="gsenao206m004_ORA">
+    <span id="lbl_senao206m010_t2">lbl_senao206m010_t2</span>
+    <input type="text" id="gsenao206m010_t2" name="gsenao206m010_t2" placeholder="gsenao206m010_t2">
+    <span id="lbl_senao206m010_ORA">lbl_senao206m010_ORA</span>
+    <input type="text" id="gsenao206m010_ORA" name="gsenao206m010_ORA" placeholder="gsenao206m010_ORA">
+    <span id="lbl_senao206m003_ORA">lbl_senao206m003_ORA</span>
+    <input type="text" id="gsenao206m003_ORA" name="gsenao206m003_ORA" placeholder="gsenao206m003_ORA">
+    <span id="lbl_senao206m014_ORA">lbl_senao206m014_ORA</span>
+    <input type="text" id="senao206m014_ORA" name="senao206m014_ORA" placeholder="senao206m014_ORA">
+    <span id="lbl_senao206m022_ORA">lbl_senao206m022_ORA</span>
+    <input type="text" id="gsenao206m022_ORA" name="gsenao206m022_ORA" placeholder="gsenao206m022_ORA">
+    <span id="lbl_senao206d014">lbl_senao206d014</span>
+    <input type="text" id="senao206d014" name="senao206d014" placeholder="senao206d014">
+    <span id="lbl_senao206d014_ORA">lbl_senao206d014_ORA</span>
+    <input type="text" id="senao206d014_ORA" name="senao206d014_ORA" placeholder="senao206d014_ORA">
+    <span id="lbl_senao206d015">lbl_senao206d015</span>
+    <input type="text" id="senao206d015" name="senao206d015" placeholder="senao206d015">
+    <span id="lbl_senao206d015_ORA">lbl_senao206d015_ORA</span>
+    <input type="text" id="senao206d015_ORA" name="senao206d015_ORA" placeholder="senao206d015_ORA">
+    <span id="lbl_senao206d018">lbl_senao206d018</span>
+    <input type="text" id="senao206d018" name="senao206d018" placeholder="senao206d018">
+    <span id="lbl_senao206d016">lbl_senao206d016</span>
+    <input type="text" id="senao206d016" name="senao206d016" placeholder="senao206d016">
+    <span id="lbl_senao206d017">lbl_senao206d017</span>
+    <input type="text" id="senao206d017" name="senao206d017" placeholder="senao206d017">
+    <span id="lbl_senao206d023">lbl_senao206d023</span>
+    <input type="text" id="senao206d023" name="senao206d023" placeholder="senao206d023">
+    <span id="lbl_senao206d004_ORA">lbl_senao206d004_ORA</span>
+    <input type="text" id="senao206d004_ORA" name="senao206d004_ORA" placeholder="senao206d004_ORA">
+    <span id="lbl_sysCheckFieldData">lbl_sysCheckFieldData</span>
+    <input type="text" id="sysCheckFieldData" name="sysCheckFieldData" placeholder="sysCheckFieldData">
+    <span id="lbl_senao206m020">lbl_senao206m020</span>
+    <input type="text" id="senao206m020" name="senao206m020" placeholder="senao206m020">
+    <span id="lbl_hdn_is0250">lbl_hdn_is0250</span>
+    <input type="text" id="hdn_is0250" name="hdn_is0250" placeholder="hdn_is0250">
+    <span id="lbl_hdn_isGM">lbl_hdn_isGM</span>
+    <input type="text" id="hdn_isGM" name="hdn_isGM" placeholder="hdn_isGM">
+    <span id="lbl_senao206m007_ORA">lbl_senao206m007_ORA</span>
+    <input type="text" id="hdn_senao206m007_ORA" name="hdn_senao206m007_ORA" placeholder="hdn_senao206m007_ORA">
+    <span id="lbl_Orig_Order_Type_id">lbl_Orig_Order_Type_id</span>
+    <input type="text" id="Orig_Order_Type_id" name="Orig_Order_Type_id" placeholder="Orig_Order_Type_id">
+    <span id="lbl_hdn_glinedata">lbl_hdn_glinedata</span>
+    <input type="text" id="hdn_glinedata" name="hdn_glinedata" placeholder="hdn_glinedata">
+    <span id="lbl_senao206d029">lbl_senao206d029</span>
+    <input type="text" id="senao206d029" name="senao206d029" placeholder="senao206d029">
+    <span id="lbl_senao206m004_License">lbl_senao206m004_License</span>
+    <input type="text" id="senao206m004_License" name="senao206m004_License" placeholder="senao206m004_License">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

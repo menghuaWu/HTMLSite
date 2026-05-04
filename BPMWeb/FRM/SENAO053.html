@@ -1,0 +1,291 @@
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>留職停薪申請單</title>
+
+</head>
+-->
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">留職停薪申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053001" >表單代號</span>
+              </div>
+              <input type="text" id="senao053001" name="senao053001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto">
+            <div class="input-group mb-5">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053002">表單單號</span>
+              </div>
+              <input type="text" id="senao053002" name="senao053002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <!------------------------------------row 0-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+              </div>
+              <select class="form-control" id="form_ou" name="form_ou"></select>
+            </div>
+          </div>
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區別(不必填)</span>
+              </div>
+              <select class="form-control" id="form_org" name="form_org"></select>
+            </div>
+          </div>
+        </div>
+        <!------------------------------------row 1-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053004">所屬部門</span>
+              </div>
+              <input type="text" class="form-control" id="senao053004" name="senao053004" autocomplete="off">
+              <div class="input-group-append">
+                <button type="button" class="btn btn-secondary " id="senao053004_b1" name="senao053004_b1">...</button>
+              </div>
+              <div class=" input-group-text bg-white formLabelClass d-none"> 
+                <span id="lbl_senao053004_t1">lbl_senao053004_t1</span>
+              </div>
+              <input type="text" class="form-control" id="senao053004_t1" name="senao053004_t1" autocomplete="off">
+            </div>
+          </div>
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053003">申請人</span>
+              </div>
+              <input type="text" class="form-control " id="senao053003" name="senao053003" autocomplete="off">
+              <div class="input-group-append">
+                <button type="button" class="btn btn-secondary " id="senao053003_b1" name="senao053003_b1">...</button>
+              </div>
+              <div class=" input-group-text bg-white formLabelClass d-none"> 
+                <span id="lbl_senao053003_t1">lbl_senao053003_t1</span>
+              </div>
+              <input type="text" class="form-control" id="senao053003_t1" name="senao053003_t1" autocomplete="off">
+            </div>
+          </div>            
+        </div>
+        <!------------------------------------row 2-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053005">職稱</span>
+              </div>
+              <input type="text" class="form-control" id="senao053005" name="senao053005" autocomplete="off">
+              <div class=" input-group-text bg-white formLabelClass d-none"> 
+                <span id="lbl_senao053006">lbl_senao053006</span>
+              </div>
+              <input type="text" class="form-control" id="senao053006" name="senao053006" autocomplete="off">
+            </div>
+          </div> 
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053010">到職日</span>
+              </div>
+              <input type="text" class="form-control" id="senao053010" name="senao053010" autocomplete="off">
+            </div>
+          </div>           
+        </div>
+        <!------------------------------------row 3-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md-6 ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053007">申請日期</span>
+              </div>
+              <input type="text" class="form-control" id="senao053007" name="senao053007" autocomplete="off">
+            </div>
+          </div>            
+        </div>
+        <!------------------------------------row 4-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-white formLabelClass" id="Label29">留職停薪</span>
+              <span id="Label30" class="formLabelClass" style="margin-top: 0.5rem; margin-right: 12px; margin-left: 12px;">
+                自
+              </span>
+              <input type="date" class="form-control col-md-3" id="senao053011_Date" name="senao053011_Date" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+              <span id="Label31" class="formLabelClass" style="margin-top: 0.5rem; margin-left: 12px;">
+                起
+              </span>
+              <span id="Label33" class="formLabelClass" style="margin-top: 0.5rem; margin-right: 12px; margin-left: 2rem;">
+                至
+              </span>
+              <input type="date" class="form-control col-md-3" id="senao053012_Date" name="senao053012_Date" autocomplete="off" pattern="\d{4}-\d{2}-\d{2}">
+              <span id="Label34" class="formLabelClass" style="margin-top: 0.5rem;  margin-left: 12px;">
+                止
+              </span>
+            </div>
+          </div>           
+        </div>
+        <!------------------------------------row 5-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md d-flex align-items-stretch">
+            <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%;"class=" input-group-prepend">
+              <span class="input-group-text bg-white formLabelClass h-100 mb-3 d-flex align-items-center justify-content-center" id="Label35">
+                申請原因
+              </span>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+              <div class="input-group ">
+                <select class="form-control col-md-6" id="senao053013" name="senao053013">
+                  <option value>---</option>
+                  <option value="1">重大事故</option>
+                  <option value="2">私事出國</option>
+                  <option value="3">兵役</option>
+                  <option value="4">傷病</option>
+                  <option value="5">育嬰</option>
+                  <option value="99">其他</option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <textarea class="form-control" id="senao053014" name="senao053014" rows="3" autocomplete="off"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!------------------------------------row 6-------------------------------------------->
+        <div class="row m-0 p-0"> 
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053017">審核條件</span>
+              </div>
+              <!--radio改為下拉選單-->
+              <select class="form-control" id="senao053017" name="senao053017">
+                <option value>---</option>
+                <option value="Y">符合留職停薪條件者</option>
+                <option value="N">(非)符合留職停薪條件者</option>
+              </select>
+            </div>
+          </div>
+          <!--
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <span id="lbl_senao053017" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem;">審核條件</span>
+              <div class="form-check" style="margin-top: 0.5rem;">
+                <input class="form-check-input" type="radio" id="senao053017_0" name="senao053017" value="Y">
+                <label class="form-check-label formLabelClass" for="senao053017_0" style="margin-right: 10rem; ">
+                  符合留職停薪條件者
+                </label>
+              </div>
+              <div class="form-check"  style="margin-top: 0.5rem;">
+                <input class="form-check-input" type="radio" id="senao053017_1" name="senao053017" value="N">
+                <label class="form-check-label formLabelClass" for="senao053017_1" >
+                  (非)符合留職停薪條件者
+                </label>
+              </div>
+            </div>
+          </div>   
+          -->    
+        </div>
+        <!------------------------------------row 7-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053015">建議事項</span>
+              </div>
+              <textarea class="form-control " id="senao053015" name="senao053015" rows="5"autocomplete="off"></textarea>
+            </div>  
+          </div>        
+        </div>
+        <!------------------------------------row 8-------------------------------------------->
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao053016">備註</span>
+              </div>
+              <textarea class="form-control " id="senao053016" name="senao053016" rows="5"autocomplete="off"></textarea>
+            </div>  
+          </div>        
+        </div>
+        <!------------------------------------row end-------------------------------------------->
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_isUnderChairman">lbl_isUnderChairman</span>
+    <input type="text" id="isUnderChairman" name="isUnderChairman" placeholder="isUnderChairman">
+    <span id="lbl_hidsex">lbl_hidsex</span>
+    <input type="text" id="hidsex" name="hidsex" placeholder="hidsex">
+    <span id="lbl_senao053004_Oid">lbl_senao053004_Oid</span>
+    <input type="text" id="senao053004_Oid" name="senao053004_Oid" placeholder="senao053004_Oid">
+    <span id="lbl_senao053011">lbl_senao053011</span>
+    <input type="text" id="senao053011" name="senao053011" placeholder="senao053011">
+    <span id="lbl_senao053012">lbl_senao053012</span>
+    <input type="text" id="senao053012" name="senao053012" placeholder="senao053012">
+    <span id="lbl_senao053013_m">lbl_senao053013_m</span>
+    <input type="text" id="senao053013_m" name="senao053013_m" placeholder="senao053013_m">
+    <span id="lbl_senao053014_m">lbl_senao053014_m</span>
+    <input type="text" id="senao053014_m" name="senao053014_m" placeholder="senao053014_m">
+    <span id="lbl_senao053015_m">lbl_senao053015_m</span>
+    <input type="text" id="senao053015_m" name="senao053015_m" placeholder="senao053015_m">
+    <span id="lbl_senao053016_m">lbl_senao053016_m</span>
+    <input type="text" id="senao053016_m" name="senao053016_m" placeholder="senao053016_m">
+    <span id="lbl_hdnSupervisor">lbl_hdnSupervisor</span>
+    <input type="text" id="hdnSupervisor" name="hdnSupervisor" placeholder="hdnSupervisor">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <!--
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/BPMWeb/FRM/UI/js/SENAO053.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

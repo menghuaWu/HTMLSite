@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>轉M-BOM申請單</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="lblFormName" class="formLabelClass">轉M-BOM申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao181m001" >表單代號</span>
+              </div> 
+              <input type="text" id="senao181m001" name="senao181m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md "><input type="button" id="btn_Print" name="btn_Print" value="列印表單">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao181m002">表單單號</span>
+              </div>
+              <input type="text" id="senao181m002" name="senao181m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="lblInfo" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區別</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtDeptId">申請單位</span>
+                  </div>  
+                  <input type="text" class="form-control" id="txtDeptId" name="txtDeptId" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtDeptName">lbl_txtDeptName</span>
+                  </div>
+                  <input type="text" class="form-control" id="txtDeptName" name="txtDeptName" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtUserId">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtUserId" name="txtUserId" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="btnUserId" name="btnUserId">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtUserName">lbl_txtUserName</span>
+                  </div>
+                  <div class="input-group-append">
+                    <input type="text" class="form-control" id="txtUserName" name="txtUserName" autocomplete="off">
+                  </div>
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtApplicationDate">申請日期</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtApplicationDate" name="txtApplicationDate" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtCompletionDate">完成日期</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtCompletionDate" name="txtCompletionDate" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtProjectCode">Project Code</span>
+                  </div>  
+                  <input type="text" class="form-control" id="txtProjectCode" name="txtProjectCode" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtProjectName">lbl_txtProjectName</span>
+                  </div>
+                  <input type="text" class="form-control" id="txtProjectName" name="txtProjectName" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtModelOpenApprovalSN">核准書單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtModelOpenApprovalSN" name="txtModelOpenApprovalSN" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtModel">機種名稱</span>
+                  </div>  
+                  <input type="text" class="form-control col-md-3" id="txtModel" name="txtModel" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtModelName">lbl_txtModelName</span>
+                  </div>
+                  <input type="text" class="form-control" id="txtModelName" name="txtModelName" autocomplete="off">
+                </div>
+				      </div>           
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtPartNumber">料號</span>
+                  </div>  
+                  <input type="text" class="form-control" id="txtPartNumber" name="txtPartNumber" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtDescription">品名</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtDescription" name="txtDescription" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtCustomer">客戶名稱</span>
+                  </div>  
+                  <input type="text" class="form-control col-md-3" id="txtCustomer" name="txtCustomer" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtCustomerName">lbl_txtCustomerName</span>
+                  </div>
+                  <input type="text" class="form-control" id="txtCustomerName" name="txtCustomerName" autocomplete="off">
+                </div>
+				      </div>           
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <span id="lbl_chkOpenStage" class="formLabelClass input-group-text bg-white" style="margin-right: 2rem;">開放階段</span>
+                  <div class="form-check" style="margin-top: 0.5rem; margin-right: 2rem;">
+                    <input class="form-check-input" type="checkbox" id="chkOpenStage_0" name="chkOpenStage" value="S3">
+                    <label class="form-check-label formLabelClass" for="chkOpenStage_0">
+                      S3試作(PVT量試)
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="chkOpenStage_1" name="chkOpenStage" value="S5">
+                    <label class="form-check-label formLabelClass" for="chkOpenStage_1">
+                      S5量試(MP量產)
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_rdoBOMVersion">BOM版次</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="rdoBOMVersion" name="rdoBOMVersion"></select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <span id="lbl_rdoBOMVersion" class="formLabelClass" style="margin-right: 4rem;">BOM版次</span>
+                  <div class="form-check col-md-4">
+                    <input class="form-check-input" type="radio" id="rdoBOMVersion_0" name="rdoBOMVersion" value="V1">
+                    <label class="form-check-label formLabelClass" for="rdoBOMVersion_0">
+                      新機種(V1.00)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="rdoBOMVersion_1" name="rdoBOMVersion" value="V2">
+                    <label class="form-check-label formLabelClass" for="rdoBOMVersion_1">
+                      衍生(V2.00)
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->        
+            </div> 
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_txaMemo">備註</span>
+                  </div>
+                  <textarea class="form-control " id="txaMemo" name="txaMemo" rows="5"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------ 階層表明細 ------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="lblLevelTableDetail" class="formLabelClass">階層表明細</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtLevelPN">階層料號</span>
+                  </div>
+                  <input type="text" class="form-control col-md-3" id="txtLevelPN" name="txtLevelPN" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="btnLevelPN" name="btnLevelPN">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_txtLevelDescription">lbl_txtLevelDescription</span>
+                  </div>
+                  <input type="text" class="form-control" id="txtLevelDescription" name="txtLevelDescription" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtLevelStatus">Status</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtLevelStatus" name="txtLevelStatus" autocomplete="off"> 
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_txtBOMType">BOM Type</span>
+                  </div>
+                  <input type="text" class="form-control " id="txtBOMType" name="txtBOMType" autocomplete="off"> 
+                </div>
+              </div>
+            </div> 
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btnAdd" name="btnAdd">新增</button>
+                <button type="button" class="btn btn-secondary " id="btnDel" name="btnDel">刪除</button>
+              </div>
+            </div>
+            <!------------------------------------Grid-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 階層表明細 row end-------------------------------------------->
+          </div>
+        </div>
+        <!------------------------------------ 會簽單位 -------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="lblCountersignatureUnit" class="formLabelClass">會簽單位</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="d-flex">
+              <!------------------------------------Before the Data Change-------------------------------------------->
+              <div class="card mb-3" style="width: 50%;">
+                <div class="card-header" style="width: 100%; background-color:#acacac;">
+                  <h6 class="text-center">
+                    <span id="lblHost" class="formLabelClass">主辦</span>
+                  </h6>
+                </div>
+                <div class="card-body p-1 m-2">
+                  <!------------------------------------row 1-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend ">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtPMSalesId" style="width:90px;">PM/業務</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="btnPMSalesId" name="btnPMSalesId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnLevelPN" name="btnLevelPN">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtPMSalesName">lbl_txtPMSalesName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtPMSalesName" name="txtPMSalesName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 2-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtHWId" style="width:90px;">HW</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtHWId" name="txtHWId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnHWId" name="btnHWId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtHWName">lbl_txtHWName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtHWName" name="txtHWName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 3-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtSWId" style="width:90px;">SW</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtSWId" name="txtSWId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnSWId" name="btnSWId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtSWName">lbl_txtSWName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtSWName" name="txtSWName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 4-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtPowerId" style="width:90px;">POWER</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtPowerId" name="txtPowerId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnPowerId" name="btnPowerId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtPowerName">lbl_txtPowerName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtPowerName" name="txtPowerName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 5-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtANTId" style="width:90px;">ANT</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtANTId" name="txtANTId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnANTId" name="btnANTId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtANTName">lbl_txtANTName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtANTName" name="txtANTName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 6-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtMEId" style="width:90px;">ME</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtMEId" name="txtMEId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnMEId" name="btnMEId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtMEName">lbl_txtMEName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtMEName" name="txtMEName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 7-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtIDId" style="width:90px;">ID</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtIDId" name="txtIDId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnIDId" name="btnIDId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtIDName">lbl_txtIDName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtIDName" name="txtIDName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 8-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-3">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtIEId" style="width:90px;">IE</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtIEId" name="txtIEId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnIEId" name="btnIEId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtIEName">lbl_txtIEName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtIEName" name="txtIEName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------row 9-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md ">
+                      <div class="input-group mb-0">
+                        <div class=" input-group-prepend">
+                          <span class="input-group-text bg-white formLabelClass" id="lbl_txtEEId" style="width:90px;">EE</span>
+                        </div>
+                        <input type="text" class="form-control col-md-4" id="txtEEId" name="txtEEId" autocomplete="off">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-secondary " id="btnEEId" name="btnEEId">...</button>
+                        </div>
+                        <div class=" input-group-text bg-white formLabelClass d-none"> 
+                          <span id="lbl_txtEEName">lbl_txtEEName</span>
+                        </div>
+                        <input type="text" class="form-control" id="txtEEName" name="txtEEName" autocomplete="off">
+                      </div>
+                    </div>            
+                  </div>
+                  <!------------------------------------主辦 row end-------------------------------------------->
+                </div>
+              </div>
+              <!------------------------------------備註------------------------------------------>
+              <div class="card mb-3" style="width: 50%;">
+                <div class="card-header" style="width: 100%; background-color:#acacac;">
+                  <h6 class="text-center">
+                    <span id="lblMemo" class="formLabelClass">備註</span>
+                  </h6>
+                </div>
+                <div class="card-body p-1  m-2" >
+                  <!------------------------------------row 1-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtPMSalesMemo" name="txtPMSalesMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 2-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtHWMemo" name="txtHWMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 3-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtSWMemo" name="txtSWMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 4-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtPowerMemo" name="txtPowerMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 5-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtANTMemo" name="txtANTMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 6-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtMEMemo" name="txtMEMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 7-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtIDMemo" name="txtIDMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 8-------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control " id="txtIEMemo" name="txtIEMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------row 9------------------------------------------->
+                  <div class="row m-0 p-0">
+                    <div class="col-md">
+                      <div class="input-group mb-0">
+                        <input type="text" class="form-control " id="txtEEMemo" name="txtEEMemo" autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                  <!-----------------------------------備註 row end-------------------------------------------->
+                </div>
+              </div>
+            </div>
+            <!------------------------------------會簽單位 row end-------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_Grid1">lbl_Grid1</span>
+    <input type="text" id="Grid1" name="Grid1" placeholder="Grid1">
+    <span id="lbl_hdnLevelPNId">lbl_hdnLevelPNId</span>
+    <input type="text" id="hdnLevelPNId" name="hdnLevelPNId" placeholder="hdnLevelPNId">
+    <span id="lbl_hdnBOMType">lbl_hdnBOMType</span>
+    <input type="text" id="hdnBOMType" name="hdnBOMType" placeholder="hdnBOMType">
+    <span id="lbl_hdnPartNumberId">lbl_hdnPartNumberId</span>
+    <input type="text" id="hdnPartNumberId" name="hdnPartNumberId" placeholder="hdnPartNumberId">
+    <span id="lbl_hdnPMSalesManagerId">lbl_hdnPMSalesManagerId</span>
+    <input type="text" id="hdnPMSalesManagerId" name="hdnPMSalesManagerId" placeholder="hdnPMSalesManagerId">
+    <span id="lbl_hdnPMSalesManagerName">lbl_hdnPMSalesManagerName</span>
+    <input type="text" id="hdnPMSalesManagerName" name="hdnPMSalesManagerName" placeholder="hdnPMSalesManagerName">
+    <span id="lbl_hdnHWManagerId">lbl_hdnHWManagerId</span>
+    <input type="text" id="hdnHWManagerId" name="hdnHWManagerId" placeholder="hdnHWManagerId">
+    <span id="lbl_hdnHWManagerName">lbl_hdnHWManagerName</span>
+    <input type="text" id="hdnHWManagerName" name="hdnHWManagerName" placeholder="hdnHWManagerName">
+    <span id="lbl_hdnSWManagerId">lbl_hdnSWManagerId</span>
+    <input type="text" id="hdnSWManagerId" name="hdnSWManagerId" placeholder="hdnSWManagerId">
+    <span id="lbl_hdnSWManagerName">lbl_hdnSWManagerName</span>
+    <input type="text" id="hdnSWManagerName" name="hdnSWManagerName" placeholder="hdnSWManagerName">
+    <span id="lbl_hdnPowerManagerId">lbl_hdnPowerManagerId</span>
+    <input type="text" id="hdnPowerManagerId" name="hdnPowerManagerId" placeholder="hdnPowerManagerId">
+    <span id="lbl_hdnPowerManagerName">lbl_hdnPowerManagerName</span>
+    <input type="text" id="hdnPowerManagerName" name="hdnPowerManagerName" placeholder="hdnPowerManagerName">
+    <span id="lbl_hdnANTManagerId">lbl_hdnANTManagerId</span>
+    <input type="text" id="hdnANTManagerId" name="hdnANTManagerId" placeholder="hdnANTManagerId">
+    <span id="lbl_hdnANTManagerName">lbl_hdnANTManagerName</span>
+    <input type="text" id="hdnANTManagerName" name="hdnANTManagerName" placeholder="hdnANTManagerName">
+    <span id="lbl_hdnMEManagerId">lbl_hdnMEManagerId</span>
+    <input type="text" id="hdnMEManagerId" name="hdnMEManagerId" placeholder="hdnMEManagerId">
+    <span id="lbl_hdnMEManagerName">lbl_hdnMEManagerName</span>
+    <input type="text" id="hdnMEManagerName" name="hdnMEManagerName" placeholder="hdnMEManagerName">
+    <span id="lbl_hdnIDManagerId">lbl_hdnIDManagerId</span>
+    <input type="text" id="hdnIDManagerId" name="hdnIDManagerId" placeholder="hdnIDManagerId">
+    <span id="lbl_hdnIDManagerName">lbl_hdnIDManagerName</span>
+    <input type="text" id="hdnIDManagerName" name="hdnIDManagerName" placeholder="hdnIDManagerName">
+    <span id="lbl_hdnEEManagerId">lbl_hdnEEManagerId</span>
+    <input type="text" id="hdnEEManagerId" name="hdnEEManagerId" placeholder="hdnEEManagerId">
+    <span id="lbl_hdnEEManagerName">lbl_hdnEEManagerName</span>
+    <input type="text" id="hdnEEManagerName" name="hdnEEManagerName" placeholder="hdnEEManagerName">
+    <span id="lbl_hdnIEManagerId">lbl_hdnIEManagerId</span>
+    <input type="text" id="hdnIEManagerId" name="hdnIEManagerId" placeholder="hdnIEManagerId">
+    <span id="lbl_hdnIEManagerName">lbl_hdnIEManagerName</span>
+    <input type="text" id="hdnIEManagerName" name="hdnIEManagerName" placeholder="hdnIEManagerName">
+    <span id="lbl_hdnModelOpenApprovalIssuer">lbl_hdnModelOpenApprovalIssuer</span>
+    <input type="text" id="hdnModelOpenApprovalIssuer" name="hdnModelOpenApprovalIssuer" placeholder="hdnModelOpenApprovalIssuer">
+    <span id="lbl_hdnPhaseOutDate">lbl_hdnPhaseOutDate</span>
+    <input type="text" id="hdnPhaseOutDate" name="hdnPhaseOutDate" placeholder="hdnPhaseOutDate">
+    <span id="lbl_hdnStatus">lbl_hdnStatus</span>
+    <input type="text" id="hdnStatus" name="hdnStatus" placeholder="hdnStatus">
+    <span id="lbl_hdn106ProcessSN">lbl_hdn106ProcessSN</span>
+    <input type="text" id="hdn106ProcessSN" name="hdn106ProcessSN" placeholder="hdn106ProcessSN">
+    <span id="lbl_hdnFormInstOID_180">lbl_hdnFormInstOID_180</span>
+    <input type="text" id="hdnFormInstOID_180" name="hdnFormInstOID_180" placeholder="hdnFormInstOID_180">
+    <span id="lbl_hdnItemType">lbl_hdnItemType</span>
+    <input type="text" id="hdnItemType" name="hdnItemType" placeholder="hdnItemType">
+    <span id="lbl_hdnMethod">lbl_hdnMethod</span>
+    <input type="text" id="hdnMethod" name="hdnMethod" placeholder="hdnMethod">
+    <span id="lbl_hdnFormDefOID">lbl_hdnFormDefOID</span>
+    <input type="text" id="hdnFormDefOID" name="hdnFormDefOID" placeholder="hdnFormDefOID">
+    <span id="lbl_hdnFormInstOID">lbl_hdnFormInstOID</span>
+    <input type="text" id="hdnFormInstOID" name="hdnFormInstOID" placeholder="hdnFormInstOID">
+    <span id="lbl_hdnFormFieldValues">lbl_hdnFormFieldValues</span>
+    <input type="text" id="hdnFormFieldValues" name="hdnFormFieldValues" placeholder="hdnFormFieldValues">
+    <span id="lbl_hdnDocFileName">lbl_hdnDocFileName</span>
+    <input type="text" id="hdnDocFileName" name="hdnDocFileName" placeholder="hdnDocFileName">
+    <span id="lbl_hdnSignedFieldValues">lbl_hdnSignedFieldValues</span>
+    <input type="text" id="hdnSignedFieldValues" name="hdnSignedFieldValues" placeholder="hdnSignedFieldValues">
+    <span id="lbl_hdnDraftSubject">lbl_hdnDraftSubject</span>
+    <input type="text" id="hdnDraftSubject" name="hdnDraftSubject" placeholder="hdnDraftSubject">
+    <span id="lbl_hdnDraftHeaderOID">lbl_hdnDraftHeaderOID</span>
+    <input type="text" id="hdnDraftHeaderOID" name="hdnDraftHeaderOID" placeholder="hdnDraftHeaderOID">
+    <span id="lbl_hdnWorkItemOID">lbl_hdnWorkItemOID</span>
+    <input type="text" id="hdnWorkItemOID" name="hdnWorkItemOID" placeholder="hdnWorkItemOID">
+    <span id="lbl_hdnTabIndex">lbl_hdnTabIndex</span>
+    <input type="text" id="hdnTabIndex" name="hdnTabIndex" placeholder="hdnTabIndex">
+    <span id="lbl_hdnClientTimeZone">lbl_hdnClientTimeZone</span>
+    <input type="text" id="hdnClientTimeZone" name="hdnClientTimeZone" placeholder="hdnClientTimeZone">
+    <span id="lbl_hdnRequestSendTime">lbl_hdnRequestSendTime</span>
+    <input type="text" id="hdnRequestSendTime" name="hdnRequestSendTime" placeholder="hdnRequestSendTime"> 
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

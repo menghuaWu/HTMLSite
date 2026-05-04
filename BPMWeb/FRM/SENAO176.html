@@ -1,0 +1,1063 @@
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>離職申請單</title>
+
+</head>
+-->
+
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">離職申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md"><input type="button" id="Attachment" name="Attachment" value="表單附件">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao176m001">表單代號</span>
+              </div>
+              <input type="text" id="senao176m001" name="senao176m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao176m002">表單單號</span>
+              </div>
+              <input type="text" id="senao176m002" name="senao176m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料(HR)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="lbl_Info" class="formLabelClass">基本資料(HR)</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區(不必填)</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_userid">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="userid" name="userid" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="userid_b1" name="userid_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_user_name">lbl_user_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="user_name" name="user_name" autocomplete="off"> 
+                </div>
+              </div> 
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Date_of_Reported">到職日</span>
+                  </div>
+                 <input type="text" class="form-control " id="Date_of_Reported" name="Date_of_Reported" autocomplete="off" readonly>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Department">部門</span>
+                  </div>
+                  <input type="text" class="form-control" id="Department" name="Department" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_Department_name">lbl_Department_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="Department_name" name="Department_name" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_is_manager">是否為主管</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="is_manager" name="is_manager">
+                    <option value=""></option>
+                    <option value="Y">是</option>
+                    <option value="N">否</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_is_manager" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">是否為主管</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="is_manager_0" name="is_manager" value="Y">
+                    <label class="form-check-label formLabelClass" for="is_manager_0" style="margin-right: 8rem;">
+                      是
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="is_manager_1" name="is_manager" value="N">
+                    <label class="form-check-label formLabelClass" for="is_manager_1">
+                      否
+                    </label>
+                  </div>
+                </div>
+              </div> 
+              -->
+              
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_job_level">職等</span>
+                  </div>
+                  <input type="text" class="form-control" id="job_level" name="job_level" autocomplete="off">
+                </div>
+              </div> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_job_title">職稱</span>
+                  </div>
+                  <input type="text" class="form-control" id="job_title" name="job_title" autocomplete="off">
+                </div>
+              </div>              
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_labor_type">直間接員工</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="labor_type" name="labor_type">
+                    <option value=""></option>
+                    <option value="DL">直接</option>
+                    <option value="IDL">間接</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_labor_type" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">直間接員工</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="labor_type_0" name="labor_type" value="DL">
+                    <label class="form-check-label formLabelClass" for="labor_type_0" style="margin-right: 8rem;">
+                      直接
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="labor_type_1" name="labor_type" value="IDL">
+                    <label class="form-check-label formLabelClass" for="labor_type_1">
+                      間接
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_application_date">申請日期</span>
+                  </div>
+                  <input type="date" class="form-control" id="application_date" name="application_date" autocomplete="off"  placeholder="YYYY/MM/DD" pattern="\d{4}/\d{2}/\d{2}">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_last_date">最後工作日</span>
+                  </div>
+                  <input type="date" class="form-control" id="last_date" name="last_date" autocomplete="off" placeholder="YYYY/MM/DD" pattern="\d{4}/\d{2}/\d{2}">
+                </div>
+              </div> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Effective_Released_Date">離職生效日</span>
+                  </div>
+                  <input type="text" class="form-control" id="Effective_Released_Date" name="Effective_Released_Date" autocomplete="off" readonly>
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 6------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Is_RD" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">是否為RD</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Is_RD_0" name="Is_RD" value="Y">
+                    <label class="form-check-label formLabelClass" for="Is_RD_0">
+                      RD
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Is_Approve_MFG_Asst">是否簽核至MFG助理</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Is_Approve_MFG_Asst" name="Is_Approve_MFG_Asst">
+                    <option value=""></option>
+                    <option value="Y">是</option>
+                    <option value="N">否</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Is_Approve_MFG_Asst" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">是否簽核至MFG助理</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Is_Approve_MFG_Asst_0" name="Is_Approve_MFG_Asst" value="Y">
+                    <label class="form-check-label formLabelClass" for="Is_Approve_MFG_Asst_0" style="margin-right: 8rem;">
+                      是
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Is_Approve_MFG_Asst_1" name="Is_Approve_MFG_Asst" value="N">
+                    <label class="form-check-label formLabelClass" for="Is_Approve_MFG_Asst_1">
+                      否
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="lbl_memo0" class="formLabelClass textred" style="margin-left: 16px;">
+                  備註:
+                </span>
+              </div>           
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="lbl_memo1" class="formLabelClass textred" style="margin-left: 16px;">
+                  1. 離職生效日是最後工作日之次一日，離職生效前皆視為員工在職日，並依此為薪資計算之基礎。
+                </span>
+              </div>           
+            </div>
+            <!------------------------------------row 9-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="lbl_memo2_1" class="formLabelClass textred" style="margin-left: 16px;">
+                  2. 最後工作日前一日不得請假或為休假日、例假日或國定假日，且最後工作日當日員工應全天到職。
+                </span>
+              </div>           
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------確認單(單位主管)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="lbl_Confirm" class="formLabelClass">確認單(單位主管)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_last_date" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem;  margin-left: 6px;">確認最後工作日</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_last_date_0" name="Confirm_last_date" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_last_date_0">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Successor_id">指派交接人</span>
+                  </div>
+                  <input type="text" class="form-control " id="Successor_id" name="Successor_id" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Successor_b1" name="Successor_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_Successor_name">lbl_Successor_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="Successor_name" name="Successor_name" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Supervisor_opinion">單位主管意見</span>
+                  </div>
+                  <textarea class="form-control " id="Supervisor_opinion" name="Supervisor_opinion" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 3------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_Handover_completed" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">確認同仁完成交接</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_Handover_completed_0" name="Confirm_Handover_completed" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_Handover_completed_0">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="Label94" class="formLabelClass textred" style="margin-left: 16px;">
+                  備註:
+                </span>
+              </div>           
+            </div>
+            <!------------------------------------row 5-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="Label95" class="formLabelClass textred" style="margin-left: 16px;">
+                  M365信箱、One Drive、Teams的資料將於30天後刪除，如需備份則請離職同仁備份到電腦內並提供給交接人。
+                </span>
+              </div>           
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="mb-2">
+                <span id="Label96" class="formLabelClass textred" style="margin-left: 16px;">
+                  如有備份問題可聯繫MIS協助備份。
+                </span>
+              </div>           
+            </div>
+            <!-----------------------------------確認單(單位主管)-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------離職會簽單(申請人)------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="lbl_Resignation" class="formLabelClass">離職會簽單(申請人)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Resignation_reason">離職原因說明</span>
+                  </div>
+                  <textarea class="form-control " id="Resignation_reason" name="Resignation_reason" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 2------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Is_custody_seal">是否有保管印信</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Is_custody_seal" name="Is_custody_seal">
+                    <option value=""></option>
+                    <option value="N">否</option>
+                    <option value="Y">是</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Is_custody_seal" class="formLabelClass" style="margin-right: 48px; margin-top: 0.5rem; margin-left: 6px;">是否有保管印信</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Is_custody_seal_0" name="Is_custody_seal" value="N">
+                    <label class="form-check-label formLabelClass" for="Is_custody_seal_0" style="margin-right: 7rem;">
+                      否
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Is_custody_seal_1" name="Is_custody_seal" value="Y">
+                    <label class="form-check-label formLabelClass" for="Is_custody_seal_1">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Person_in_custody_id">移交保管人</span>
+                  </div>
+                  <input type="text" class="form-control " id="Person_in_custody_id" name="Person_in_custody_id" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Person_in_custody_id_b1" name="Person_in_custody_id_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_Person_in_custody_name">lbl_Person_in_custody_name</span>
+                  </div>
+                  <input type="text" class="form-control" id="Person_in_custody_name" name="Person_in_custody_name" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------row 3------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Is_no_unclaimed" class="formLabelClass" style="margin-right: 48px; margin-top: 0.5rem; margin-left: 6px;">確認無未請款項目</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Is_no_unclaimed_0" name="Is_no_unclaimed" value="Y">
+                    <label class="form-check-label formLabelClass" for="Is_no_unclaimed_0">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Upload_files" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">工作交接清冊上傳</span>
+                  <a id="Upload_files_link1" href="/BPMWeb/doc/SENAO176/工作交接清冊(空白).doc" class="formLinkClass"style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;" target="_blank">工作交接清冊樣版(下載)</a>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 5------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="Label179" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">填寫離職問卷</span>
+                  <a id="Link90" href="/BPMWeb/doc/SENAO176/工作交接清冊(空白).doc" class="formLinkClass"style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;" target="_blank">離職問卷</a>
+                </div>
+              </div>
+            </div>
+            <!-----------------------------------離職會簽單(申請人) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!-----------------------------------工作交接清冊(交接人)------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="lbl_HandoverDocument" class="formLabelClass">工作交接清冊(交接人)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Completion_of_handover" class="formLabelClass" style="margin-right: 3rem; margin-top: 0.5rem; margin-left: 6px;">工作已完成交接</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Completion_of_handover_0" name="Completion_of_handover" value="Y">
+                    <label class="form-check-label formLabelClass" for="Completion_of_handover_0">
+                      是，已完成交接
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-----------------------------------工作交接清冊(交接人) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!-----------------------------------離職會簽單(會簽單位)------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="lbl_CountersignatureUnit" class="formLabelClass">離職會簽單(會簽單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+          <!-----------------------------------離職會簽單(會簽單位) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!-----------------------------------(DCC)------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_DCC" class="formLabelClass">(DCC)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_RD_log" class="formLabelClass" style="margin-right: 24px; margin-top: 0.5rem; margin-left: 6px;">研發日誌繳回確認</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_RD_log_0" name="Confirm_RD_log" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_RD_log_0">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_DCC_remark">DCC 備註</span>
+                  </div>
+                  <textarea class="form-control " id="DCC_remark" name="DCC_remark" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!-----------------------------------(DCC) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------(總務單位)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_General_affairs" class="formLabelClass">(總務單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Transfer_of_fixed_assets_NO">不動產、廠房及設備移轉申請單單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="Transfer_of_fixed_assets_NO" name="Transfer_of_fixed_assets_NO" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Transfer_of_fixed_assets_NO_b1" name="Transfer_of_fixed_assets_NO_b1">...</button>
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Disposal_of_fixed_assets_NO">不動產、廠房及設備處分申請單單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="Disposal_of_fixed_assets_NO" name="Disposal_of_fixed_assets_NO" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Disposal_of_fixed_assets_NO_b1" name="Disposal_of_fixed_assets_NO_b1">...</button>
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_fixed_assets" class="formLabelClass" style="margin-right: 3rem; margin-top: 0.5rem; margin-left: 6px;">固定資產轉移確認</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_fixed_assets_0" name="Confirm_fixed_assets" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_fixed_assets_0">
+                      是
+                    </label>
+                  </div>
+                </div>
+              </div>
+               <div class="col-auto ">
+                <button type="button" class="btn btn-secondary d-none" id="Export1" name="Export1">匯出Excel</button>
+              </div>
+            </div>
+            <!------------------------------------Grid1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md mb-3">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Receive_Parking_Permit">停車證繳回確認</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Receive_Parking_Permit" name="Receive_Parking_Permit">
+                    <option value=""></option>
+                    <option value="Y">已繳回或無停車證</option>
+                    <option value="N">否，已與申請人確認繳費</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Receive_Parking_Permit" class="formLabelClass" style="margin-right: 48px; margin-top: 0.5rem; margin-left: 6px;">停車證繳回確認</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Receive_Parking_Permit_0" name="Receive_Parking_Permit" value="Y">
+                    <label class="form-check-label formLabelClass" for="Receive_Parking_Permit_0" style="margin-right: 10rem;">
+                      已繳回或無停車證
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Receive_Parking_Permit_1" name="Receive_Parking_Permit" value="N">
+                    <label class="form-check-label formLabelClass" for="Receive_Parking_Permit_1">
+                      否，已與申請人確認繳費
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+            </div>
+            <!-----------------------------------(總務單位) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------(財務單位)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_Finance" class="formLabelClass">(財務單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Seal">印信卡</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Seal" name="Seal">
+                    <option value=""></option>
+                    <option value="N">無保管</option>
+                    <option value="Y">是，已確認移交</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Seal" class="formLabelClass" style="margin-right: 48px; margin-top: 0.5rem; margin-left: 6px;">印信卡</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Seal_0" name="Seal" value="N">
+                    <label class="form-check-label formLabelClass" for="Seal_0" style="margin-right: 3rem;">
+                      無保管
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Seal_1" name="Seal" value="Y">
+                    <label class="form-check-label formLabelClass" for="Seal_1">
+                      是，已確認移交
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Petty_Cash_Custodian">零用金保管人清查</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Petty_Cash_Custodian" name="Petty_Cash_Custodian">
+                    <option value=""></option>
+                    <option value="N">無保管</option>
+                    <option value="Y">是，已確認移交</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Petty_Cash_Custodian" class="formLabelClass" style="margin-right: 48px; margin-top: 0.5rem; margin-left: 6px;">零用金保管人清查</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Petty_Cash_Custodian_0" name="Petty_Cash_Custodian" value="N">
+                    <label class="form-check-label formLabelClass" for="Petty_Cash_Custodian_0" style="margin-right: 3rem;">
+                      無保管
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Petty_Cash_Custodian_1" name="Petty_Cash_Custodian" value="Y">
+                    <label class="form-check-label formLabelClass" for="Petty_Cash_Custodian_1">
+                      是，已確認清查
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Finance_remark">財務備註</span>
+                  </div>
+                  <textarea class="form-control " id="Finance_remark" name="Finance_remark" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!-----------------------------------(財務單位) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------(會計單位)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_Accounting" class="formLabelClass">(會計單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Confirm_Accounts_Receivable">應收帳款清查(備註)</span>
+                  </div>
+                  <textarea class="form-control " id="Confirm_Accounts_Receivable" name="Confirm_Accounts_Receivable" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Confirm_Cash_Advance">備支款項清查(備註)</span>
+                  </div>
+                  <textarea class="form-control " id="Confirm_Cash_Advance" name="Confirm_Cash_Advance" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!-----------------------------------(會計單位) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------(人資單位)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_HR" class="formLabelClass">(人資單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_training_expats_fee" class="formLabelClass" style="margin-right: 5rem; margin-top: 0.5rem; margin-left: 6px;">派外訓練費用</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_training_expats_fee_0" name="Confirm_training_expats_fee" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_training_expats_fee_0">
+                      是，已確認清查
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Training_of_PaymentForm_NO">訓練費請款單記錄</span>
+                  </div>
+                  <input type="text" class="form-control " id="Training_of_PaymentForm_NO" name="Training_of_PaymentForm_NO" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Training_of_PaymentForm_NO_b1" name="Training_of_PaymentForm_NO_b1">...</button>
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <!------------------------------------row 3------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_IsConfirm_HRPortal" class="formLabelClass" style="margin-right: 5rem; margin-top: 0.5rem; margin-left: 6px;">HR Portal清單及異常出勤清查</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="IsConfirm_HRPortal_0" name="IsConfirm_HRPortal" value="Y">
+                    <label class="form-check-label formLabelClass" for="IsConfirm_HRPortal_0">
+                      是，已清查表單
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Cancel_Modify_Attendance_NO">人事結案註銷申請記錄</span>
+                  </div>
+                  <input type="text" class="form-control " id="Cancel_Modify_Attendance_NO" name="Cancel_Modify_Attendance_NO" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Cancel_Modify_Attendance_NO_b1" name="Cancel_Modify_Attendance_NO_b1">...</button>
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <!------------------------------------row 5------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Exit_interviews" class="formLabelClass" style="margin-right: 5rem; margin-top: 0.5rem; margin-left: 6px;">離職面談</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Exit_interviews_0" name="Exit_interviews" value="Y">
+                    <label class="form-check-label formLabelClass" for="Exit_interviews_0">
+                      是，已離職面談完畢
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row m-0 p-0">
+              <div class="col-md-3">
+                <div class="input-group ">
+                  <a id="Link92" href="#" class="formLinkClass" style=" margin-top: 0.5rem; " target="_blank">離職面談連結</a>
+                </div>
+              </div>
+            </div>
+            <br>
+            <!------------------------------------row 6------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_CFM_Maternity_Child_allowance" class="formLabelClass" style=" margin-top: 0.5rem; margin-left: 6px; width: 300px;">生育托兒津貼補助</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="CFM_Maternity_Child_allowance_0" name="CFM_Maternity_Child_allowance" value="Y">
+                    <label class="form-check-label formLabelClass" for="CFM_Maternity_Child_allowance_0">
+                      是，已確認清查
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 7------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_Uniform_fee" class="formLabelClass" style="margin-top: 0.5rem; margin-left: 6px; width: 300px;">制服扣款(製造處)</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_Uniform_fee_0" name="Confirm_Uniform_fee" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_Uniform_fee_0">
+                      是，已確認清查
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 8------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_Group_meals" class="formLabelClass" style=" margin-top: 0.5rem; margin-left: 6px; width: 300px;">團膳伙食費(自付)扣款確認</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="checkbox" id="Confirm_Group_meals_0" name="Confirm_Group_meals" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_Group_meals_0">
+                      是，已確認清查
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 9------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Confirm_Cards">識別證/門禁卡/座位桌牌/電梯卡</span>
+                  </div>
+                  <!--radio改為下拉選單-->
+                  <select class="form-control" id="Confirm_Cards" name="Confirm_Cards">
+                    <option value=""></option>
+                    <option value="Y">是，已確認繳回</option>
+                    <option value="N">否，未繳回需繳費</option>
+                  </select>
+                </div>
+              </div>
+              <!--
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_Confirm_Cards" class="formLabelClass" style="margin-right: 3rem; margin-top: 0.5rem; margin-left: 6px;">識別證/門禁卡/座位桌牌/電梯卡</span>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Confirm_Cards_0" name="Confirm_Cards" value="Y">
+                    <label class="form-check-label formLabelClass" for="Confirm_Cards_0" style="margin-right: 10rem;">
+                      是，已確認繳回
+                    </label>
+                  </div>
+                  <div class="form-check" style="margin-top: 0.5rem;">
+                    <input class="form-check-input" type="radio" id="Confirm_Cards_1" name="Confirm_Cards" value="N">
+                    <label class="form-check-label formLabelClass" for="Confirm_Cards_1">
+                      否，未繳回需繳費
+                    </label>
+                  </div>
+                </div>
+              </div>
+              -->
+              
+            </div>
+            <!------------------------------------row 10-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_HR_remark">HR 備註</span>
+                  </div>
+                  <textarea class="form-control " id="HR_remark" name="HR_remark" rows="3"autocomplete="off"></textarea>
+                </div>
+              </div> 
+            </div>
+            <!-----------------------------------(人資單位) row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------(資訊單位)-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#c5f4e7;">
+            <h6 class="text-center">
+              <span id="lbl_MIS" class="formLabelClass">(資訊單位)</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0"> 
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_Closed_System_Privileges_NO">關閉系統權限申請單單號</span>
+                  </div>
+                  <input type="text" class="form-control " id="Closed_System_Privileges_NO" name="Closed_System_Privileges_NO" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="Closed_System_Privileges_NO_b1" name="Closed_System_Privileges_NO_b1">...</button>
+                  </div>
+                </div>
+              </div>      
+            </div>
+            <!-----------------------------------(資訊單位) row end-------------------------------------------->   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_hdn_formnumber_title">lbl_hdn_formnumber_title</span>
+    <input type="text" id="hdn_formnumber_title" name="hdn_formnumber_title" placeholder="hdn_formnumber_title">
+    <span id="lbl_hdn_EmployeeJobCName">lbl_hdn_EmployeeJobCName</span>
+    <input type="text" id="hdn_EmployeeJobCName" name="hdn_EmployeeJobCName" placeholder="hdn_EmployeeJobCName">
+    <span id="lbl_HiddenCheckLink">lbl_HiddenCheckLink</span>
+    <input type="text" id="HiddenCheckLink" name="HiddenCheckLink" placeholder="HiddenCheckLink">
+    <span id="lbl_HiddenCheckLink92">lbl_HiddenCheckLink92</span>
+    <input type="text" id="HiddenCheckLink92" name="HiddenCheckLink92" placeholder="HiddenCheckLink92">
+    <span id="lbl_hdn_bp_group">lbl_hdn_bp_group</span>
+    <input type="text" id="hdn_bp_group" name="hdn_bp_group" placeholder="hdn_bp_group">
+    <span id="lbl_hdn_decision">lbl_hdn_decision</span>
+    <input type="text" id="hdn_decision" name="hdn_decision" placeholder="hdn_decision">
+    <span id="lbl_hdn_m_is_manager">lbl_hdn_m_is_manager</span>
+    <input type="text" id="hdn_m_is_manager" name="hdn_m_is_manager" placeholder="hdn_m_is_manager">
+    <span id="lbl_hdn_m_labor_type">lbl_hdn_m_labor_type</span>
+    <input type="text" id="hdn_m_labor_type" name="hdn_m_labor_type" placeholder="hdn_m_labor_type">
+    <span id="lbl_hdn_is_onboard_longer_or_equal_to_6_months">lbl_hdn_is_onboard_longer_or_equal_to_6_months</span>
+    <input type="text" id="hdn_is_onboard_longer_or_equal_to_6_months" name="hdn_is_onboard_longer_or_equal_to_6_months" placeholder="hdn_is_onboard_longer_or_equal_to_6_months">
+    <span id="lbl_HiddenUserId">lbl_HiddenUserId</span>
+    <input type="text" id="HiddenUserId" name="HiddenUserId" placeholder="HiddenUserId">
+
+    <span id="lbl_hdn_manager">lbl_hdn_manager</span>
+    <input type="text" id="hdn_manager" name="hdn_manager" placeholder="hdn_manager">
+    <span id="lbl_hdn_bp_group">lbl_hdn_bp_group</span>
+    <input type="text" id="hdn_bp_group" name="hdn_bp_group" placeholder="hdn_bp_group">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <!--
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>
+-->
+  
+
+  <script type="text/javascript" src="/BPMWeb/FRM/UI/js/SENAO176.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

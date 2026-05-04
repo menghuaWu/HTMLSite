@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+
+<HEAD>
+	<META CHARSET="utf-8">
+	<META NAME="viewport" CONTENT="width=device-width, initial-scale=1">
+	<TITLE> EZFlow- Menu</TITLE>
+
+
+</HEAD>
+<style>
+	.ui-jqgrid tr.jqgrow td {
+		white-space: normal !important;
+		height: auto;
+		vertical-align: text-top;
+		padding-top: 2px;
+	}
+</style>
+
+<BODY>
+	<!---Menu Start--->
+	<div id='menu'></div>
+	<!---Menu End--->
+
+
+
+
+	<!--Body content Start-->
+
+	<main role="main" id="main">
+
+		<!--Body Content End-->
+		<section class="section1">
+			<div class="container-fluid">
+				<div class="accordion" id="accordion">
+
+				</div>
+
+			</div>
+
+		</section>
+		<!-- Modal Start-->
+		<div id="returnModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true"
+			data-backdrop="static" data-keyboard="true">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-header" style="background-color:lightseagreen; color:white;font-size: 20px;">
+						<div class="modal-title ">
+							<h5>Batch Return</h5>
+						</div>
+						<button type="button" class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+
+					</div>
+
+					<div class="modal-body">
+						<table id="BatchReturnTable" class="table   display " width="100%"></table>
+					</div>
+
+					<div class="modal-footer">
+						<button class="btn btn-outline-dark" id="ConfirmBtn">Confirm</button>
+						<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal End-->
+		<!--Bottom Start-->
+
+		<div id="bottom"></div>
+		<!--Bottom End-->
+		<!---------------------------Load   include File-------------------- -->
+		<!--<script type='text/javascript' src='/GBLWeb/API/jquery-3.4.1/js/jquery-3.4.1.min.js'></script>
+		<script type='text/javascript' src='/GBLWeb/API/bootstrap-4.6.2-dist/js/bootstrap.bundle.min.js'></script>
+		<link href='/GBLWeb/API/bootstrap-4.6.2-dist/css/bootstrap.min.css' rel='stylesheet' type='text/css' />
+		<script type="text/javascript" src="UI/js/api-1.0.js"></script>
+		<script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+	
+     <link href='/GBLWeb/API/fontawesome-free-5.11.2/css/all.min.css' rel='stylesheet' type='text/css' />-->
+		<script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+		<script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+		<!-- jquery-loading v1.3.0 -->
+		<link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+		<script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+		<!-- DataTables  -->
+		<link href="/GBLWeb/API/DataTables/datatables.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="/GBLWeb/API/DataTables/datatables.min.js"></script>
+		<script type="text/javascript" src="UI/js/BPMglobal.js"></script>
+		<script type="text/javascript" src="UI/js/index.js"></script>
+
+
+
+
+</BODY>
+
+</HTML>

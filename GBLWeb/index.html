@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>GBL - Home</title>
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/templatemo-style.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .templatemo-top-nav-container {padding-top: 10px; padding-bottom: 10px}
+      .flex-content-row {padding:1px}
+      .templatemo-content-container {padding:1px}
+    </style>
+	
+    <script type="text/ecmascript" src="js/jquery-1.11.2.min.js"></script>
+	<!-- include Html  function Start------>
+	<script type="text/ecmascript" src="js/includeHtml.js"></script>
+	<!-- include Html  function End ------>
+    <script>    
+		var autthToken="";
+		var siteInvoke = {"DBSWeb":"invoke","DPSWeb":"invoke2","SFCWeb":"invoke3","RMAWeb":"invoke4","WMSWeb":"invoke5"}
+		var browseURL =  document.location.href;		
+		var pathURL = browseURL.replace(document.location.origin,"").substring(1);
+		var siteName = pathURL.substring(0,pathURL.indexOf("/"));		
+		var baseURL = document.location.origin + "/MES/";
+		var invokeURL = baseURL + siteInvoke[siteName]+"?sCode=";	
+		autthToken = getcooky("token");        
+		if(autthToken!=""){
+			$.ajaxSetup({
+				headers : {
+					'Authorization' : 'Bearer ' + autthToken
+				}
+			});
+			bllogin = true;
+		}else{				  
+			document.location.href = "login.html?cb=index.html";
+		}
+		function getcooky(name){
+			var x = document.cookie;
+			var c_array = x.split(";");
+			var retVal="";
+			for(var i = 0;i<c_array.length;i++){
+			  	if(c_array[i].trim().indexOf(name+"=")==0){
+			  		retVal = c_array[i].substring(c_array[i].indexOf("=")+1);
+			  		break;
+			  	}
+			}
+  			return retVal;
+		}
+      
+		function chkHaveSQLVar(webapi){
+			var vars=0;
+			$.ajax({
+			    type: "POST",
+			    contentType: "application/json; charset=utf-8",
+			    url: invokeURL+"ChkHaveSQLVar",
+			    dataType: "json",
+			    data : JSON.stringify({p:webapi}) ,
+			    async:false,
+				success: function (JSONdata) {
+					if(JSONdata.length>0){
+						vars = JSONdata[0].COUNT;
+					}
+				}
+			});
+			return vars;
+		}
+      
+		function goapi(api){
+			$(".templatemo-content-container").css({'height':($(window).height()-$(".templatemo-top-nav-container").height()-30)+'px'});
+			var sqlvar = 0;
+			sqlvar = chkHaveSQLVar(api);
+			var querydiv = "";
+			var contentdiv = "";
+			if(sqlvar>0){
+			  //querydiv = "<div class='templatemo-content-widget white-bg col-2'></div>";
+			}
+			contentdiv += "<div class='templatemo-flex-row flex-content-row'>";
+			contentdiv += "<div class='templatemo-content-widget white-bg col-2'>";
+			contentdiv += "<iframe id='frmgrid2' src='grid.html?api="+api+"' frameborder='0' scrolling='no'></iframe>";        
+			contentdiv += "</div>";
+			contentdiv += "</div>";       
+			$(".templatemo-content-container").html(querydiv+contentdiv);
+			$("iframe[id^='frmgrid']").load(function(){
+				$(this).width($(this).closest("div").width()-5); //resize iframe
+				var curHeight = $(this).contents().find('body').height();
+				//$(this).height(curHeight-5);
+				$(this).height("325px");
+			});
+			$("button[name^='btnDetail']").click(function(){
+				document.location.href = "grid.html?api="+this.name.substring(this.name.indexOf("-")+1);
+			});
+		}
+
+		function reSizeX(){
+			//resize embeded iframe width
+			$("#frmgrid").width($("#frmgrid").closest("div").width()-5);
+			//resize grid
+			document.getElementById("frmgrid").contentWindow.reSizejqGridWidth();
+		}
+
+		$(document).ready(function(){
+			$(window).on("resize", reSizeX);       
+		});
+
+    </script>
+  </head>
+  
+  <body> 
+	<!---Menu Start--->
+	<div w3-include-html="Top.html" class="menu"></div>
+	<script>
+		includeHTML();
+	</script> 		
+	<!---Menu End--->
+    
+	<!--Body Content Start-->
+    <div class="templatemo-flex-row">	  
+		<!-- Main content Start--> 
+		<div class="templatemo-content col-1 light-gray-bg">		
+			<div class="templatemo-content-container">
+				<div class="templatemo-flex-row flex-content-row">	 
+					<div class="templatemo-content-widget white-bg col-1 text-center"> 
+						<img src="images/senao_network.png" alt="Bicycle" class="img-circle img-thumbnail"><p></p>
+						<h2 class="text-uppercase">SMT</h2>
+					</div>
+					<div class="templatemo-content-widget white-bg col-1 text-center">				  
+						<img src="images/senao_network.png" alt="Bicycle" class="img-circle img-thumbnail"><p></p>
+						<h2 class="text-uppercase">DIP</h2>
+					</div>
+					<div class="templatemo-content-widget white-bg col-1 text-center">
+						<img src="images/senao_network.png" alt="Bicycle" class="img-circle img-thumbnail"><p></p>
+						<h2 class="text-uppercase">FA</h2>
+					</div> 
+				</div>				
+			</div>
+		</div>
+		<!-- Main content End-->
+	</div>
+	<!--Body Content End-->
+	
+	<!--Bottom Start-->
+	<div w3-include-html="Bottom.html" class="bottom"></div>
+	<script>
+		includeHTML();
+	</script> 
+	<!--Bottom End-->
+		
+	<!-- Templatemo Script -->
+    <script type="text/javascript" src="js/templatemo-script.js"></script>      
+
+  </body>
+</html>

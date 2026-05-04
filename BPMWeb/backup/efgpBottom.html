@@ -1,0 +1,49 @@
+<link href="css/Copyright.css" rel="stylesheet">
+
+<!--*************Include File End********************************************-->
+
+<!--===========================JS  Start=====================================-->
+<script>
+    let result = ajaxGetData("USER_LAST_LOGIN_RECORD", {
+        username: getcooky("username")
+    });
+    console.log(result);
+    jQuery('#LOGINDT').html('User:' + getcooky("username") + ' |  Last Login Time:' + result[0].LOGINDT);
+
+
+
+
+    jQuery('.round-anchor').hover(function () {
+        jQuery(this).stop().animate({
+            "color": "#eee"
+        }, 300);
+    }, function () {
+        jQuery(this).stop().animate({
+            "color": "#ccc"
+        }, 300);
+
+    });
+</script>
+<!--===========================Js  End=====================================-->
+
+
+
+
+<div class="bg-dark SenaoCopyright">
+    <div class="text-center  ">
+        <p>Copyright &copy; 2019 Senao Networks | Designed by <a href="http://www.senao.com" target="_parent">Senao
+                Networks</a>
+            <span style="float:left;" id='LOGINDT'>
+
+            </span>
+            <a href="#">
+                <span class="round-anchor fa-stack fa-1x " style="float:right;">
+                    <i class="far far fa-circle  fa-stack-2x"></i>
+                    <i class="far fas fa-angle-double-up fa-stack-1x"></i>
+                </span>
+            </a>
+
+        </p>
+
+    </div>
+</div>

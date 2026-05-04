@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>檔案權限申請單</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff; color: #0724f9;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">檔案權限申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0 justify-content-end">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m001" >表單代號</span>
+              </div>
+              <input type="text" id="senao134m001" name="senao134m001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m002">表單單號</span>
+              </div>
+              <input type="text" id="senao134m002" name="senao134m002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0">
+          <div class="col-md ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text formLabelClass" id="lbl_note_subject" style="background-color: #ffb7dd;">主旨備註</span>
+              </div>
+              <input type="text" id="note_subject" name="note_subject" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="Label2" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區別</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m005">申請單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m005" name="senao134m005" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao134m006">lbl_senao134m006</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m006" name="senao134m006" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m003">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao134m003" name="senao134m003" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao134m003_b1" name="senao134m003_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao134m004">lbl_senao134m004</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m004" name="senao134m004" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m007">申請日期</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m007" name="senao134m007" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m012">申請人分機</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m012" name="senao134m012" autocomplete="off">
+                </div>
+              </div>        
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m008">會辦人</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m008" name="senao134m008" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao134m009">lbl_senao134m009</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m009" name="senao134m009" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao134m010">會辦日期</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao134m010" name="senao134m010" autocomplete="off">
+                </div>
+              </div>           
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_senao134m011">用途說明</span>
+                  </div>
+                  <textarea class="form-control " id="senao134m011" name="senao134m011" rows="4"autocomplete="off"></textarea>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------ 單身資料 ------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center">
+              <span id="Label17" class="formLabelClass">單身資料</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gsenao134d008">根目錄</span>
+                  </div>
+                  <select class="form-control" id="gsenao134d008" name="gsenao134d008">
+                    <option value>------</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gsenao134d004">申請目錄/檔案</span>
+                  </div>
+                  <input type="text" class="form-control" id="gsenao134d004" name="gsenao134d004" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-auto">
+                <div class="input-group mb-3">
+                  <span id="lbl_gsenao134d005" class="formLabelClass" style="margin-right: 16px;">讀取權限</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gsenao134d005_0" name="gsenao134d005" value="Y">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <span id="lbl_gsenao134d006" class="formLabelClass" style="margin-right: 16px;">修改權限</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gsenao134d006_0" name="gsenao134d006" value="N">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_gsenao134d007">備註說明</span>
+                  </div>
+                  <input type="text" class="form-control " id="gsenao134d007" name="gsenao134d007" autocomplete="off">
+                </div>
+              </div> 
+            </div>
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <button type="button" class="btn btn-secondary " id="btnAdd" name="btnAdd">新增</button>
+                <button type="button" class="btn btn-secondary " id="btnEdit" name="btnEdit">修改</button>
+                <button type="button" class="btn btn-secondary " id="btnDel" name="btnDel">刪除</button>
+              </div>
+            </div>
+            <!------------------------------------Grid1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                  <center>
+                    <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                    <table id="Grid1" class="table table-bordered "></table>
+                    <div id="Grid1_pager"></div>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------ 單身資料 row end-------------------------------------------->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_writer_id">lbl_writer_id</span>
+    <input type="text" id="writer_id" name="writer_id" placeholder="writer_id">
+    <span id="lbl_gsenao134d009">lbl_gsenao134d009</span>
+    <input type="text" id="gsenao134d009" name="gsenao134d009" placeholder="gsenao134d009">
+    <span id="lbl_hdn_senao134d005">lbl_hdn_senao134d005</span>
+    <input type="text" id="hdn_senao134d005" name="hdn_senao134d005" placeholder="hdn_senao134d005">
+    <span id="lbl_hdn_senao134d006">lbl_hdn_senao134d006</span>
+    <input type="text" id="hdn_senao134d006" name="hdn_senao134d006" placeholder="hdn_senao134d006">
+    <span id="lbl_hdn_dirboss">lbl_hdn_dirboss</span>
+    <input type="text" id="hdn_dirboss" name="hdn_dirboss" placeholder="hdn_dirboss">
+    <span id="lbl_hdn_sign_dir">lbl_hdn_sign_dir</span>
+    <input type="text" id="hdn_sign_dir" name="hdn_sign_dir" placeholder="hdn_sign_dir">
+    <span id="lbl_hdn_sign_dir_boss">lbl_hdn_sign_dir_boss</span>
+    <input type="text" id="hdn_sign_dir_boss" name="hdn_sign_dir_boss" placeholder="hdn_sign_dir_boss">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

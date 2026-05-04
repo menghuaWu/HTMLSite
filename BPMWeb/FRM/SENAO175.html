@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>簽呈</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">簽呈</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_FormId" >表單代號</span>
+              </div>
+              <input type="text" id="FormId" name="FormId" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="printForm" name="printForm" value="列印簽呈">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_SerialNumber">表單單號</span>
+              </div>
+              <input type="text" id="SerialNumber" name="SerialNumber" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 p-0">
+          <div class="col-md">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_Subject">主旨</span>
+              </div>
+              <input type="text" id="Subject" name="Subject" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#09cccf;">
+            <h6 class="text-center"><span id="Label8" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區別</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_issuerId">填單人</span>
+                  </div>
+                  <input type="text" class="form-control" id="issuerId" name="issuerId" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_issuerName">lbl_issuerName</span>
+                  </div>
+                  <input type="text" class="form-control" id="issuerName" name="issuerName" autocomplete="off">
+                </div>
+				      </div>    
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_issuerDeptId">填單部門</span>
+                  </div>
+                  <input type="text" class="form-control " id="issuerDeptId" name="issuerDeptId" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_issuerDeptName">lbl_issuerDeptName</span>
+                  </div>
+                  <input type="text" class="form-control" id="issuerDeptName" name="issuerDeptName" autocomplete="off">
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_applicant_txt">申請人</span>
+                  </div>
+                 <input type="text" class="form-control " id="applicant_txt" name="applicant_txt" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="applicant_btn" name="applicant_btn">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_applicant_lbl">lbl_applicant_lbl</span>
+                  </div>
+                  <input type="text" class="form-control" id="applicant_lbl" name="applicant_lbl" autocomplete="off">
+                </div>
+              </div>   
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_applicDeptId">申請部門</span>
+                  </div>
+                  <input type="text" class="form-control " id="applicDeptId" name="applicDeptId" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_applicDeptName">lbl_applicDeptName</span>
+                  </div>
+                  <input type="text" class="form-control" id="applicDeptName" name="applicDeptName" autocomplete="off">
+                </div>
+              </div>      
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6 ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_drpCategy">類別</span>
+                  </div>
+                  <select class="form-control" id="drpCategy" name="drpCategy"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <a id="Link594" href="#" class="formLinkClass">簽呈類別對照表</a>
+              </div>
+            </div>
+            <!------------------------------------ 基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+        <!------------------------------------簽擬-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#09cccf;">
+            <h6 class="text-center">
+              <span id="Label25" class="formLabelClass">簽擬</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_IssueDept_txt">單位</span>
+                  </div>
+                 <input type="text" class="form-control " id="IssueDept_txt" name="IssueDept_txt" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="IssueDept_btn" name="IssueDept_btn">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_IssueDept_lbl">lbl_IssueDept_lbl</span>
+                  </div>
+                  <input type="text" class="form-control" id="IssueDept_lbl" name="IssueDept_lbl" autocomplete="off">
+                </div>
+              </div>   
+              <div class="col-md" >
+                <div class="input-group mb-3" >
+                  <label class="formLabelClass" for="lbl_DocNo1" style="margin-top: 0.5rem;">字號 (</label>
+                  <input type="text" class="form-control" id="DocNo1" name="DocNo1" autocomplete="off">
+                  <label class="formLabelClass" for="Label42" style="margin-top: 0.5rem; margin-right: 24px;">)</label>
+                  <input type="text" class="form-control" id="DocNo2" name="DocNo2" autocomplete="off">
+                  <label class="formLabelClass" for="Label44" style="margin-top: 0.5rem; margin-left: 1rem; margin-right: 1rem;">簽字第</label>
+                  <input type="text" class="form-control" id="DocNo3" name="DocNo3" autocomplete="off">
+                  <label class="formLabelClass" for="Label46" style="margin-top: 0.5rem; margin-left: 24px;">號</label>
+                </div>
+              </div>               
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_ApplyDate">申請日期</span>
+                  </div>
+                 <input type="text" class="form-control " id="ApplyDate" name="ApplyDate" autocomplete="off">
+                </div>
+              </div>
+              <div class="col-md" >
+                <div class="input-group mb-3" >
+                  <label class="formLabelClass textred" for="Label72" style="margin-top: 0.5rem;">
+                    ※字號由系統自動產生:民國年+部門代碼+月份(2碼)+流水號(3碼)
+                  </label>
+                </div>
+              </div>    
+            </div>  
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lblContentTitle">說明</span>
+                  </div>
+                  <div style="margin: 0 auto;width: 94%">
+                    <textarea class="form-control " id="editor" name="editor"autocomplete="off"></textarea>
+                  </div>
+                </div>
+              </div>         
+            </div>
+            <!------------------------------------簽擬 row end-------------------------------------------->   
+          </div>
+        </div>
+        <!------------------------------------會簽人-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#09cccf;">
+            <h6 class="text-center">
+              <span id="Label32" class="formLabelClass">會簽人</span>
+            </h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-0" style="margin-top: 0.5rem;">
+                  <div class=" input-group-prepend" >
+                    <label class="formLabelClass textred" for="Label33">
+                      ※1:經直屬主管審核後，如須調整會簽人，請重新填單!
+                    </label>
+                  </div>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; height: 100%; width: 250px;">
+                  <span class="formLabelClass h-100 d-flex mb-3 textred" id="Label67"  style="margin-top: 0.5rem; ">
+                    ※2:下方欄位【簽核方式】:
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                  <!---------1-------->
+                  <div class="input-group mb-1" style="margin-left: 6px;">
+                    <div class=" input-group-prepend">
+                      <label class="formLabelClass textred" for="Label68" style="margin-top: 0.5rem; margin-right: 6px;">
+                        (1)NORMAL 為申請人自動帶出課級、處級、事業部/部級 主管，且不可異動。
+                      </label>
+                    </div>
+                  </div>
+                  <!---------2-------->
+                  <div class="input-group mb-1" style="margin-left: 6px;">
+                    <div class=" input-group-prepend">
+                      <label class="formLabelClass textred" for="Label69" style="margin-top: 0.5rem; margin-right: 6px;">
+                        (2)EXECTION 為手動選取的加簽人員(可調整順序)，無法選取總經理與董事長。
+                      </label>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>    
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md">
+                <div class="input-group mb-3" style="margin-top: 0.5rem;">
+                  <div class=" input-group-prepend" >
+                    <label class="formLabelClass textred" for="Label71">
+                      ※3:手動選取加簽人員，建議依照職等由低到高排序。
+                    </label>
+                  </div>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_CoSign_txt">會簽人</span>
+                  </div>
+                 <input type="text" class="form-control " id="CoSign_txt" name="CoSign_txt" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="CoSign_btn" name="CoSign_btn" style="margin-right: 16px;">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_CoSign_lbl">lbl_CoSign_lbl</span>
+                  </div>
+                  <input type="text" class="form-control" id="CoSign_lbl" name="CoSign_lbl" autocomplete="off">
+                </div>
+              </div>    
+            </div>  
+            <!------------------------------------grid button-------------------------------------------->
+            <div class="row m-0 p-0 justify-content-end">
+              <div class="col-auto ">
+                <button type="button" class="btn btn-secondary " id="Add" name="Add">新增</button>
+                <button type="button" class="btn btn-secondary " id="Mod" name="Mod">修改</button>
+                <button type="button" class="btn btn-secondary " id="Del" name="Del">刪除</button>
+                <button type="button" class="btn btn-secondary " id="moveUp" name="moveUp">上移</button>
+                <button type="button" class="btn btn-secondary " id="moveDown" name="moveDown">下移</button>
+              </div>
+            </div>
+            <!------------------------------------ Grid 1--------------------------------------------> 
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white  formLabelClass" id="lbl_GridCoSig">會簽人員</span>
+                  </div>
+                  <div class="col m-0 p-0 align-middle" style="text-align:center;font-size: 14px;">
+                    <center>
+                      <span id="lbl_Grid1" class="d-none">lbl_Grid1</span>
+                      <table id="Grid1" class="table table-bordered "></table>
+                      <div id="Grid1_pager"></div>
+                    </center>
+                  </div>
+                </div>
+              </div>          
+            </div>
+            <!------------------------------------單身資料 row end-------------------------------------------->   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_hdnApplicId">lbl_hdnApplicId</span>
+    <input type="text" id="hdnApplicId" name="hdnApplicId" placeholder="hdnApplicId">
+    <span id="lbl_hdnApplicName">lbl_hdnApplicName</span>
+    <input type="text" id="hdnApplicName" name="hdnApplicName" placeholder="hdnApplicName">
+    <span id="lbl_hdnUnitLvlName">lbl_hdnUnitLvlName</span>
+    <input type="text" id="hdnUnitLvlName" name="hdnUnitLvlName" placeholder="hdnUnitLvlName">
+    <span id="lbl_hdnRichText">lbl_hdnRichText</span>
+    <input type="text" id="hdnRichText" name="hdnRichText" placeholder="hdnRichText">
+    <span id="lbl_hdnIsBUHead">lbl_hdnIsBUHead</span>
+    <input type="text" id="hdnIsBUHead" name="hdnIsBUHead" placeholder="hdnIsBUHead">
+    <span id="lbl_GridCoSig">lbl_GridCoSig</span>
+    <input type="text" id="GridCoSig" name="GridCoSig" placeholder="GridCoSig">
+    <span id="lbl_IsAddActivity">lbl_IsAddActivity</span>
+    <input type="text" id="IsAddActivity" name="IsAddActivity" placeholder="IsAddActivity">
+    <span id="lbl_IsGMSign">lbl_IsGMSign</span>
+    <input type="text" id="IsGMSign" name="IsGMSign" placeholder="IsGMSign">
+    <span id="lbl_IsChairmanSign">lbl_IsChairmanSign</span>
+    <input type="text" id="IsChairmanSign" name="IsChairmanSign" placeholder="IsChairmanSign">
+    <span id="lbl_hdnBUHead">lbl_hdnBUHead</span>
+    <input type="text" id="hdnBUHead" name="hdnBUHead" placeholder="hdnBUHead">
+    <span id="lbl_CoSign_dep">lbl_CoSign_dep</span>
+    <input type="text" id="CoSign_dep" name="CoSign_dep" placeholder="CoSign_dep">
+    <span id="lbl_CoSign_EXECUTION">lbl_CoSign_EXECUTION</span>
+    <input type="text" id="CoSign_EXECUTION" name="CoSign_EXECUTION" placeholder="CoSign_EXECUTION">
+    <span id="lbl_HdnAddUserOID">lbl_HdnAddUserOID</span>
+    <input type="text" id="HdnAddUserOID" name="HdnAddUserOID" placeholder="HdnAddUserOID">
+    <span id="lbl_hdndrpCategy">lbl_hdndrpCategy</span>
+    <input type="text" id="hdndrpCategy" name="hdndrpCategy" placeholder="hdndrpCategy">
+    <span id="lbl_Content">lbl_Content</span>
+    <input type="text" id="Content" name="Content" placeholder="Content">
+    <span id="lbl_hdnApplicMainDeptOID">lbl_hdnApplicMainDeptOID</span>
+    <input type="text" id="hdnApplicMainDeptOID" name="hdnApplicMainDeptOID" placeholder="hdnApplicMainDeptOID">
+    <span id="lbl_hdndrpCategyText">lbl_hdndrpCategyText</span>
+    <input type="text" id="hdndrpCategyText" name="hdndrpCategyText" placeholder="hdndrpCategyText">
+    <span id="lbl_hdnGridCoSigTotal">lbl_hdnGridCoSigTotal</span>
+    <input type="text" id="hdnGridCoSigTotal" name="hdnGridCoSigTotal" placeholder="hdnGridCoSigTotal">
+    <span id="lbl_hdndoc_m">lbl_hdndoc_m</span>
+    <input type="text" id="hdndoc_m" name="hdndoc_m" placeholder="hdndoc_m">
+    <span id="lbl_hdnGridOnlyBUHead">lbl_hdnGridOnlyBUHead</span>
+    <input type="text" id="hdnGridOnlyBUHead" name="hdnGridOnlyBUHead" placeholder="hdnGridOnlyBUHead">
+    <span id="lbl_fastPass">lbl_fastPass</span>
+    <input type="text" id="fastPass" name="fastPass" placeholder="fastPass">
+    <span id="lbl_ittodo">lbl_ittodo</span>
+    <input type="text" id="ittodo" name="ittodo" placeholder="ittodo">
+    <span id="lbl_hdn_formnumber_title">lbl_hdn_formnumber_title</span>
+    <input type="text" id="hdn_formnumber_title" name="hdn_formnumber_title" placeholder="hdn_formnumber_title">>
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>-->
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--CKEditor-->
+  <link rel="stylesheet" href="/GBLWeb/API/ckeditor5-builder-46.0.2/ckeditor5/ckeditor5.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "ckeditor5": "/GBLWeb/API/ckeditor5-builder-46.0.2/ckeditor5/ckeditor5.js",
+      "ckeditor5/": "/GBLWeb/API/ckeditor5-builder-46.0.2/ckeditor5/"
+    }
+  } 
+  </script>
+  <script type="module" src="/GBLWeb/API/ckeditor5-builder-46.0.2/ckeditor5/main.js"></script>
+  <script>
+    window.onload = function() {
+      if ( window.location.protocol === "file:" ) {
+        alert( "This sample requires an HTTP server. Please serve this file with a web server." );
+      }
+    };
+  </script>
+  <!--
+</body>
+
+</html>
+-->

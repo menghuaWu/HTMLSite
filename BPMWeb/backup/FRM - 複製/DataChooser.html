@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>申請人</title>
+
+
+
+
+
+</head>
+
+<body style="background-color:white; ">
+	<div class="container-find">
+		<div id="menu_block" style="font-family: 微軟正黑體;  height: 412px; ">
+			<div id="menu_tab">
+			</div>
+			<form>
+				<div id="menu_content" style="height: 412px;">
+				</div>
+			</form>
+		</div>
+		<div id="div_main" style="padding-left: 20px; padding-top: 15px; overflow: auto; height: 412px;">
+			<table id="jqGridChooser" cellpadding="1" cellspacing="1">
+			</table>
+			<div id="jqGridChooserPager"></div>
+			<div id="_cuzMultiDataChooser" class="d-none">
+				<hr>
+				<table style="width:100%; font-family:微軟正黑體; font-size:12px; " cellpadding="1" cellspacing="1">
+					<tbody>
+						<tr>
+							<td style="visibility:hidden; ">
+
+							</td>
+							<td style="text-align: center">
+								<!-- 確定 -->
+								<input id="_cuzDataChooser_submitMultiSeleteBtn" type="button" value="確定"
+									style="width:100px;">
+
+								<!-- 取消 -->
+								<input id="_cuzDataChooser_closeWin" type="button" value="取消" style="width:100px;">
+
+								<!-- 上移 -->
+								<input id="_cuzDataChooser_moveUpBtn" type="button" value="上移"
+									style="width:100px; display:none; ">
+
+								<!-- 下移 -->
+								<input id="_cuzDataChooser_moveDownBtn" type="button" value=""
+									style="width:100px; display:none; ">
+							</td>
+							<td>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table id="_cuzDataChooserData_selectedItemTable" style="width:100%; background-color:#3E99C8; "
+					cellpadding="1" cellspacing="1">
+					<thead>
+						<tr id="_cuzDataChooserData_selectedItemTitle" style="color:white;">
+
+						</tr>
+					</thead>
+					<tbody id="_cuzDataChooser_selectedItems" style="text-align:center; ">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+	<script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+
+
+	<style>
+		#menu_block {
+			top: 0;
+			left: -360px;
+			width: 360px;
+			position: fixed;
+			z-index: 9999;
+		}
+
+		#menu_content {
+			background: #3c5a98;
+			text-align: center;
+			padding-top: 20px;
+
+		}
+
+		#menu_tab {
+			position: absolute;
+			top: 10px;
+			right: -24px;
+			width: 24px;
+			background: #3c5a98;
+			color: #ffffff;
+			font-family: Arial, Helvetica, sans-serif;
+			text-align: center;
+			padding: 9px 0;
+			font-size: 14px;
+			-moz-border-radius-topright: 10px;
+			-moz-border-radius-bottomright: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-webkit-border-bottom-right-radius: 10px;
+		}
+
+		#menu_tab span {
+			display: block;
+			height: 14px;
+			padding: 1px 0;
+			line-height: 14px;
+			text-transform: uppercase;
+			font-size: 14px;
+		}
+
+		.ui-jqgrid-labels {
+			background-color: #3E99C8;
+			color: white;
+
+
+		}
+	</style>
+
+	<script>
+		/*---------------------公用變數 Start--------------*/
+		var _gIsMobile = false;
+		var colmodel = {};
+		var tQueryLabel = "搜尋";
+		var tClearLabel = "清空";
+		var MunuTIdLab = '序號';
+		var ItemTitle = {};
+		//var tReturnData = [];//回傳資料
+		var tReturnFunction = [];//回傳ID
+		var tFileName = ""; //單選:SingleOpenWin 多選:PluralityOpenWin
+		var tQBEField = {}; //查詢欄位 {參數欄位:table欄位}
+		var tSearchLabel = ""; //查詢標籤
+		var tColAPi = ""; //jqgrid欄位api
+		var tAPI = invokeURL + ''; //jqgrid資料api
+		var tParameter = {}; //jqgrid資料參數
+		var gParent = null;
+		var gridParameter = { //grid初始化參數
+			caption: '',
+			gid: 'jqGridChooser',
+			pager: '#jqGridChooserPager',
+			shrinkToFit: true,
+			fixedColFDb: true, //set db
+			gridDefPostData: {
+
+			},
+			search: true,
+			refresh: true,
+			xls: true,
+			onSelectRow: function (rowid, status, e) {  //行選取
+				let row = $(this).jqGrid('getRowData', rowid);
+				let tReturnData=[];
+				if (status) { //選取
+					if (gridParameter.multiselect) {
+						addSelectedRow(row);
+					}
+					else {
+						tReturnData.push(row);
+						sessionStorage.setItem("tReturnData", tReturnData);
+						onClose(tReturnFunction,tReturnData);
+					
+					}
+				} else { //取消
+					if (gridParameter.multiselect) {
+						romoveSelectedRow(row);
+					}
+				}
+
+
+			},
+			loadComplete: function (ids) {
+
+				$('#cb_jqGridChooser').addClass('d-none');
+			}
+
+		};
+		/*---------------------公用變數 End--------------*/
+		/*---------------------Form Function Start--------------*/
+
+		$(document).ready(function () {
+			loginCheck(); //登入檢查
+			initFrm();
+		});
+		function initFrm() {
+			//init form
+
+			if (navigator.userAgent.indexOf("iPhone") != -1 || navigator.userAgent.indexOf("iPad") != -1 || navigator.userAgent.indexOf("Android") != -1) {
+				_gIsMobile = true;
+			}
+			if (_gIsMobile) {
+				gParent = window.parent;
+			} else {
+				gParent = window.opener;
+			}
+			//Title
+			let tTitle = sessionStorage.getItem("tTitle");
+			$(document).attr("title", tTitle);
+			//回傳 ID
+			//tReturnFunction = new Array("senao113m003", "senao113m005", "senao113m004", "senao113m006");
+			tReturnFunction = sessionStorage.getItem("tReturnFunction");
+			//設定jqgrid
+			//tFileName = "PluralityOpenWin"; //單選:SingleOpenWin 多選:PluralityOpenWin
+			tFileName = sessionStorage.getItem("tFileName");; //單選:SingleOpenWin 多選:PluralityOpenWin
+			//tColAPi = "BPM_getUser";
+			tColAPi = sessionStorage.getItem("tColAPi");
+			//tAPI = invokeURL + 'BPM_getUser';
+			tAPI = sessionStorage.getItem("tAPI");
+			//tParameter = { form_ou: 'senao', mainOrgId: 'senao', ID: 'ALL', NAME: 'ALL', ORGANIZATIONUNITNAME: 'ALL', OUID: 'ALL' };
+			tParameter = JSON.parse(sessionStorage.getItem("tParameter"));
+			gridParameter.colAPI = tColAPi;
+			gridParameter.gridDefinitionUrl = tAPI;
+			gridParameter.gridDefPostData = tParameter;
+			if (tFileName == "PluralityOpenWin") {
+				gridParameter.multiselect = true;
+			}
+			seachGrid();
+			//設定查詢欄位
+			tQBEField = JSON.parse(sessionStorage.getItem("tQBEField"));//查詢欄位 {參數欄位:table欄位}
+			tSearchLabel = "查詢";
+			initSearchHtm(tSearchLabel, tQBEField);
+			//多選
+			if (tFileName == "PluralityOpenWin") {
+				initMunuTable();
+			}
+			//事件
+			frmEvent();
+			doResize();
+
+
+		}
+		/*---------------------Form Function End--------------*/
+		/*---------------------UI event Function Start--------------*/
+		function frmEvent() { //form event function 
+			var w = $("#menu_content").width();
+			$(window).resize(function () { //改變畫面大小
+				doResize();
+			});
+			$('#menu_content').css('height', ($(window).height() - 20) + 'px'); //將區塊自動撐滿畫面高度
+
+			$("#menu_tab").on('click', function (e) {
+				let tLeft = $("#menu_block").css("left");
+				if (tLeft == "0px") {
+					$("#menu_block").animate({ left: '-' + w + 'px' }, 600, 'swing');
+				}
+			});
+			$("#menu_tab").on('mouseover', function (e) { //滑鼠滑入時
+				if ($("#menu_block").css('left') == '-' + w + 'px') {
+					$("#menu_block").animate({ left: '0px' }, 600, 'swing');
+				}
+			});
+
+			$("#menu_content").on('mouseleave', function (e) { //滑鼠離開後
+				$("#menu_block").animate({ left: '-' + w + 'px' }, 600, 'swing');
+			});
+			$("#_btnCustomDataChooser_query").on('click', function (e) { //搜尋
+				let PostData = gridParameter.gridDefPostData;
+				$.each(tQBEField, function (key, value) {
+					let tInput = $("#_cuzDataChooser_criteria_" + key);
+					if (tInput.val().length > 0) {
+						PostData[key] = tInput.val();
+					}
+				});
+				gridParameter.gridDefPostData = PostData;
+				seachGrid();
+			});
+			//確認多選按鈕.
+			$("#_cuzDataChooser_submitMultiSeleteBtn").on('click', function (e) {
+
+				//回傳多選格式
+				//[['a','b','c'],['d','e','f']]
+
+				let tTable = document.getElementById("_cuzDataChooserData_selectedItemTable");
+				let tRtn = "[";
+				for (let i = 1; i < tTable.rows.length; i++) {
+					if (i != 1) {
+						tRtn = tRtn + ","
+					}
+					tRtn = tRtn + "[" + "'" + i + "',";
+					let tRow = tTable.rows[i];
+					for (let j = 2; j < tRow.cells.length; j++) {
+						if (j != 2) {
+							tRtn = tRtn + ","
+						}
+						let tCell = tRow.cells[j].innerHTML;
+						tRtn = tRtn + "'" + tCell + "'";
+					}
+					tRtn = tRtn + "]";
+				}
+
+				tRtn = tRtn + "]";
+
+				if (tRtn == "[]") {
+					tRtn = "";
+				}
+				//將值塞回去表單欄位.
+				//gParent.document.getElementById(gReturnId[0]).value = tRtn;
+
+
+				//判斷是否有此METHOD，有就呼叫.
+				//if(typeof(window.opener.checkPointOnClose) == 'function'){
+				/*try {
+					gParent.checkPointOnClose(gReturnId[0]);
+				} catch (e) {
+
+				}*/
+				//}
+				tReturnData = tRtn;
+				sessionStorage.setItem("tReturnData", tReturnData);
+				onClose(tReturnFunction, tReturnData);
+
+
+			});
+
+			//取消的按鈕事件.
+			$("#_cuzDataChooser_closeWin").on('click', function (e) {
+
+				window.close();
+
+			});
+
+
+
+
+		}
+
+		/*---------------------UI event Function END--------------*/
+		/*---------------------JqGrid Function Start--------------*/
+		function seachGrid() {
+
+			//create jagrid
+			let $grid;
+			$grid = $("#" + gridParameter.gid);
+			$.jgrid.gridUnload(gridParameter.gid);
+			$grid.createJqGrid(gridParameter);
+			colmodel = $grid.getGridParam('colModel');
+
+		}
+		/*---------------------JqGrid Function End--------------*/
+		/*---------------------Other Function Start--------------*/
+		/*---------------------Other Function End--------------*/
+
+		function doResize() {
+			var tWinHeight = $(window).height();
+			$('#menu_content').css('height', (tWinHeight - 20) + 'px');
+			$('#menu_block').css('height', (tWinHeight - 20) + 'px');
+			$('#div_main').css('height', (tWinHeight - 20) + 'px');
+
+		}
+
+
+		function initSearchHtm(Label, gQBEField) {
+			//產生「查詢」的標籤.
+			let tSearchHtml = "<span>&nbsp;</span>";
+			for (let i = 0; i < Label.length; i++) {
+				let tChar = Label.charAt(i);
+				tSearchHtml = tSearchHtml + "<span>" + tChar + "</span>";
+			}
+			tSearchHtml = tSearchHtml + "<span>&nbsp;</span>";
+			$("#menu_tab").append(tSearchHtml);
+			//組成查詢條件的HTML.	
+			let tMenuContent = $("#menu_content");
+			let tMunuHtml = "";
+
+			$.each(gQBEField, function (key, value) { //查詢欄位 {參數欄位:table欄位}
+				colmodel.map(function (item) {
+					if (item.name == value) {
+						let tInputId = "_cuzDataChooser_criteria_" + key;
+						tMunuHtml = tMunuHtml +
+							'<table style="width:100%; padding-left:5px; padding-right:5px; text-align:left;  " cellpadding="0" cellspacing="0">' +
+							'<tr style="background-color:white; ">' +
+							'<td style="color:black; width:180px; background-color:#DEECF5; padding:3px; ">' +
+							item.label +
+							'</td>' +
+							'<td>' +
+							'<input id="' + tInputId + '"type="textbox" value="" style="width:180px; height:100%; border:none; "/>' +
+							'</td>' +
+							'</tr>' +
+							'</table>' +
+							'<div style="width:100%; height:5px;  ">&nbsp;</div>';
+						ItemTitle[value] = item.label;
+					}
+				});
+			});
+
+			tMunuHtml = tMunuHtml +
+				'<table style="width:100%; padding-left:5px; padding-right:5px; text-align:left;  " cellpadding="0" cellspacing="0">' +
+				'<tr style="background-color:#3c5a98; ">' +
+				'<td style="text-align:right ">' +
+				'<input id="_btnCustomDataChooser_query" type="button" value="' + tQueryLabel + '" style="width:100px; "/>' +
+				'</td>' +
+				'<td style="text-align:left ">' +
+				'<input id="_btnCustomDataChooser_reset" type="reset" value="' + tClearLabel + '" style="width:100px; "/>' +
+				'</td>' +
+				'</tr>' +
+				'</table>'
+
+			tMenuContent.append(tMunuHtml);
+		}
+		function initMunuTable() {
+			let selectedItemTitle = $("#_cuzDataChooserData_selectedItemTitle");
+			let tMunuHtml = '<th style="width:60px;"  class="text-center">'
+				+ '<button id="_cuzDataChooser_cleanAllItemBtn" style="width:35px;height:20px; font-size:10px;">X</button>'
+				+ '</th>'
+				+ '<th style="width:40px;"  class="text-center">'
+				+ MunuTIdLab
+				+ '</th>';
+			$.each(ItemTitle, function (key, value) {
+				tMunuHtml += '<th class="text-center">'
+					+ value
+					+ '</th>';
+			});
+			selectedItemTitle.append(tMunuHtml);
+			$('#_cuzMultiDataChooser').removeClass('d-none');
+		}
+		function addSelectedRow(row) { //多選新增
+
+			let selectedItemRow = $("#_cuzDataChooser_selectedItems");
+			let id = selectedItemRow.children("tr").length;
+			id = id == undefined ? 1 : ++id;
+			let color = id % 2 == 1 ? "#FCFFFF" : "#DEECF5";
+			let tMunuHtml = '<tr> '
+				+ '<td style="background-color:' + color + '; width:60px;">'
+				+ '<button class="jq-delete" style="width:35px;height:20px; font-size:10px;">X</button>'
+				+ '</td>'
+				+ '<td style="background-color:' + color + '; width:40px;">'
+				+ id
+				+ '</td>';
+			$.each(ItemTitle, function (key, value) {
+				tMunuHtml += '<td style="background-color:' + color + '; class="text-center">'
+
+					+ row[key]
+					+ '</td>';
+			});
+			tMunuHtml += '</tr>';
+			selectedItemRow.append(tMunuHtml);
+			$('#_cuzDataChooser_cleanAllItemBtn').off('click');
+			$('.jq-delete').off('click');
+			$("#_cuzDataChooser_cleanAllItemBtn").on('click', function (e) { //全部清除
+				selectedItemRow.children("tr").remove();
+			});
+			$(".jq-delete").on('click', function (e) { //清除一行
+
+				$(this).parent().parent().remove();
+				renumberRow();
+			});
+		}
+		function romoveSelectedRow(row) { //多選移除
+			let Table = $("#_cuzDataChooserData_selectedItemTable");
+			$(Table).find('tr').each(function (index, tr) {
+				if (tr.childNodes[3].innerText == row.ID) { //工號
+					$(this).remove();
+				}
+			});
+			renumberRow();
+
+		}
+		function renumberRow() {
+			let Table = $("#_cuzDataChooserData_selectedItemTable");
+			$(Table).find('tr').each(function (index, tr) {
+				if (tr.childNodes[2].innerText != MunuTIdLab) {
+					tr.childNodes[2].innerText = index;
+				}
+
+			});
+		}
+		function onClose(tReturnFunction, tReturnData) { //關閉回傳資料
+			if (typeof (gParent.checkPointOnClose) == 'function') {
+				try {
+					gParent.checkPointOnClose(tReturnFunction, tReturnData);
+					//關閉視窗.
+					$("#_cuzDataChooser_closeWin").click();
+				} catch (e) {
+						console.log(e);
+				}
+			}
+		}
+	</script>
+
+</body>
+
+</html>

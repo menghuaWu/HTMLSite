@@ -1,0 +1,34 @@
+{
+	 
+	"select":[
+	  {		 "name":"company",
+				  "display":0,
+		          "seleect":"", 
+				  "values":[{"":""}]
+				  }, 
+	              {"name":"domain",
+				  "display":1,
+		          "seleect":"Workgroup", 
+				  "values":[{"AD":"0"},{"Workgroup":"1"}]
+				  }, 
+	              {"name":"selLanguage",
+					"display":0,
+					 "seleect":"中文",
+					 "values":[{"中文":"zh"},{"English":"en"}]
+				   } , 
+	           {	"name":"Printer",
+					"display":0,
+	                 "seleect":"TSC TX300",
+					 "values":[{"TSC TX300":"0"},{"iDPRT iT4S":"1"},
+								  {"TSC TTP-345":"2"},{"TSC TX-300 B1":"3"},
+								  {"本地印表機":"4"}]
+				 }
+		
+				], 
+		"check":[{"name":"dataSource", "display": 0},
+		        {"name":"ledType", "display": 0}
+				] 
+	    
+	   
+
+}

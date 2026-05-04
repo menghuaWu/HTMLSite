@@ -1,0 +1,328 @@
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>簽證申請單</title>
+
+</head>
+-->
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header" style="background-color:#9cccff;">
+        <h3 class="text-center"><span id="Label1" class="formLabelClass">簽證申請單</span></h3>
+      </div>
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-md "><input type="button" id="Attachment" name="Attachment" value="附件上傳">
+          </div>
+          <div class="col-auto ">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao041001" >表單代號</span>
+              </div>
+              <input type="text" id="senao041001" name="senao041001" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+		    <div class="row m-0 p-0 justify-content-end">
+          <div class="col-auto">
+            <div class="input-group mb-3">
+              <div class=" input-group-prepend">
+                <span class="input-group-text bg-white formLabelClass" id="lbl_senao041002">表單單號</span>
+              </div>
+              <input type="text" id="senao041002" name="senao041002" class="form-control" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 ">         
+        </div>
+        <!------------------------------------基本資料-------------------------------------------->
+        <div class="card m-0 p-0 ">
+          <div class="card-header" style="background-color:#9cccff;">
+            <h6 class="text-center"><span id="Label3" class="formLabelClass">基本資料</span></h6>
+          </div>
+          <div class="card-body">
+            <!------------------------------------row 0-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_ou">公司別</span>
+                  </div>
+                  <select class="form-control" id="form_ou" name="form_ou"></select>
+                </div>
+              </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_form_org">廠區(不必填)</span>
+                  </div>
+                  <select class="form-control" id="form_org" name="form_org"></select>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------row 1-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041005">申請單位</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041005" name="senao041005" autocomplete="off">
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao041006">lbl_senao041006</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041006" name="senao041006" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041003">申請人</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao041003" name="senao041003" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao041003_b1" name="senao041003_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao041004">lbl_senao041004</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041004" name="senao041004" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 2-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041024">歸屬部門</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041024" name="senao041024" autocomplete="off">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary " id="senao041024_b1" name="senao041024_b1">...</button>
+                  </div>
+                  <div class=" input-group-text bg-white formLabelClass d-none"> 
+                    <span id="lbl_senao041025">lbl_senao041025</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041025" name="senao041025" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041009">申請日期</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao041009" name="senao041009" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 3-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041027">分機號碼</span>
+                  </div>
+                  <input type="text" class="form-control" id="senao041027" name="senao041027" autocomplete="off">
+                </div>
+				      </div>
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041028">手機號碼</span>
+                  </div>
+                 <input type="text" class="form-control " id="senao041028" name="senao041028" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 4-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md ">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041040">事由說明</span>
+                  </div>
+                  <textarea class="form-control " id="senao041040" name="senao041040" rows="5"autocomplete="off"></textarea>
+                </div>  
+              </div>        
+            </div> 
+            <!------------------------------------row 5-------------------------------------------->
+			      <div class="row m-0 p-0 mb-3">
+              <div class="col-md d-flex align-items-stretch ">
+                <div style="display: flex; flex-direction: column; justify-content: center;height: 100%;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center " id="lbl_senao041046">
+                    申請種類
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                  <div class="input-group ">
+                    <div class="form-check col-3" style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <input class="form-check-input" type="checkbox" id="senao041046_0" name="senao041046" value="1">
+                      <label class="form-check-label formLabelClass" for="senao041046_0">
+                        中華民國護照
+                      </label>
+                    </div>
+                    <select class="form-control col-md-4" id="senao041038" name="senao041038">
+                      <option value></option>
+                      <option value="1">新辦</option>
+                      <option value="2">到期更換</option>
+                      <option value="3">更換電子護照</option>
+                    </select>
+                  </div>
+                  <div class="input-group mb-2 offset-md-3">
+                    <span id="Label26" class="formLabelClass"style=" margin-left: 1rem; margin-top: 0.5rem;">
+                      (照片 2 張需露耳，身份證正本，男性第一次需退伍令，如有舊護照須繳驗)
+                    </span>
+                  </div>
+                  <div class="input-group">
+                    <div class="form-check col-3" style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <input class="form-check-input" type="checkbox" id="senao041046_1" name="senao041046" value="2">
+                      <label class="form-check-label formLabelClass" for="senao041046_1">
+                        台胞證
+                      </label>
+                    </div>
+                    <select class="form-control col-md-4" id="senao041039" name="senao041039">
+                      <option value></option>
+                      <option value="1">新辦</option>
+                      <option value="2">到期更換</option>
+                    </select>
+                  </div>
+                  <div class="input-group mb-2 offset-md-3">
+                    <span id="Label27" class="formLabelClass"style=" margin-left: 1rem; margin-top: 0.5rem;">
+                      (照片一張，身份證影本，護照影本，如有舊台胞證須繳回)
+                    </span>
+                  </div>
+                  <div class="input-group mb-2">
+                    <div class="form-check col-3" style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <input class="form-check-input" type="checkbox" id="senao041046_2" name="senao041046" value="3">
+                      <label class="form-check-label formLabelClass " for="senao041046_2">
+                        杜拜簽證
+                      </label> 
+                    </div>
+                    <span id="Label28" class="formLabelClass"style="margin-top: 0.5rem; ">
+                      (護照影本(有效期須6個月以上，彩色電子檔案形式)、名片一張、杜拜簽證申請表(如附件))
+                    </span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="form-check col-3" style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <input class="form-check-input" type="checkbox" id="senao041046_3" name="senao041046" value="99">
+                      <label class="form-check-label formLabelClass" for="senao041046_3">
+                        其它
+                      </label> 
+                    </div>
+                    <input type="text" class="form-control col-md-4" id="senao041021" name="senao041021" autocomplete="off">
+                  </div>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 6-------------------------------------------->
+			      <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; justify-content: center;height: 100%;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center mb-3" id="lbl_senao041045">
+                    個資同意
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" style="width: 100%;">
+                  <div class="input-group mb-3">
+                    <div class="form-check" style="margin-left: 1rem;">
+                      <input class="form-check-input" type="checkbox" id="senao041045_0" name="senao041045" value="Y">
+                      <label class="form-check-label formLabelClass" for="senao041045_0">
+                        本人同意將個人資料包括護照、台胞證、身分證、照片等相關資料交予總務 課承辦人員，將相關資料交給旅行社代為處理換證簽證事宜。
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>       
+            </div>
+            <!------------------------------------row 7-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <div class=" input-group-prepend">
+                    <span class="input-group-text bg-white formLabelClass" id="lbl_senao041044">費用金額</span>
+                  </div>
+                  <input type="text" class="form-control " id="senao041044" name="senao041044" autocomplete="off">
+                </div>
+              </div>            
+            </div>
+            <!------------------------------------row 8-------------------------------------------->
+            <div class="row m-0 p-0">
+              <div class="col-md d-flex align-items-stretch">
+                <div style="display: flex; flex-direction: column; justify-content: center; min-width: 70px; height: 100%; margin-right:16px;">
+                  <span class="input-group-text bg-white formLabelClass h-100 d-flex align-items-center justify-content-center mb-3" id="Label69">
+                    備註說明
+                  </span>
+                </div>
+                <div class="d-flex flex-column flex-grow-1" >
+                  <div class="input-group mb-0">
+                    <span id="lbl_Link70" class="formLabelClass col-md-5">
+                      * 2012/11/01起美簽免簽，申請流程
+                    </span>
+                    <a id="Link70" href="/BPMWeb/doc/SENAO041/ReadMe041.pdf" class="formLinkClass" target="_blank">請參閱附件</a>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span id="lbl_Link71" class=" formLabelClass col-md-5">
+                      * 2012/09/01起港簽免簽，申請流程
+                    </span>
+                    <a id="Link71" href="/BPMWeb/doc/SENAO041/ReadMe041.pdf" class="formLinkClass" target="_blank">請參閱附件</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!------------------------------------基本資料 row end-------------------------------------------->           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------隱藏欄位 Start--------------------------------------------------------------->
+  <div class="row d-none">
+    <span id="lbl_hdn_senao041038_m">lbl_hdn_senao041038_m</span>
+    <input type="text" id="hdn_senao041038_m" name="hdn_senao041038_m" placeholder="hdn_senao041038_m">
+    <span id="lbl_hdn_senao041039_m">lbl_hdn_senao041039_m</span>
+    <input type="text" id="hdn_senao041039_m" name="hdn_senao041039_m" placeholder="hdn_senao041039_m">
+    <span id="lbl_hdn_senao041046_m">lbl_hdn_senao041046_m</span>
+    <input type="text" id="hdn_senao041046_m" name="hdn_senao041046_m" placeholder="hdn_senao041046_m">
+  </div>
+  <!--------------------------------------------隱藏欄位 End--------------------------------------------------------------->
+  <!-- javascript include Start-->
+ <!-- <link href="/BPMWeb/UI/css/style.css" rel="stylesheet">
+
+  <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+  <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>
+  
+  <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+  <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+  <script lang="javascript" src="/GBLWeb/API/sheetjs-master-0.15.6/dist/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/senao_Utils.js"></script>
+  <script type="text/javascript" src="/BPMWeb/UI/js/BPMglobal.js"></script>
+  
+  -->
+
+  <script type="text/javascript" src="/BPMWeb/FRM/UI/js/SENAO041.js"></script>
+  <!-- javascript include End-->
+  <style>
+    .textgreen {
+      background-color: #ffffff;
+      color: #2b7e04;
+    }
+
+    .textred {
+      background-color: #ffffff;
+      color: #fe0505;
+    }
+  </style>
+  <!--
+</body>
+
+</html>
+-->

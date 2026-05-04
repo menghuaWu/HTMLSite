@@ -1,0 +1,5 @@
+1.bootstrap-4.6.2.min.css =>/u1/bpm/jboss-4.2.3.GA/server/default/deploy/NaNaWeb.war/css/bootstrap
+2.bootstrap-4.6.2.min.js =>/u1/bpm/jboss-4.2.3.GA/server/default/deploy/NaNaWeb.war/js/bootstrap
+3.Copyright.css=>/u1/bpm/jboss-4.2.3.GA/server/default/deploy/NaNaWeb.war
+4.api-1.0.js=>/u1/bpm/jboss-4.2.3.GA/server/default/deploy/NaNaWeb.war
+5.Login.jsp=>/u1/bpm/jboss-4.2.3.GA/server/default/deploy/NaNaWeb.war

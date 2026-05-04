@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[SN201_Q02]Shipping Memo Query</title>
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">    
+</head>
+
+<body>
+
+    <!---Menu Start--->
+    <div id='menu'></div>
+    <!---Menu End--->
+    <!--Main Content Start-->
+    <main role="main" class="container-fluid" id="main">
+        <div class=" pt-2 mt-4  rounded"></div>
+        <div class="w-100 m-0 p-0 d-flex justify-content-end  border-bottom border-dark ">
+            <form class="form-inline" action=" ">                
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Sheet NO:</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="sheetNO">                                                
+                </div>
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Customer Name:</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="custName">                                                
+                </div>
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Customer PO:</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="custPO">                                                
+                </div>                                
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>DN(Shipper ID):</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="dn">                                                
+                </div>                                
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Apply Date:</i>
+                        </div>
+                    </span>
+
+                    <input class="form-control py-2 border-left-0 border" type="text" value="" id="sDate1" required>
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>~</i>
+                        </div>
+                    </span>
+                    <input class="form-control py-2 border-left-0 border" type="text" value="" id="eDate1" required>
+                </div>
+
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Transaction Date:</i>
+                        </div>
+                    </span>
+
+                    <input class="form-control py-2 border-left-0 border" type="text" value="" id="sDate2" required>
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>~</i>
+                        </div>
+                    </span>
+                    <input class="form-control py-2 border-left-0 border" type="text" value="" id="eDate2" required>
+                </div>
+
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Invoice Num:</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="invNO"">                                                
+                </div>
+
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Item NO(HQ):</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="itemNO">                                                
+                </div>
+                
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Item NO(US):</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="itemNO_US">                                                
+                </div>
+
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Serial Number:</i>
+                        </div>
+                    </span>
+                    <input type="text" class="form-control " id="neweggSN">                                                
+                </div>  
+
+                <div class="input-group m-2">
+                    <span class="input-group-prepend input-group-addon">
+                        <div class="input-group-text">
+                            <i>Approve Status:</i>
+                        </div>
+                    </span>
+					<select id="fStatus" class="custom-select">
+                    </select>
+                </div>
+				
+				<div class="input-group">
+                    <span class="input-group-append">
+                        <button class="btn btn-success " type="button" id="searchBtn" >Search</button>
+                    </span>
+                </div>
+                <div class="input-group m-2">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="reset" id="clearBtn2">
+                            <i class="fas fa-quidditch"></i>
+                        </button>
+                    </span>
+                </div>                
+
+            </form>
+
+
+        </div>
+
+        <div class="w-100 m-0 p-0 d-flex justify-content-center  border-bottom border-dark"><span id="spaMsg"
+                class="text-center font-weight-bolder"></span></div>
+        <div id="gbox" class="my-3 p-3 bg-white rounded box-shadow d-none">
+            <div  class='row '>
+                <table id="jqGridMain"></table>
+                <div id="jqGridPagerMain"></div>
+            </div>
+        </div>
+
+    </main>
+    <!--Main Content End-->
+
+
+
+    <!--Body Content End-->
+
+    <!--Bottom Start-->
+
+    <div id="bottom"></div>
+    <!--Bottom End-->
+    <!---------------------------Load   java Script Start-------------------- -->
+    <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+    <script type="text/javascript" src="/GBLWeb/Module/js/gridDB.js"></script>
+    <script type="text/javascript" src="/GBLWeb/API/bootstrap-datepicker-1.9/bootstrap-datepicker.min.js"></script>
+    <!---------------------------Load   java Script End--------------------->
+    <!---------------------------Load   CSS Start-------------------- -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/GBLWeb/Module/css/offcanvas.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/GBLWeb/Module/css/projectTabs.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/GBLWeb/API/bootstrap-datepicker-1.9/bootstrap-datepicker.min.css" />
+    <script type="text/javascript" src="UI/js/EFGP_SN201_Q02_Query.js"></script>
+	<script type="text/javascript" src="/GBLWeb/API/moment-2.24.0/moment.js"></script>
+
+
+</body>
+
+</html>

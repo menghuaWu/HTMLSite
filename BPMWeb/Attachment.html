@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+
+<HEAD>
+    <META CHARSET="utf-8">
+    <META NAME="viewport" CONTENT="width=device-width, initial-scale=1">
+    <TITLE> EZFlow- Menu</TITLE>
+
+
+</HEAD>
+<style>
+    .ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+        height: auto;
+        vertical-align: text-top;
+        padding-top: 2px;
+    }
+</style>
+
+<BODY>
+    <!---Menu Start--->
+    <div id='menu'></div>
+    <!---Menu End--->
+
+
+
+
+    <!--Body content Start-->
+
+    <main role="main" id="main">
+
+        <!--Body Content End-->
+        <section class="section1">
+            <div class="container ">
+                <table border="0" cellpadding="4" cellspacing="1" width="100%" align="center" class="d-none"
+                    id="_cuzfileChooserData_selectedItemTable">
+                    <thead>
+                        <tr class="table-primary" id="_cuzfileChooserData_selectedItemTitle">
+                            <td align="center" class="text11B">
+                                檔案類型
+                            </td>
+                            <td align="center" class="text11B">
+                                原始檔名
+                            </td>
+                            <td align="center" class="text11B">
+                                附件描述
+                            </td>
+                            <td align="center" class="text11B">
+                                檔案大小
+                            </td>
+                            <td align="center" class="text11B">
+                                上傳者
+                            </td>
+                            <td align="center" class="text11B">
+                                活動名稱
+                            </td>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                    <tbody id="_cuzfileChooser_selectedItems" style="text-align:center; ">
+
+                    </tbody>
+                </table>
+                <p></p>
+                <div class="table-responsive-sm">
+                    <table class="table table-secondary table-bordered">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" style="width: 30%;">檔案類型的限制</td>
+                                <td></td>
+
+                            </tr>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" style="width: 30%;">附件檔案大小的限制</td>
+                                <td>MAX</td>
+
+                            </tr>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" style="width: 30%;">附件檔案大小的總量限制</td>
+                                <td>MAX</td>
+
+                            </tr>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" style="width: 30%;">附件檔案的總數限制</td>
+                                <td>MAX</td>
+
+                            </tr>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" style="width: 30%;">附件描述</td>
+                                <td><textarea name="txaDocumentDesc" cols="50" rows="6" id="txaDocumentDesc"
+                                        style="font-size: 14px;color:#525252"></textarea></td>
+
+                            </tr>
+                            <tr class="table-secondary">
+                                <td class="table-secondary" colspan="2">
+                                    <!--上傳檔案 1 start-->
+                                    <table class="table  ">
+
+                                        <tbody>
+                                            <tr class="table-secondary">
+                                                <td class="table-secondary" style="width: 30%;"><input type="file"
+                                                        class="form-control-file" id="fileDocument_0"
+                                                        name="fileDocument_0" size="35"></td>
+                                                <td> <input type="text" id="txaDocumentDesc_0" name="txaDocumentDesc_0">
+                                                </td>
+                                                <td> <button type="button" id="btnSet_0" property="btnSet_0"
+                                                        onclick="setAccessRight('div_accessRight0')"
+                                                        styleclass="cnnNavButton">+</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--fileDocument_0 權限設定 Start-->
+                                                    <div id="div_accessRight0" class="d-none">
+                                                        <table cellpadding="2" cellspacing="1" width="100%" border="0"
+                                                            style="background-color: white;">
+                                                            <tbody>
+                                                                <tr class="table-primary">
+                                                                    <td align="left" valign="bottom" colspan="2">權限設定
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用範圍:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <select id="selType0" class="text14">
+                                                                            <option value="">------</option>
+                                                                            <option value="user">人員</option>
+                                                                            <option value="orgUnit">部門</option>
+                                                                            <option value="activity">關卡</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用單位:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <button type="button" id="btnChooseTypes0"
+                                                                            class="cnnNavButton"
+                                                                            onclick="chooseTypes(0)">請選擇</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" class="ListBodyTd1" colspan="2">
+                                                                        <table border="0" cellpadding="2"
+                                                                            cellspacing="1" width="100%" align="left">
+                                                                            <thead>
+                                                                                <tr class="table-primary">
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">套用範圍</td>
+                                                                                    <td width="60%" align="center"
+                                                                                        class="text11B">套用單位</td>
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">刪除</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text11"
+                                                                                id="attchAccessRightBody0">
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--fileDocument_0 權限設定 END-->
+
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--上傳檔案 1 end-->
+                                    <!--上傳檔案 2 start-->
+                                    <table class="table  ">
+
+                                        <tbody>
+                                            <tr class="table-secondary">
+                                                <td class="table-secondary" style="width: 30%;"><input type="file"
+                                                        class="form-control-file" id="fileDocument_1"
+                                                        name="fileDocument_1" size="35"></td>
+                                                <td> <input type="text" id="txaDocumentDesc_1" name="txaDocumentDesc_1">
+                                                </td>
+                                                <td> <button type="button" id="btnSet_1" property="btnSet_1"
+                                                        onclick="setAccessRight('div_accessRight1')"
+                                                        styleclass="cnnNavButton">+</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--fileDocument_1 權限設定 Start-->
+                                                    <div id="div_accessRight1" class="d-none">
+                                                        <table cellpadding="2" cellspacing="1" width="100%" border="0"
+                                                            style="background-color: white;">
+                                                            <tbody>
+                                                                <tr class="table-primary">
+                                                                    <td align="left" valign="bottom" colspan="2">權限設定
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用範圍:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <select id="selType1">
+                                                                            <option value="">------</option>
+                                                                            <option value="user">人員</option>
+                                                                            <option value="orgUnit">部門</option>
+                                                                            <option value="activity">關卡</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用單位:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <button type="button" id="btnChooseTypes1"
+                                                                            class="cnnNavButton"
+                                                                            onclick="chooseTypes(1)">請選擇</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="2">
+                                                                        <table border="0" cellpadding="2"
+                                                                            cellspacing="1" width="100%" align="left">
+                                                                            <thead>
+                                                                                <tr class="table-primary">
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">套用範圍</td>
+                                                                                    <td width="60%" align="center"
+                                                                                        class="text11B">套用單位</td>
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">刪除</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text11"
+                                                                                id="attchAccessRightBody1">
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--fileDocument_1 權限設定 END-->
+
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--上傳檔案 2 end-->
+                                    <!--上傳檔案 3 start-->
+                                    <table class="table  ">
+
+                                        <tbody>
+                                            <tr class="table-secondary">
+                                                <td class="table-secondary" style="width: 30%;"><input type="file"
+                                                        class="form-control-file" id="fileDocument_2"
+                                                        name="fileDocument_2" size="35"></td>
+                                                <td> <input type="text" id="txaDocumentDesc_2" name="txaDocumentDesc_2">
+                                                </td>
+                                                <td> <button type="button" id="btnSet_2" property="btnSet_2"
+                                                        onclick="setAccessRight('div_accessRight2')"
+                                                        styleclass="cnnNavButton">+</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--fileDocument_2 權限設定 Start-->
+                                                    <div id="div_accessRight2" class="d-none">
+                                                        <table cellpadding="2" cellspacing="1" width="100%" border="0"
+                                                            style="background-color: white;">
+                                                            <tbody>
+                                                                <tr class="table-primary">
+                                                                    <td align="left" valign="bottom" colspan="2">權限設定
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用範圍:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <select id="selType2">
+                                                                            <option value="">------</option>
+                                                                            <option value="user">人員</option>
+                                                                            <option value="orgUnit">部門</option>
+                                                                            <option value="activity">關卡</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用單位:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <button type="button" id="btnChooseTypes2"
+                                                                            class="cnnNavButton"
+                                                                            onclick="chooseTypes(2)">請選擇</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="2">
+                                                                        <table border="0" cellpadding="2"
+                                                                            cellspacing="1" width="100%" align="left">
+                                                                            <thead>
+                                                                                <tr class="table-primary">
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">套用範圍</td>
+                                                                                    <td width="60%" align="center"
+                                                                                        class="text11B">套用單位</td>
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">刪除</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text11"
+                                                                                id="attchAccessRightBody2">
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--fileDocument_1 權限設定 END-->
+
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--上傳檔案 3 end-->
+                                    <!--上傳檔案 4 start-->
+                                    <table class="table  ">
+
+                                        <tbody>
+                                            <tr class="table-secondary">
+                                                <td class="table-secondary" style="width: 30%;"><input type="file"
+                                                        class="form-control-file" id="fileDocument_3"
+                                                        name="fileDocument_3" size="35"></td>
+                                                <td> <input type="text" id="txaDocumentDesc_3" name="txaDocumentDesc_3">
+                                                </td>
+                                                <td> <button type="button" id="btnSet_3" property="btnSet_3"
+                                                        onclick="setAccessRight('div_accessRight3')"
+                                                        styleclass="cnnNavButton">+</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--fileDocument_3 權限設定 Start-->
+                                                    <div id="div_accessRight3" class="d-none">
+                                                        <table cellpadding="2" cellspacing="1" width="100%" border="0"
+                                                            style="background-color: white;">
+                                                            <tbody>
+                                                                <tr class="table-primary">
+                                                                    <td align="left" valign="bottom" colspan="2">權限設定
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用範圍:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <select id="selType3">
+                                                                            <option value="">------</option>
+                                                                            <option value="user">人員</option>
+                                                                            <option value="orgUnit">部門</option>
+                                                                            <option value="activity">關卡</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用單位:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <button type="button" id="btnChooseTypes3"
+                                                                            class="cnnNavButton"
+                                                                            onclick="chooseTypes(3)">請選擇</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="2">
+                                                                        <table border="0" cellpadding="2"
+                                                                            cellspacing="1" width="100%" align="left">
+                                                                            <thead>
+                                                                                <tr class="table-primary">
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">套用範圍</td>
+                                                                                    <td width="60%" align="center"
+                                                                                        class="text11B">套用單位</td>
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">刪除</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text11"
+                                                                                id="attchAccessRightBody3">
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--fileDocument_3 權限設定 END-->
+
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--上傳檔案 4 end-->
+                                    <!--上傳檔案 4 start-->
+                                    <table class="table  ">
+
+                                        <tbody>
+                                            <tr class="table-secondary">
+                                                <td class="table-secondary" style="width: 30%;"><input type="file"
+                                                        class="form-control-file" id="fileDocument_4"
+                                                        name="fileDocument_4" size="35"></td>
+                                                <td> <input type="text" id="txaDocumentDesc_4" name="txaDocumentDesc_4">
+                                                </td>
+                                                <td> <button type="button" id="btnSet_4" property="btnSet_4"
+                                                        onclick="setAccessRight('div_accessRight4')"
+                                                        styleclass="cnnNavButton">+</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <!--fileDocument_4 權限設定 Start-->
+                                                    <div id="div_accessRight4" class="d-none">
+                                                        <table cellpadding="2" cellspacing="1" width="100%" border="0"
+                                                            style="background-color: white;">
+                                                            <tbody>
+                                                                <tr class="table-primary">
+                                                                    <td align="left" valign="bottom" colspan="2">權限設定
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用範圍:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <select id="selType4">
+                                                                            <option value="">------</option>
+                                                                            <option value="user">人員</option>
+                                                                            <option value="orgUnit">部門</option>
+                                                                            <option value="activity">關卡</option>
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td width="21%" style="background-color: white;">
+                                                                        套用單位:</td>
+                                                                    <td width="79%" align="left">
+                                                                        <button type="button" id="btnChooseTypes4"
+                                                                            class="cnnNavButton"
+                                                                            onclick="chooseTypes(1)">請選擇</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="2">
+                                                                        <table border="0" cellpadding="2"
+                                                                            cellspacing="1" width="100%" align="left">
+                                                                            <thead>
+                                                                                <tr class="table-primary">
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">套用範圍</td>
+                                                                                    <td width="60%" align="center"
+                                                                                        class="text11B">套用單位</td>
+                                                                                    <td width="20%" align="center"
+                                                                                        class="text11B">刪除</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text11"
+                                                                                id="attchAccessRightBody1">
+                                                                            </tbody>
+                                                                        </table>
+                                                                        <!--fileDocument_1 權限設定 END-->
+
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--上傳檔案 2 end-->
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-center p-1">
+                <button type="button" class="btn btn-outline-dark" id="btnUploadDocument">上傳附件</button>
+                <button type="button" class="btn btn-outline-dark" id="btnCloseDocument">關閉</button>
+            </div>
+        </section>
+        <!-- Modal Start-->
+        <div id="returnModal" class="modal inmodal fade" tabindex="-1" role="dialog" aria-hidden="true"
+            data-backdrop="static" data-keyboard="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:lightseagreen; color:white;font-size: 20px;">
+                        <div class="modal-title ">
+                            <h5>Batch Return</h5>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <table id="BatchReturnTable" class="table   display " width="100%"></table>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-dark" id="ConfirmBtn">Confirm</button>
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal End-->
+        <!--Bottom Start-->
+
+        <div id="bottom"></div>
+        <!--Bottom End-->
+        <!---------------------------Load   include File-------------------- -->
+
+        <script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+        <!-- jquery-loading v1.3.0 -->
+        <link href="/GBLWeb/API/jquery-loading-master/src/loading.css" rel="stylesheet" />
+        <script type="text/javascript" src="/GBLWeb/API/jquery-loading-master/dist/jquery.loading.min.js"></script>
+        <!-- DataTables  -->
+        <script type="text/javascript" src="UI/js/BPMglobal.js"></script>
+        <script type="text/javascript" src="UI/js/Attachment.js"></script>
+
+
+
+
+</BODY>
+
+</HTML>

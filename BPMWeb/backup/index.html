@@ -1,0 +1,94 @@
+<!---------------------------Load   include File-------------------- -->
+<script type="text/javascript" src="/GBLWeb/Module/js/global.js"></script>
+<link href="/GBLWeb/Module/css/global.css" rel="stylesheet" type="text/css" />
+<!---------------------------Load   include File End--------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DBS - Home</title>
+    <meta name="description" content="" />
+    <meta name="author" content="templatemo" />
+
+    <style></style>
+    <script>
+        $(document).ready(function () {
+           
+         
+            loginCheck();
+            //Load menu
+            $.get("Top.html", function (result) {
+                $("#menu").html(result);
+            });
+            //Load Bottom
+            $.get("Bottom.html", function (result) {
+                $("#bottom").html(result);
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <!---Menu Start--->
+    <div id="menu"></div>
+    <!---Menu End--->
+
+    <!--Main Content Start-->
+    <main role="main">
+        <div class="row m-0 pb-2 pt-3  ">
+            <div class="col-md-4 ">
+                <div class="mb-4 shadow-sm text-center  content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+
+                    <h2 class="text-uppercase pt-1">Sales</h2>
+                </div>
+            </div>
+
+            <div class="col-md-4 ">
+                <div class=" mb-4 shadow-sm text-center content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+                    <h2 class="text-uppercase pt-1">PC</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" mb-4 shadow-sm text-center content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+                    <h2 class="text-uppercase pt-1">Engineer</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" mb-4 shadow-sm text-center content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+                    <h2 class="text-uppercase pt-1">MFG</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" mb-4 shadow-sm text-center content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+                    <h2 class="text-uppercase pt-1">QA</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class=" mb-4 shadow-sm text-center content-widget bg-white pt-2 rounded">
+                    <img src="images/senao_network.png" alt="Bicycle" class="rounded-circle img-thumbnail" />
+                    <h2 class="text-uppercase pt-1">Account</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--Main Content End-->
+
+    <!--Bottom Start-->
+    <div id="bottom"></div>
+
+    <!--Bottom End-->
+</body>
+
+</html>

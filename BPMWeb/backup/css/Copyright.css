@@ -1,0 +1,26 @@
+.SenaoCopyright {
+    /*background-color: #343a40;*/
+    padding: 15px 0;
+    font-size: 16px;
+    color: #fff;
+    /* position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    font-family: 'Lustria', serif;
+}
+
+.SenaoCopyright p,
+.SenaoCopyright a {
+    color: #ccc;
+}
+
+.SenaoCopyright a:link {
+    color: #eee;
+    font-size: 18px;
+}
+
+.round-anchor {
+    color: #ccc;
+}

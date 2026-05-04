@@ -1,0 +1,115 @@
+
+/* Main Content Area */
+
+.top-nav-container {
+	background-color: white;
+	padding: 10px 50px;
+ 	box-shadow: 0px 0px 2px 2px rgba(161, 159, 159, 0.18);
+}
+.top-nav li {
+    float: left;
+    list-style: none;
+}
+.top-nav a {
+	color: #7f7f7f;
+    display: block;
+    padding: 0 50px;
+    border-left: 2px solid #c5c5c5;
+}
+.top-nav li:last-child a { border-right: 2px solid #c5c5c5; }
+.top-nav a:hover,
+.top-nav a.active {
+	color: #39ADB4;
+}
+
+/* 9. Select
+------------------------------*/
+/* 清除預設樣式 */
+body, ul.navigation, ul.navigation li, ul.navigation ul, a{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    text-decoration: none;
+}
+ul.navigation,ul.navigation li {
+    list-style: none;
+}
+
+
+/* 第一層選單 */
+ul.navigation li {
+     position: relative;
+    float: left;
+}
+
+/* 第一層選單連結樣式 */
+ul.navigation li a {
+    display: block;
+    /*padding: 5px 50px;*/
+	color: #333;
+}
+
+ul.navigation > li > a:hover{
+    color:#663;
+}
+
+/*觸發第一層時,下拉第二層背景樣式(小三角形)*/
+ul.navigation li ul .top {
+	width:150px; 
+	height:10px; 
+	text-align:center;
+}
+
+
+/* 第二層選單 */
+ul.navigation li ul{
+    display: none;
+    float: left;
+    position: absolute;
+    left: 0;    
+    margin: 0;
+	z-index: 999;
+}
+/* 當第一層選單被觸發時，指定第二層顯示 */
+ul.navigation li:hover > ul{
+    display: block;
+}
+/* 第二層或之後下拉部分 li 之樣式 */
+ul.navigation ul li {
+	/*border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;*/
+	 border: 1px solid #DDD;
+}
+/* 第二層或之後下拉部分 li （最後一項不要底線）之樣式 */
+ul.navigation ul li:last-child {
+    /*border-bottom: none;*/
+}
+
+
+/* 第二層或之後 選單樣式 */
+ul.navigation ul a {
+    width: 200px;	
+    padding: 10px 12px;    	
+    color: #333;        
+    background:#fff;
+	border: 2px solid #c5c5c5;
+	
+}
+
+
+/* 第三層之後，上一層的選單觸發則顯示出來（皆為橫向拓展） */
+ul.navigation ul li:hover > ul{
+    display: block;
+    position: absolute;
+    top: 0;    
+    left: 100%;
+	
+}
+    ul.navigation a:hover { /* 滑鼠滑入按鈕變色*/
+        background-color: #008000;
+        color: #fff;
+    }
+    ul.navigation li:hover > a { /* 滑鼠移入次選單上層按鈕保持變色*/
+        background-color: #008000;
+        color: #fff;
+    }
