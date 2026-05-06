@@ -357,7 +357,7 @@ function loadSubFrm(frmid, action) {
       {
         frm = "FRM/SENAO176.html";
         if (action == "Create" || action == "imPortExcel") {
-          activityId = "Applicant"; //第一關填單人
+          activityId = "Requester"; //第一關填單人
           activityname = '填單人';
           workItemSource = '0';//0代表 新工作
         }
@@ -429,23 +429,12 @@ function loadSubFrm(frmid, action) {
         }
         break;
       }
-    case "SENAO111"://DCC ECR/ECN Application Form
+    case "SENAO111"://人事 人事結案註銷/修改通知單
       formId = "SENAO111";
       {
         frm = "FRM/SENAO111.html";
         if (action == "Create" || action == "imPortExcel") {
           activityId = "0001"; //第一關填單人
-          activityname = '填單人';
-          workItemSource = '0';//0代表 新工作
-        }
-        break;
-      }
-    case "SENAO131"://DCC EBOM ECR/ECN Form
-      formId = "SENAO131";
-      {
-        frm = "FRM/SENAO131.html";
-        if (action == "Create" || action == "imPortExcel") {
-          activityId = "UserTask_3"; //第一關填單人
           activityname = '填單人';
           workItemSource = '0';//0代表 新工作
         }

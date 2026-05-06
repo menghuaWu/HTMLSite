@@ -1213,18 +1213,16 @@ function SNSI003_ORG(strID, strORG) {
 [Ex]ENGENIUS MAC GROUP POOL:querySNSI003("SN155_S02")return 1044
 [Show Codes=Y] 
 ------------------------------------------------------------------------------*/
-function querySNSI003(param) {//2025.11.18 vivian 修改
+function querySNSI003(param) {
     var result = "";
-    var sqlId = "BPM_SENAO_SNSI003";
+    var sqlId = "SENAO_SNSI003";
     var tParams = [];
     var data = [];
     if (param !== "") {
         tParams.push(param);
-        data = ajaxGetData(apiInvoke +sqlId, {
-            param: tParams[0]
-        });
+        data = ajax_EFGPSQLQuery(sqlId, tParams);
         if (data.length > 0) {
-            result = data[0].SNSI003003; //SNSI003003
+            result = data[0][0]; //SNSI003003
         }
     }
     return result;
@@ -1374,7 +1372,7 @@ function querySNSI009(para1, para2, para3, para4, para5, para6) {
 function querySNSI009_Show(para1, para2, para3) {
     var message = "";
     var result = "";
-    var sqlId = "BPM_SENAO_SNSI009";
+    var sqlId = "SENAO_SNSI009";
     var tParams = [];
     var data = [];
     if (para1 !== "" && para2 !== "") {
@@ -1385,24 +1383,19 @@ function querySNSI009_Show(para1, para2, para3) {
             tParams.push(para1.toUpperCase());//表單
         }
         tParams.push(para2);
-        data = ajaxGetData(apiInvoke + sqlId, {
-            ID: tParams[0],
-            para2: tParams[1]
-        });
-        if (data[0].result == undefined) {
-            if (data.length > 0) {
-                message = data[0].MESSAGE;
-                var json = $.parseJSON(message);
-                $.each(json, function (key, value) {
-                    if (key == para3) {
-                        result = value;
-                    }
-                    else//語系為設定時取預設中文的提示訊息
-                    {
-                        result = json.zh_TW;
-                    }
-                });
-            }
+        data = ajax_EFGPSQLQuery(sqlId, tParams);
+        if (data.length > 0) {
+            message = data[0][0];
+            var json = $$.parseJSON(message);
+            $$.each(json, function (key, value) {
+                if (key == para3) {
+                    result = value;
+                }
+                else//語系為設定時取預設中文的提示訊息
+                {
+                    result = json.zh_TW;
+                }
+            });
         }
     }
     return result;
@@ -1509,9 +1502,9 @@ function queryUnitManagerByOuAndUnitId(ouId, unitId) {
 [Example]
 [Show Codes=Y] 
 ------------------------------------------------------------------------------*/
-function queryManagerByEmpId(empId) {//2025.11.18 vivian 修改
+function queryManagerByEmpId(empId) {
     var managerId = "";
-/*
+
     var strSQL = "";
     var tParams = [];
     var tParamsType = [];
@@ -1525,22 +1518,6 @@ function queryManagerByEmpId(empId) {//2025.11.18 vivian 修改
         }
     });
     DWREngine.setAsync(true);
-    return managerId;*/
-
-    var sqlId = "BPM_findManager";
-    var tParams = [];
-    var data = [];
-    if (empId !== "") {
-        tParams.push(empId);
-        data = ajaxGetData(apiInvoke + sqlId, {
-            empId: tParams[0]
-        });
-        if (data[0].result == undefined) {
-            if (data.length > 0) {
-                managerId = data[0].ID; //主管ID
-            }
-        }
-    }
     return managerId;
 }
 
@@ -1743,7 +1720,7 @@ function ajax_ERPSQLQuery(sqlid, tParams, tDefaultAppendSQL, tOrgID) {
 [Show Codes=Y] 
 ------------------------------------------------------------------------------*/
 function showBackGroundColor() {
-   /* $jj = jQuery.noConflict();
+    $jj = jQuery.noConflict();
 
     $jj(":text:disabled").each(function () {
         //$jj(this).css("background-color","");        
@@ -1754,17 +1731,6 @@ function showBackGroundColor() {
             $jj(this).css("background-color", "");
         } else {
             $jj(this).css("background-color", "#FBF1C0");
-        }
-    });*/
-    jQuery(":text:disabled").each(function () {
-        // jQuery(this).css("background-color","");        
-    });
-
-    jQuery(":text:enabled").each(function () {
-        if (jQuery(this).prop('readOnly')) {
-            jQuery(this).css("background-color", "");
-        } else {
-            jQuery(this).css("background-color", "#FBF1C0");
         }
     });
 }
@@ -1866,25 +1832,26 @@ function FloatDiv(arg1, arg2) {
 ------------------------------------------------------------------------------*/
 function getFacInfo(Com) {
     var form_org = document.getElementsByName("form_org");
-    var sqlid = "BPM_getFactory";
+    var sqlid = "getFactory";
     var tParams = new Array();
     var tTypes = new Array();
     tParams.push(Com);
-    var data = ajaxGetData(invokeURL + sqlid, {
-        COMPANY:tParams[0]
-    }) 
-    if(data[0].result == undefined){
-        if (data.length > 0){
-            for (i = 0; i < data.length; i++) {
-                var FacNo = data[i].FACTORY;
-                var FacName = data[i].FACTORY_NAME;
-                $("#form_org").append($("<option>", {
+    tTypes.push(12);
+    var strSQL = "SELECT DISTINCT FACTORY, FACTORY_NAME FROM COMPANY WHERE COMPANY = ? ";
+    DWREngine.setAsync(false);
+    ajax_DatabaseAccessor.executeQuery("EFGP", strSQL, tParams, tTypes, function (data) {
+        if (data.recordValues.length > 0) {
+            for (i = 0; i < data.recordValues.length; i++) {
+                var FacNo = data.recordValues[i][0];
+                var FacName = data.recordValues[i][1];
+                $$("#form_org").append($$("<option>", {
                     value: FacNo,
                     text: FacName
                 }));
             }
         }
-    }
+    });
+    DWREngine.setAsync(true);
     return true;
 }
 
@@ -2144,8 +2111,8 @@ function IsInvaildDept(DeptNo) {
 function IsRdDept_Utils(DeptNo) {
     var IsRd = false;
     var orgId = "senao";
-    if ($('#form_ou').length > 0) {
-        orgId = $('#form_ou').val();
+    if ($$('#form_ou').length > 0) {
+        orgId = $$('#form_ou').val();
     } else {
         orgId = "senao";
     }
