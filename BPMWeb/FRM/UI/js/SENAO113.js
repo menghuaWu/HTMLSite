@@ -1043,8 +1043,6 @@ function clearBinding(id) {
 /*---------------------Chart Function End--------------*/
 /*---------------------Other Function Start--------------*/
 
-
-
 function excelInPutUI(data) { //批次上傳匯入資料
   let head = data.head;
   let detail = data.detail;
